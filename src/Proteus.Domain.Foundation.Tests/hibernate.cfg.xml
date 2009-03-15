@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2" >
+  <session-factory>
+    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <property name="connection.connection_string">Data Source=127.0.0.1\sqlserver2005;Network Library=DBMSSOCN;Initial Catalog=testdb;Trusted_Connection=True</property>
+    <property name="show_sql">true</property>
+    <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+    <mapping assembly="Proteus.Domain.Foundation.Tests"/>
+  </session-factory>
+  
+  
+</hibernate-configuration>

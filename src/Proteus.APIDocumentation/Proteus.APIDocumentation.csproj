@@ -1,0 +1,429 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29DD215A-C6A2-43C0-877F-B008A30D8A0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Proteus.Utility.UnitTest.APIDocumentation</RootNamespace>
+    <AssemblyName>Proteus.Utility.UnitTest.APIDocumentation</AssemblyName>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(DocProjectPath)\bin\DaveSexton.DocProject.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets and DaveSexton.DocProject.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="BuildProcess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DaveSexton.DocProject, Version=1.11.0.0, Culture=neutral, PublicKeyToken=af1a4bab65cc4ece, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties ProcessComponentTypeName="APIDocumentation.BuildProcess" IsDocProject="true" DocProjectVersion="1.11.0.0" BuildEngineProviderName="Sandcastle" Sandcastle_Version="2.4.10520.1" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_ProduceHelp1x="True" ExternalSources="" DefaultApplyToAll="True" DocumentationScope="Complete" Sandcastle_DocumentationSetName="Proteus_API_Reference" DoNotAskIncludeOutputInProject="True" DefaultIncludeOutputInProject="True" Sandcastle_ShowEntireBuildComponentStack="False" Sandcastle_MergeXmlDocumentation="Overwrite" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Content Include="bin\Debug\NDbUnit.Core.dll" />
+    <Content Include="bin\Debug\Proteus.Utility.UnitTest.APIDocumentation.dll" />
+    <Content Include="bin\Debug\Proteus.Utility.UnitTest.APIDocumentation.pdb" />
+    <Content Include="bin\Debug\Proteus.Utility.UnitTest.dll" />
+    <Content Include="bin\Debug\Proteus.Utility.UnitTest.pdb" />
+    <Content Include="bin\Debug\Proteus.Utility.UnitTest.xml" />
+    <Content Include="Help\Art\Proteus_Logo_plus_Name.gif" />
+    <Content Include="Help\Comments\project.xml" />
+    <Content Include="Help\Html\01cdc042-7611-1dc6-5144-f95d294e4709.htm" />
+    <Content Include="Help\Html\0368e05b-f4f3-8aba-c7e7-f946ab5fd13a.htm" />
+    <Content Include="Help\Html\03b4b27d-40b5-c41e-e384-8b4ccff690a6.htm" />
+    <Content Include="Help\Html\06291a34-f89b-4ca3-73ab-cd49c4b90f9f.htm" />
+    <Content Include="Help\Html\08ce6cd8-f256-5253-d8fa-4f7904db3e00.htm" />
+    <Content Include="Help\Html\08e0be44-686a-c40a-ee7c-fce122c59e8f.htm" />
+    <Content Include="Help\Html\0923ca0a-2343-57a6-e0c0-980556b79b81.htm" />
+    <Content Include="Help\Html\0ef1888c-8d09-1a43-f16e-63bf163c46af.htm" />
+    <Content Include="Help\Html\0f26bf8d-586e-c0f4-4771-cff451183075.htm" />
+    <Content Include="Help\Html\107b83d8-1e79-ca73-f57a-2b3c09cee956.htm" />
+    <Content Include="Help\Html\12feb707-6f26-83c4-243b-ae005578e35e.htm" />
+    <Content Include="Help\Html\13a7d2ff-6e48-90af-a0f9-d962aad22faf.htm" />
+    <Content Include="Help\Html\14599995-59b8-9e6c-4cd6-48cbb036295f.htm" />
+    <Content Include="Help\Html\154dc3e5-80aa-94de-d2ff-df6261139fb3.htm" />
+    <Content Include="Help\Html\187938ed-b79b-88e9-820b-147c856a0fca.htm" />
+    <Content Include="Help\Html\1cf32c63-32c3-72b5-9768-e2034ed11121.htm" />
+    <Content Include="Help\Html\1f19eb30-9b06-482f-1cac-1bcad22842d9.htm" />
+    <Content Include="Help\Html\1f785faa-e8bb-b5e5-591e-e3db04453c79.htm" />
+    <Content Include="Help\Html\22bd6c60-8965-b2a6-6a3a-d82458d09520.htm" />
+    <Content Include="Help\Html\2622aecb-3d2a-9f4a-1882-ae3f82f60546.htm" />
+    <Content Include="Help\Html\2787db72-26ce-fb7c-95e4-3ff71cdb899d.htm" />
+    <Content Include="Help\Html\2d3ae2c0-6925-21f3-3d67-ba8dd0d462ad.htm" />
+    <Content Include="Help\Html\33dd314c-3c55-a2ad-060c-99279e29efcb.htm" />
+    <Content Include="Help\Html\340e336a-c544-4bbd-ced6-d24570094c5a.htm" />
+    <Content Include="Help\Html\34bdd8f8-436d-2289-c7fb-35056ccbcba5.htm" />
+    <Content Include="Help\Html\3710631b-ef10-c1a9-0939-b40142abab85.htm" />
+    <Content Include="Help\Html\383a1b82-dafb-a65d-79b1-9e5168851878.htm" />
+    <Content Include="Help\Html\384d7113-2489-0b1b-3e79-2e835de32e08.htm" />
+    <Content Include="Help\Html\38e7f7ca-4e12-4530-8b8c-bb9d5047d481.htm" />
+    <Content Include="Help\Html\39880cc5-8590-7392-f9d4-88c43da803c9.htm" />
+    <Content Include="Help\Html\3bae852c-0574-f17b-9689-740b6a48485a.htm" />
+    <Content Include="Help\Html\3daa19ff-9caf-d3e6-1601-17d204545461.htm" />
+    <Content Include="Help\Html\42f90f9d-78dd-3e32-1d40-5c3863115073.htm" />
+    <Content Include="Help\Html\4393f04d-0d01-990c-90d9-c5b589491df6.htm" />
+    <Content Include="Help\Html\43caf756-6d27-5f65-1ea0-d2b9be47c587.htm" />
+    <Content Include="Help\Html\470265b3-6c66-e78c-5f52-72efaeb9f658.htm" />
+    <Content Include="Help\Html\47a9c3c5-f7b3-7a99-5b33-07c48a8caa3b.htm" />
+    <Content Include="Help\Html\4a79944b-395d-823c-0543-dcfb47371828.htm" />
+    <Content Include="Help\Html\4c14ec19-fe66-7164-f89c-b4c4b2c9cccd.htm" />
+    <Content Include="Help\Html\53984af7-23ef-2237-b3c1-7ad4435907e1.htm" />
+    <Content Include="Help\Html\58cfd054-eff2-8d8c-9ee1-7e0f09403ca4.htm" />
+    <Content Include="Help\Html\59ec776f-6a6e-84f3-a873-53c5ad1b3835.htm" />
+    <Content Include="Help\Html\5b5e8038-cdc4-f1b4-7cae-dd20081a44d5.htm" />
+    <Content Include="Help\Html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm" />
+    <Content Include="Help\Html\60a695af-f6b1-d9f1-bb84-2c966754731e.htm" />
+    <Content Include="Help\Html\613b3897-b375-cd45-3e09-76a8e3ce2ab9.htm" />
+    <Content Include="Help\Html\62dfb485-7839-e61a-334b-8a9a6e7e4c11.htm" />
+    <Content Include="Help\Html\64c30f8b-499d-d126-11ff-cc8a571fcaf8.htm" />
+    <Content Include="Help\Html\6510e883-4f5b-9feb-bd4e-cb5e9745538f.htm" />
+    <Content Include="Help\Html\66337735-986f-058a-1508-b0941bafc85c.htm" />
+    <Content Include="Help\Html\668e3e63-a83a-7869-1f03-f93b0587c235.htm" />
+    <Content Include="Help\Html\67f5c042-6a2a-5657-2918-260954d4742d.htm" />
+    <Content Include="Help\Html\6876cf16-baf1-4566-f016-d5058ee34775.htm" />
+    <Content Include="Help\Html\6935f428-8823-4444-b872-7e4508d9a08e.htm" />
+    <Content Include="Help\Html\6a58df6a-3302-f63f-0340-097660287d09.htm" />
+    <Content Include="Help\Html\6a9dbeb3-991f-da85-a8e9-df10cecfb6aa.htm" />
+    <Content Include="Help\Html\6cf86485-c0c4-b7a9-c298-4632189a9178.htm" />
+    <Content Include="Help\Html\6e72b9fc-2808-c7f7-2ccd-727956c709bb.htm" />
+    <Content Include="Help\Html\6ff9506f-96da-404c-5cbd-4bf400902998.htm" />
+    <Content Include="Help\Html\72f4b69b-b2c7-73d3-9332-f68cade889a4.htm" />
+    <Content Include="Help\Html\745dae35-e035-01b7-65a9-eaba6acccc16.htm" />
+    <Content Include="Help\Html\7541b6d0-4853-0cf2-d24c-d54bdcc4ce5a.htm" />
+    <Content Include="Help\Html\75d14dda-927d-ffd9-7e16-b7f7f4e2fb57.htm" />
+    <Content Include="Help\Html\762521ff-6f08-2796-befd-0192980c1427.htm" />
+    <Content Include="Help\Html\76d24532-1793-d117-9dc5-1860d9990498.htm" />
+    <Content Include="Help\Html\771e19f3-11b9-a2a7-9c5c-78e395d7c63f.htm" />
+    <Content Include="Help\Html\7a5de98f-ffb0-59d0-e612-4b9e1eaacf1a.htm" />
+    <Content Include="Help\Html\7d785fd6-68e7-31c5-a5dc-a5e2e2463a31.htm" />
+    <Content Include="Help\Html\7e219c87-a45a-93ca-d470-75747f4a393e.htm" />
+    <Content Include="Help\Html\81b67844-29a6-82a8-fc44-709b347bed9b.htm" />
+    <Content Include="Help\Html\88d864a2-0e96-6c71-0063-ec92c0343b90.htm" />
+    <Content Include="Help\Html\8b427c91-56cb-32c3-ca6f-f51b384836f7.htm" />
+    <Content Include="Help\Html\8c56f628-d642-e9a8-e132-0ce9223e0a3b.htm" />
+    <Content Include="Help\Html\8cde306a-5482-542f-9b2f-8f865535b6f0.htm" />
+    <Content Include="Help\Html\8e6fdf85-73f2-2f41-2075-e253ed51c503.htm" />
+    <Content Include="Help\Html\9158c39c-653c-6eac-8c46-b4c6ddfdc413.htm" />
+    <Content Include="Help\Html\92e2ea5c-9e98-f17c-63d1-d5d43172c1fc.htm" />
+    <Content Include="Help\Html\93a0a265-5533-4366-8a96-ab92623366e2.htm" />
+    <Content Include="Help\Html\93a3ca84-a04c-0839-a40c-9958b59895b8.htm" />
+    <Content Include="Help\Html\93c8af60-3c35-499e-8054-7a7ce84ba9f3.htm" />
+    <Content Include="Help\Html\9418c319-ce36-3948-36ea-33272ef107f3.htm" />
+    <Content Include="Help\Html\943205d5-c5b6-e8dc-6b86-d982af5a885f.htm" />
+    <Content Include="Help\Html\970c83af-6b0c-fd9c-06e2-eb81fd12af99.htm" />
+    <Content Include="Help\Html\994ae247-d27e-45f0-4e01-1cf02c0b5cd5.htm" />
+    <Content Include="Help\Html\9a10451e-4d3b-55ba-d33e-f0ae363026f8.htm" />
+    <Content Include="Help\Html\9b045aab-06a9-160f-ea71-0ae6c4cc3a12.htm" />
+    <Content Include="Help\Html\9e145eac-9908-c85c-c671-8b764aabb92f.htm" />
+    <Content Include="Help\Html\a09dab8b-1ee4-debb-090d-1d6562349992.htm" />
+    <Content Include="Help\Html\a16f7119-8dcf-f589-008f-e68bc9aa5c29.htm" />
+    <Content Include="Help\Html\a253235e-a7f2-198b-9965-3e7f7aade48c.htm" />
+    <Content Include="Help\Html\a281aa8b-1f18-332b-195d-b89ce47c9a94.htm" />
+    <Content Include="Help\Html\a2cea122-ab7e-df0c-61fd-fbc975666e64.htm" />
+    <Content Include="Help\Html\a395edb6-a989-8735-6b44-aba975fe92e1.htm" />
+    <Content Include="Help\Html\a3e1daf0-570c-c5dd-e595-750b723c7408.htm" />
+    <Content Include="Help\Html\a5fa2653-653f-9c55-91c3-965b7c5ac62d.htm" />
+    <Content Include="Help\Html\aa52e34a-2607-67c7-35fc-3c7593be8495.htm" />
+    <Content Include="Help\Html\aae8e6c4-2f28-ab03-db77-68f252d09ebb.htm" />
+    <Content Include="Help\Html\abf34e28-c850-fb16-4c38-0690ac7fe485.htm" />
+    <Content Include="Help\Html\af936581-8ce6-ef22-c322-762ad5e5741f.htm" />
+    <Content Include="Help\Html\afa90e48-f325-63b1-eeb9-6c3e6493faf3.htm" />
+    <Content Include="Help\Html\afbd760e-67a5-5e4f-6806-c367d74d20d9.htm" />
+    <Content Include="Help\Html\b2a53301-3e0a-53d0-fecb-8249e152c1bf.htm" />
+    <Content Include="Help\Html\b3ab146e-64a9-c862-1542-557588f654f9.htm" />
+    <Content Include="Help\Html\b4812cd2-b021-78a9-feee-0d168000ef8d.htm" />
+    <Content Include="Help\Html\b9756fc4-9693-408c-4d20-be923592e561.htm" />
+    <Content Include="Help\Html\b9d8b5c0-2b5b-349d-d1f4-1b142efbc0ff.htm" />
+    <Content Include="Help\Html\bb66451b-170e-67c2-2b66-1e36f5d38b65.htm" />
+    <Content Include="Help\Html\bc2b0b0d-9e03-6cad-deff-a7a3a43a09c4.htm" />
+    <Content Include="Help\Html\bc5760e1-db21-7d58-99d3-c8c2a8805720.htm" />
+    <Content Include="Help\Html\bdcecce6-7191-6b42-887b-5175fd6f054d.htm" />
+    <Content Include="Help\Html\be409752-b02b-d483-eb9c-7a9f942e9b6a.htm" />
+    <Content Include="Help\Html\c13f6c97-6598-88c1-a771-9da7a87f5eaf.htm" />
+    <Content Include="Help\Html\c20618b0-277c-4daf-77ff-e722a8f55175.htm" />
+    <Content Include="Help\Html\c22b0c64-fc3a-2e73-aab1-d166ea3c4ab3.htm" />
+    <Content Include="Help\Html\c22c5b59-6f69-4d0a-5875-71ae7d74e403.htm" />
+    <Content Include="Help\Html\c44270b2-0c22-ab4d-ddb6-faba08c9f22d.htm" />
+    <Content Include="Help\Html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm" />
+    <Content Include="Help\Html\c636ef7a-2782-6a6a-5acf-0fe0ea7f9665.htm" />
+    <Content Include="Help\Html\c700f99c-fd99-c64d-5b19-4c05d7cedc88.htm" />
+    <Content Include="Help\Html\c858f2e4-3186-c3e0-0f7f-0b91c5e06e31.htm" />
+    <Content Include="Help\Html\c867525c-32cd-cb91-b533-55f12c83dc72.htm" />
+    <Content Include="Help\Html\c9f51cdf-1115-ddc1-ed4a-6210c0c57d68.htm" />
+    <Content Include="Help\Html\ca6d44c9-7a7c-8969-0d1b-99d89ff4ee0f.htm" />
+    <Content Include="Help\Html\cd3f2330-0727-516e-9ff9-a6be29f5abd4.htm" />
+    <Content Include="Help\Html\cf1a0dc8-4171-da21-f23e-59f000afc37e.htm" />
+    <Content Include="Help\Html\cf47ef12-dc70-0b25-9a8c-2ae8586aa36c.htm" />
+    <Content Include="Help\Html\d4648875-d41a-783b-d5f4-638df39ee413.htm" />
+    <Content Include="Help\Html\d691929e-6e40-bb9b-bec9-fb170167efe6.htm" />
+    <Content Include="Help\Html\d7f3fefd-dc25-505d-368c-7506ad1ea191.htm" />
+    <Content Include="Help\Html\d8cee654-6ef1-2906-35c7-8564d56a1607.htm" />
+    <Content Include="Help\Html\d9c058af-abb0-17f0-264e-6245178cf459.htm" />
+    <Content Include="Help\Html\dbc60249-fbf4-8795-3aa7-6211e67a2c9d.htm" />
+    <Content Include="Help\Html\dd7e461d-fbfa-7bfd-b772-eb4742692610.htm" />
+    <Content Include="Help\Html\dfeb74db-cd82-102c-a391-ad8a33c0dca9.htm" />
+    <Content Include="Help\Html\e03ef6ce-54df-eb1d-bc3e-b78361487714.htm" />
+    <Content Include="Help\Html\e10f37a6-b2a1-a731-2e9b-c8e0b30e8ca9.htm" />
+    <Content Include="Help\Html\e271db47-9d72-8370-3761-caa02b14101e.htm" />
+    <Content Include="Help\Html\e5d2065d-5581-6105-33df-f68632e62902.htm" />
+    <Content Include="Help\Html\e6bc4715-daa6-64f9-5289-8c561f2b43c4.htm" />
+    <Content Include="Help\Html\e8c349e4-e756-81ca-59f7-df5aec635f5b.htm" />
+    <Content Include="Help\Html\ea15264f-d7e1-d136-f66f-163327172485.htm" />
+    <Content Include="Help\Html\ea5e1cfd-3ad0-7cab-c187-4611734c8cbe.htm" />
+    <Content Include="Help\Html\eba6f645-21e2-f0ff-088b-23b7991bd2a4.htm" />
+    <Content Include="Help\Html\ebf3ba83-01b5-873d-7fee-5d0cfe0b191c.htm" />
+    <Content Include="Help\Html\eebbbef7-3b21-442a-54fa-7a6729b8284d.htm" />
+    <Content Include="Help\Html\f0b85425-8126-3026-20df-a3f81c272ae7.htm" />
+    <Content Include="Help\Html\f190cdc6-12e4-d8bb-c113-f6882f6c6936.htm" />
+    <Content Include="Help\Html\f242d4c1-0b6e-669d-4c96-71d8ae3173bb.htm" />
+    <Content Include="Help\Html\f2a72283-3d59-d445-beb8-c8f2a4c4ab54.htm" />
+    <Content Include="Help\Html\fd4079f1-9323-66d1-c553-ba07fff06a34.htm" />
+    <Content Include="Help\Html\feef22e3-7ed1-90a8-e2c7-ccc813831660.htm" />
+    <Content Include="Help\Html\ff18cf21-d1f4-dfd9-587d-07481ede0114.htm" />
+    <Content Include="Help\Icons\adm.gif" />
+    <Content Include="Help\Icons\adm_arch.gif" />
+    <Content Include="Help\Icons\adm_dev.gif" />
+    <Content Include="Help\Icons\adm_dev_arch.gif" />
+    <Content Include="Help\Icons\alert_caution.gif" />
+    <Content Include="Help\Icons\alert_note.gif" />
+    <Content Include="Help\Icons\alert_security.gif" />
+    <Content Include="Help\Icons\arch.gif" />
+    <Content Include="Help\Icons\big_adm.gif" />
+    <Content Include="Help\Icons\big_arch.gif" />
+    <Content Include="Help\Icons\big_dev.gif" />
+    <Content Include="Help\Icons\big_kw.gif" />
+    <Content Include="Help\Icons\box.gif" />
+    <Content Include="Help\Icons\Caution.gif" />
+    <Content Include="Help\Icons\CFW.gif" />
+    <Content Include="Help\Icons\collall.gif" />
+    <Content Include="Help\Icons\collapse.gif" />
+    <Content Include="Help\Icons\collapse_all.gif" />
+    <Content Include="Help\Icons\copycode.gif" />
+    <Content Include="Help\Icons\copycodeHighlight.gif" />
+    <Content Include="Help\Icons\dev.gif" />
+    <Content Include="Help\Icons\dev_arch.gif" />
+    <Content Include="Help\Icons\dropdown.gif" />
+    <Content Include="Help\Icons\dropdownHover.gif" />
+    <Content Include="Help\Icons\drpdown.gif" />
+    <Content Include="Help\Icons\drpdown_orange.gif" />
+    <Content Include="Help\Icons\drpdown_orange_up.gif" />
+    <Content Include="Help\Icons\drpup.gif" />
+    <Content Include="Help\Icons\exp.gif" />
+    <Content Include="Help\Icons\expall.gif" />
+    <Content Include="Help\Icons\expand_all.gif" />
+    <Content Include="Help\Icons\filter1a.gif" />
+    <Content Include="Help\Icons\filter1c.gif" />
+    <Content Include="Help\Icons\footer.gif" />
+    <Content Include="Help\Icons\gradient.gif" />
+    <Content Include="Help\Icons\greencheck.gif" />
+    <Content Include="Help\Icons\greychck.gif" />
+    <Content Include="Help\Icons\header_prev_next.jpg" />
+    <Content Include="Help\Icons\header_sql_tutorial_blank.jpg" />
+    <Content Include="Help\Icons\header_sql_tutorial_logo.GIF" />
+    <Content Include="Help\Icons\kw.gif" />
+    <Content Include="Help\Icons\kw_adm.gif" />
+    <Content Include="Help\Icons\kw_adm_arch.gif" />
+    <Content Include="Help\Icons\kw_adm_dev.gif" />
+    <Content Include="Help\Icons\kw_adm_dev_arch.gif" />
+    <Content Include="Help\Icons\kw_arch.gif" />
+    <Content Include="Help\Icons\kw_dev.gif" />
+    <Content Include="Help\Icons\kw_dev_arch.gif" />
+    <Content Include="Help\Icons\LastChild.gif" />
+    <Content Include="Help\Icons\load.gif" />
+    <Content Include="Help\Icons\load_hover.gif" />
+    <Content Include="Help\Icons\note.gif" />
+    <Content Include="Help\Icons\pencil.GIF" />
+    <Content Include="Help\Icons\privclass.gif" />
+    <Content Include="Help\Icons\privdelegate.gif" />
+    <Content Include="Help\Icons\privenum.gif" />
+    <Content Include="Help\Icons\privenumeration.gif" />
+    <Content Include="Help\Icons\privevent.gif" />
+    <Content Include="Help\Icons\privextension.gif" />
+    <Content Include="Help\Icons\privfield.gif" />
+    <Content Include="Help\Icons\privinterface.gif" />
+    <Content Include="Help\Icons\privmethod.gif" />
+    <Content Include="Help\Icons\privproperty.gif" />
+    <Content Include="Help\Icons\privstructure.gif" />
+    <Content Include="Help\Icons\protclass.gif" />
+    <Content Include="Help\Icons\protdelegate.gif" />
+    <Content Include="Help\Icons\protenum.gif" />
+    <Content Include="Help\Icons\protenumeration.gif" />
+    <Content Include="Help\Icons\protevent.gif" />
+    <Content Include="Help\Icons\protextension.gif" />
+    <Content Include="Help\Icons\protfield.gif" />
+    <Content Include="Help\Icons\protinterface.gif" />
+    <Content Include="Help\Icons\protmethod.gif" />
+    <Content Include="Help\Icons\protoperator.gif" />
+    <Content Include="Help\Icons\protproperty.gif" />
+    <Content Include="Help\Icons\protstructure.gif" />
+    <Content Include="Help\Icons\pubclass.gif" />
+    <Content Include="Help\Icons\pubdelegate.gif" />
+    <Content Include="Help\Icons\pubenum.gif" />
+    <Content Include="Help\Icons\pubenumeration.gif" />
+    <Content Include="Help\Icons\pubevent.gif" />
+    <Content Include="Help\Icons\pubextension.gif" />
+    <Content Include="Help\Icons\pubfield.gif" />
+    <Content Include="Help\Icons\pubinterface.gif" />
+    <Content Include="Help\Icons\pubmethod.gif" />
+    <Content Include="Help\Icons\puboperator.gif" />
+    <Content Include="Help\Icons\pubproperty.gif" />
+    <Content Include="Help\Icons\pubstructure.gif" />
+    <Content Include="Help\Icons\requirements1a.gif" />
+    <Content Include="Help\Icons\requirements1c.gif" />
+    <Content Include="Help\Icons\save.gif" />
+    <Content Include="Help\Icons\save_hover.gif" />
+    <Content Include="Help\Icons\security.gif" />
+    <Content Include="Help\Icons\seealso1a.gif" />
+    <Content Include="Help\Icons\seealso1c.gif" />
+    <Content Include="Help\Icons\static.gif" />
+    <Content Include="Help\Icons\xna.gif" />
+    <Content Include="Help\Presentation\Shared\content\syntax_content.xml" />
+    <Content Include="Help\Presentation\Shared\scripts\copycode.js" />
+    <Content Include="Help\Presentation\Shared\scripts\samples.js" />
+    <Content Include="Help\Presentation\Shared\transforms\utilities_dduexml.xsl" />
+    <Content Include="Help\Presentation\Shared\transforms\utilities_metadata.xsl" />
+    <Content Include="Help\Presentation\Shared\transforms\utilities_reference.xsl" />
+    <Content Include="Help\Presentation\Style\Content\conceptual_content.xml" />
+    <Content Include="Help\Presentation\Style\Content\feedBack_content.xml" />
+    <Content Include="Help\Presentation\Style\Content\reference_content.xml" />
+    <Content Include="Help\Presentation\Style\Content\shared_content.xml" />
+    <Content Include="Help\Presentation\Style\Content\token_content.xml" />
+    <Content Include="Help\Presentation\Style\Content\web_content.xml" />
+    <Content Include="Help\Presentation\Style\Transforms\globalTemplates.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\htmlBody.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\main_conceptual.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\main_reference.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\main_sandcastle.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\seeAlsoSection.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\skeleton.xml" />
+    <Content Include="Help\Presentation\Style\Transforms\skeleton_conceptual.xml" />
+    <Content Include="Help\Presentation\Style\Transforms\utilities_dduexml.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\utilities_metadata.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\utilities_reference.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\web_reference.xsl" />
+    <Content Include="Help\Presentation\Style\Transforms\xamlSyntax.xsl" />
+    <Content Include="Help\Scripts\CheckboxMenu.js" />
+    <Content Include="Help\Scripts\CommonUtilities.js" />
+    <Content Include="Help\Scripts\Dropdown.js" />
+    <Content Include="Help\Scripts\EventUtilities.js" />
+    <Content Include="Help\Scripts\script_feedBack.js" />
+    <Content Include="Help\Scripts\script_manifold.js" />
+    <Content Include="Help\Scripts\SplitScreen.js" />
+    <Content Include="Help\Settings\bibliography.xml" />
+    <Content Include="Help\Settings\conceptual_art.xml" />
+    <Content Include="Help\Settings\conceptual_project.xml" />
+    <Content Include="Help\Settings\conceptual_snippets.xml" />
+    <Content Include="Help\Settings\conceptual_version.xml" />
+    <Content Include="Help\Settings\links.xml" />
+    <Content Include="Help\Settings\metadata.xml" />
+    <Content Include="Help\Settings\Projects\help2x.xslt" />
+    <Content Include="Help\Settings\tokens.xml" />
+    <Content Include="Help\Styles\Presentation.css" />
+    <Content Include="Help\Styles\TopicDesigner.css" />
+    <Content Include="Help\Styles\Whidbey\presentation.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Proteus_API_Reference.chm" />
+    <None Include="Help\Art\Proteus_Logo_plus_Name.ai" />
+    <None Include="Help\Presentation\Shared\configuration\xamlSyntax.config" />
+    <None Include="Help\Presentation\Shared\copyHavana.bat" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template.HxF" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template_A.HxK" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template_B.HxK" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template_F.HxK" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template_K.HxK" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template_N.HxK" />
+    <None Include="Help\Presentation\Shared\HxsTemplate\template_S.HxK" />
+    <None Include="Help\Presentation\Shared\SharedDocModel.ps1" />
+    <None Include="Help\Presentation\Style\Configuration\conceptual.help1x.config" />
+    <None Include="Help\Presentation\Style\Configuration\conceptual.help2x.config" />
+    <None Include="Help\Presentation\Style\Configuration\MRefBuilder.config" />
+    <None Include="Help\Presentation\Style\Configuration\sandcastle.help1x.config" />
+    <None Include="Help\Presentation\Style\Configuration\sandcastle.help2x.config" />
+    <None Include="Help\Proteus_API_Reference.hhc" />
+    <None Include="Help\Proteus_API_Reference.hhk" />
+    <None Include="Help\Proteus_API_Reference.hhp" />
+    <None Include="Help\Schemas\base.xsd" />
+    <None Include="Help\Schemas\baseConditional.xsd" />
+    <None Include="Help\Schemas\block.xsd" />
+    <None Include="Help\Schemas\blockCommon.xsd" />
+    <None Include="Help\Schemas\blockSoftware.xsd" />
+    <None Include="Help\Schemas\conditionSet.xsd" />
+    <None Include="Help\Schemas\developer.xsd" />
+    <None Include="Help\Schemas\developerReference.xsd" />
+    <None Include="Help\Schemas\developerStructure.xsd" />
+    <None Include="Help\Schemas\glossary.xsd" />
+    <None Include="Help\Schemas\hierarchy.xsd" />
+    <None Include="Help\Schemas\inline.xsd" />
+    <None Include="Help\Schemas\inlineCommon.xsd" />
+    <None Include="Help\Schemas\inlineLinking.xsd" />
+    <None Include="Help\Schemas\inlineSoftware.xsd" />
+    <None Include="Help\Schemas\inlineUi.xsd" />
+    <None Include="Help\Schemas\space.xsd" />
+    <None Include="Help\Schemas\standardCodes.xsd" />
+    <None Include="Help\Schemas\structure.xsd" />
+    <None Include="Help\Schemas\structureList.xsd" />
+    <None Include="Help\Schemas\structureMedia.xsd" />
+    <None Include="Help\Schemas\structureProcedure.xsd" />
+    <None Include="Help\Schemas\structureTable.xsd" />
+    <None Include="Help\Schemas\xlink.xsd" />
+    <None Include="Help\Schemas\__internal.xsd" />
+    <None Include="Help\Settings\Projects\help1x.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Proteus.Domain.Foundation\Proteus.Domain.Foundation.csproj">
+      <Project>{13E86F35-1A5F-4995-A282-037516F14C86}</Project>
+      <Name>Proteus.Domain.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Proteus.Utility.UnitTest\Proteus.Utility.UnitTest.csproj">
+      <Project>{B64E4C8C-D622-42E9-AD6F-244581F33D82}</Project>
+      <Name>Proteus.Utility.UnitTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\Topics\" />
+  </ItemGroup>
+</Project>

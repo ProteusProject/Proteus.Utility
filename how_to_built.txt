@@ -1,0 +1,17 @@
+Proteus Project: How_to_Build.txt
+Revision 01: Date 15 March, 2009
+
+Help documentation for the Proteus Project solution is compiled using the Sandcastle Documentation compiler tools as orchestrated by the DocProject Visual Studio Add-in extension.
+
+If you desire to compile the help documentation for the project, you must first download and install the following:
+
+
+Sandcastle Documentation Compiler (http://www.codeplex.com/Sandcastle)
+
+DocProject add-in for Visual Studio (http://www.codeplex.com/DocProject)
+
+With these two dependencies installed, you can compile the entire solution from within Visual Studio.
+
+If you do not want to compile the API Reference documentation for Proteus, simply remove the Proteus.APIDocumentation project from the solution and the remainder of the solution will compile successfully without either of these two dependencies present.
+
+If you simply want to acquire the compiled Proteus binaries, they (and the compiled API Reference HELP file) are available in the DOWNLOADS section of the Proteus Project's Google Code site at http://code.google.com/p/proteusproject/downloads/
