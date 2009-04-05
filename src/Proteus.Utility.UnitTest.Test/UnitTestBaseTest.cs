@@ -44,8 +44,7 @@ namespace UnitTestTest
         [Test]
         public void CanGetPrivateFieldInInstanceOfObject()
         {
-            Person p = new Person();
-            p.Firstname = PERSON_TEST_FIELD_VALUE;
+            Person p = new Person { Firstname = PERSON_TEST_FIELD_VALUE };
             Assert.AreEqual(PERSON_TEST_FIELD_VALUE, GetInstanceFieldValue(p, PERSON_TEST_FIELD_NAME));
         }
 
@@ -81,13 +80,7 @@ namespace UnitTestTest
         }
 
         [Test]
-        public void CanThrowExceptionWhenInvalidTypeIsSetOnField()
-        {
-
-        }
-
-        [Test]
-        public void CanThrowExceptionWhenSettingPropertyToInvalidType()
+        public void CanThrowExceptionWhenSettingFieldToInvalidType()
         {
 
             try

@@ -134,7 +134,7 @@ namespace Proteus.Domain.Foundation
             if ((other == null) || (!(other is TObject)) || (IsTransient))
                 return false;
 
-            return (this.GetHashCode() == other.GetHashCode());
+            return (GetHashCode() == other.GetHashCode());
 
         }
 
@@ -146,7 +146,7 @@ namespace Proteus.Domain.Foundation
         /// </returns>
         public override int GetHashCode()
         {
-            return string.Format("{0}|{1}", this.GetType().ToString(), _persistenceId).GetHashCode();
+            return string.Format("{0}|{1}", GetType().ToString(), _persistenceId).GetHashCode();
         }
 
     }

@@ -59,7 +59,7 @@
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties ProcessComponentTypeName="APIDocumentation.BuildProcess" IsDocProject="true" DocProjectVersion="1.11.0.0" BuildEngineProviderName="Sandcastle" Sandcastle_Version="2.4.10520.1" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_ProduceHelp1x="True" ExternalSources="" DefaultApplyToAll="True" DocumentationScope="Complete" Sandcastle_DocumentationSetName="Proteus_API_Reference" DoNotAskIncludeOutputInProject="True" DefaultIncludeOutputInProject="True" Sandcastle_ShowEntireBuildComponentStack="False" Sandcastle_MergeXmlDocumentation="Overwrite" />
+      <UserProperties Sandcastle_MergeXmlDocumentation="Overwrite" Sandcastle_ShowEntireBuildComponentStack="False" DefaultIncludeOutputInProject="True" DoNotAskIncludeOutputInProject="True" Sandcastle_DocumentationSetName="Proteus_API_Reference" DocumentationScope="Complete" DefaultApplyToAll="True" ExternalSources="" Sandcastle_ProduceHelp1x="True" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_Version="2.4.10520.1" BuildEngineProviderName="Sandcastle" DocProjectVersion="1.11.0.0" IsDocProject="true" ProcessComponentTypeName="APIDocumentation.BuildProcess" />
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>

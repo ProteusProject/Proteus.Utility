@@ -101,6 +101,16 @@ namespace Proteus.Utility.UnitTest
             OleDBClient,
 
             /// <summary>
+            /// Microsoft SQL Server CE database
+            /// </summary>
+            SqlCeClient,
+
+            /// <summary>
+            /// SQLite database
+            /// </summary>
+            SqliteClient,
+
+            /// <summary>
             /// Oracle database (NOT YET SUPPORTED)
             /// </summary>
             /// <remarks>
@@ -295,14 +305,6 @@ namespace Proteus.Utility.UnitTest
         /// <summary>
         /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
         /// </summary>
-        protected virtual void DatabaseFixtureSetUp()
-        {
-            DatabaseFixtureSetUp(false);
-        }
-
-        /// <summary>
-        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
-        /// </summary>
         /// <param name="ignoreSchemaDifferences">if set to <c>true</c> [ignore schema differences].</param>
         protected virtual void DatabaseFixtureSetUp(bool ignoreSchemaDifferences)
         {
@@ -320,6 +322,14 @@ namespace Proteus.Utility.UnitTest
             SaveBackupDatabase();
             OutputTraceMessage("DatabaseUnitTestBase: DatabaseFixtureSetUp Complete");
 
+        }
+
+        /// <summary>
+        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
+        /// </summary>
+        protected virtual void DatabaseFixtureSetUp()
+        {
+            DatabaseFixtureSetUp(false);
         }
 
         /// <summary>
@@ -462,6 +472,12 @@ namespace Proteus.Utility.UnitTest
 
                 case DatabaseClientType.OleDBClient:
                     return new NDbUnit.Core.OleDb.OleDbUnitTest(connectionString);
+
+                case DatabaseClientType.SqlCeClient:
+                    return new NDbUnit.Core.SqlServerCe.SqlCeUnitTest(connectionString);
+
+                case DatabaseClientType.SqliteClient:
+                    return new NDbUnit.Core.SqlLite.SqlLiteUnitTest(connectionString);
 
                 case DatabaseClientType.OracleClient:
                     throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
