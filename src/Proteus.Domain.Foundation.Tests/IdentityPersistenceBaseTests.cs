@@ -75,6 +75,17 @@ namespace Domain.Foundation.Tests
 
         }
 
+
+        [Test]
+        public void EqualWhenTransientIfBothOjectsAreTheSameInstance()
+        {
+            ClassUsingGuidIdentity p1 = new ClassUsingGuidIdentity();
+            ClassUsingGuidIdentity p2 = p1;
+
+            Assert.IsTrue(p1.Equals(p2));
+        }
+
+
         [Test]
         public void EqualWhenInstancesHaveSameIdentityValue()
         {

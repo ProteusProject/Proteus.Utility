@@ -131,6 +131,9 @@ namespace Proteus.Domain.Foundation
         /// <returns></returns>
         public override bool Equals(object other)
         {
+            if ((other != null) && (other is TObject) && (ReferenceEquals(this, other)))
+                return true;
+
             if ((other == null) || (!(other is TObject)) || (IsTransient))
                 return false;
 

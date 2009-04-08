@@ -34,7 +34,7 @@ using System.Diagnostics;
 namespace Domain.Foundation.Tests
 {
     [TestFixture]
-    public class GuidIdentityPersistenceBaseTests : Proteus.Utility.UnitTest.UnitTestBase
+    public class GuidIdentityPersistenceBaseTests : UnitTestBase
     {
         [Test]
         public void PersistedInstanceIsNotTransient()

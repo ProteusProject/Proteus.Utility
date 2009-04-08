@@ -69,6 +69,14 @@
     <Content Include="bin\Debug\Proteus.Utility.UnitTest.dll" />
     <Content Include="bin\Debug\Proteus.Utility.UnitTest.pdb" />
     <Content Include="bin\Debug\Proteus.Utility.UnitTest.xml" />
+    <Content Include="bin\Release\NDbUnit.Core.dll" />
+    <Content Include="bin\Release\Proteus.Domain.Foundation.dll" />
+    <Content Include="bin\Release\Proteus.Domain.Foundation.pdb" />
+    <Content Include="bin\Release\Proteus.Utility.UnitTest.APIDocumentation.dll" />
+    <Content Include="bin\Release\Proteus.Utility.UnitTest.APIDocumentation.pdb" />
+    <Content Include="bin\Release\Proteus.Utility.UnitTest.dll" />
+    <Content Include="bin\Release\Proteus.Utility.UnitTest.pdb" />
+    <Content Include="bin\Release\System.Data.SQLite.dll" />
     <Content Include="Help\Art\Proteus_Logo_plus_Name.gif" />
     <Content Include="Help\Comments\project.xml" />
     <Content Include="Help\Html\01cdc042-7611-1dc6-5144-f95d294e4709.htm" />
@@ -366,7 +374,7 @@
     <Content Include="Help\Styles\Whidbey\presentation.css" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Proteus_API_Reference.chm" />
+    <None Include="bin\Release\Proteus_API_Reference.chm" />
     <None Include="Help\Art\Proteus_Logo_plus_Name.ai" />
     <None Include="Help\Presentation\Shared\configuration\xamlSyntax.config" />
     <None Include="Help\Presentation\Shared\copyHavana.bat" />
