@@ -59,7 +59,7 @@
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Sandcastle_MergeXmlDocumentation="Overwrite" Sandcastle_ShowEntireBuildComponentStack="False" DefaultIncludeOutputInProject="True" DoNotAskIncludeOutputInProject="True" Sandcastle_DocumentationSetName="Proteus_API_Reference" DocumentationScope="Complete" DefaultApplyToAll="True" ExternalSources="" Sandcastle_ProduceHelp1x="True" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_Version="2.4.10520.1" BuildEngineProviderName="Sandcastle" DocProjectVersion="1.11.0.0" IsDocProject="true" ProcessComponentTypeName="APIDocumentation.BuildProcess" />
+      <UserProperties ProcessComponentTypeName="APIDocumentation.BuildProcess" IsDocProject="true" DocProjectVersion="1.11.0.0" BuildEngineProviderName="Sandcastle" Sandcastle_Version="2.4.10520.1" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_ProduceHelp1x="True" ExternalSources="" DefaultApplyToAll="True" DocumentationScope="Complete" Sandcastle_DocumentationSetName="Proteus_API_Reference" DoNotAskIncludeOutputInProject="True" DefaultIncludeOutputInProject="True" Sandcastle_ShowEntireBuildComponentStack="False" Sandcastle_MergeXmlDocumentation="Overwrite" />
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
@@ -374,6 +374,7 @@
     <Content Include="Help\Styles\Whidbey\presentation.css" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Proteus_API_Reference.chm" />
     <None Include="bin\Release\Proteus_API_Reference.chm" />
     <None Include="Help\Art\Proteus_Logo_plus_Name.ai" />
     <None Include="Help\Presentation\Shared\configuration\xamlSyntax.config" />
