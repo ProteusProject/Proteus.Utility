@@ -673,5 +673,29 @@ namespace Proteus.Utility.UnitTest
             }
         }
 
+        protected static class GuidGen
+        {
+            public static Guid Repeat(string character)
+            {
+                if (character == null)
+                    throw new ArgumentNullException("character", "Cannot be null.");
+
+                if (character.Length != 1)
+                    throw new ArgumentOutOfRangeException("character", "Length cannot exceed one character.");
+                
+                try
+                {
+                    return new Guid(string.Format("{0}{0}{0}{0}{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}", character));
+                }
+                catch (Exception ex)
+                {
+                    throw new ArgumentException(ex.Message, "character", ex);
+                }
+            }
+
+            
+
+        }
+
     }
 }

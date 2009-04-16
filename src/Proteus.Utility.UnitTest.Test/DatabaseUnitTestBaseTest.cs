@@ -33,8 +33,6 @@ namespace UnitTestTest
     [Category(UnitTestType.DatabaseDependent)]
     public class DatabaseUnitTestBaseTest : DatabaseUnitTestBase
     {
-
-
         [FixtureSetUp]
         public void _FixtureSetUp()
         {
@@ -59,13 +57,71 @@ namespace UnitTestTest
             DatabaseTearDown();
         }
 
+    }
 
+    [TestFixture]
+    [Category(UnitTestType.Unit)]
+    public class NonDatabaseRelatedTests : DatabaseUnitTestBase
+    {
         [Test]
         public void DerivesFromProperAncestor()
         {
             Assert.IsInstanceOfType(typeof(UnitTestBase), this);
         }
 
+        [Test]
+        public void GuidGen_Repeat_ReturnsCorrectGuid()
+        {
+            Guid actual = GuidGen.Repeat("1");
+            Guid expected = new Guid("11111111-1111-1111-1111-111111111111");
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ThrowsWhenCharacterOutOfRange()
+        {
+            try
+            {
+                Guid actual = GuidGen.Repeat("Z");
+                Assert.Fail("Expected ArgumentException not Thrown!");
+            }
+            catch (ArgumentException)
+            {
+
+            }
+
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ThrowsWhenCharacterIsNull()
+        {
+            try
+            {
+                Guid actual = GuidGen.Repeat(null);
+                Assert.Fail("Expected ArgumentNullException not Thrown!");
+            }
+            catch (ArgumentNullException)
+            {
+
+            }
+
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ThrowsWhenCharacterLengthGreaterThan1()
+        {
+            try
+            {
+                Guid actual = GuidGen.Repeat("11");
+                Assert.Fail("Expected ArgumentOutOfRangeException not Thrown!");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
+
+        }
 
     }
 }
