@@ -758,6 +758,30 @@
     </UL>
     <UL>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseUnitTestBase.GuidGen Class">
+        <param name="Local" value="html\7eeb32d3-7775-a2a3-e0f2-b0840bab1923.htm">
+      </OBJECT></LI>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DatabaseUnitTestBase.GuidGen Members">
+          <param name="Local" value="html\f427e310-1bde-11ca-6496-7d69e3e3800b.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DatabaseUnitTestBase.GuidGen Methods ">
+          <param name="Local" value="html\ef016cd5-1568-7b45-ebda-008dc0d16b8a.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Repeat Method ">
+            <param name="Local" value="html\3cf85c91-b700-2913-c60c-f3948792128f.htm">
+          </OBJECT></LI>
+        </UL>
+      </UL>
+    </UL>
+    <UL>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="SchemaComparisonReport Class">
         <param name="Local" value="html\59ec776f-6a6e-84f3-a873-53c5ad1b3835.htm">
       </OBJECT></LI>

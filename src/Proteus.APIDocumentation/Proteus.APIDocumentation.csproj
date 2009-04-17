@@ -59,7 +59,7 @@
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties ProcessComponentTypeName="APIDocumentation.BuildProcess" IsDocProject="true" DocProjectVersion="1.11.0.0" BuildEngineProviderName="Sandcastle" Sandcastle_Version="2.4.10520.1" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_ProduceHelp1x="True" ExternalSources="" DefaultApplyToAll="True" DocumentationScope="Complete" Sandcastle_DocumentationSetName="Proteus_API_Reference" DoNotAskIncludeOutputInProject="True" DefaultIncludeOutputInProject="True" Sandcastle_ShowEntireBuildComponentStack="False" Sandcastle_MergeXmlDocumentation="Overwrite" />
+      <UserProperties Sandcastle_MergeXmlDocumentation="Overwrite" Sandcastle_ShowEntireBuildComponentStack="False" DefaultIncludeOutputInProject="True" DoNotAskIncludeOutputInProject="True" Sandcastle_DocumentationSetName="Proteus_API_Reference" DocumentationScope="Complete" DefaultApplyToAll="True" ExternalSources="" Sandcastle_ProduceHelp1x="True" Sandcastle_PresentationName="Visual Studio 2005" Sandcastle_Version="2.4.10520.1" BuildEngineProviderName="Sandcastle" DocProjectVersion="1.11.0.0" IsDocProject="true" ProcessComponentTypeName="APIDocumentation.BuildProcess" />
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
@@ -110,6 +110,7 @@
     <Content Include="Help\Html\38e7f7ca-4e12-4530-8b8c-bb9d5047d481.htm" />
     <Content Include="Help\Html\39880cc5-8590-7392-f9d4-88c43da803c9.htm" />
     <Content Include="Help\Html\3bae852c-0574-f17b-9689-740b6a48485a.htm" />
+    <Content Include="Help\Html\3cf85c91-b700-2913-c60c-f3948792128f.htm" />
     <Content Include="Help\Html\3daa19ff-9caf-d3e6-1601-17d204545461.htm" />
     <Content Include="Help\Html\42f90f9d-78dd-3e32-1d40-5c3863115073.htm" />
     <Content Include="Help\Html\4393f04d-0d01-990c-90d9-c5b589491df6.htm" />
@@ -148,6 +149,7 @@
     <Content Include="Help\Html\7a5de98f-ffb0-59d0-e612-4b9e1eaacf1a.htm" />
     <Content Include="Help\Html\7d785fd6-68e7-31c5-a5dc-a5e2e2463a31.htm" />
     <Content Include="Help\Html\7e219c87-a45a-93ca-d470-75747f4a393e.htm" />
+    <Content Include="Help\Html\7eeb32d3-7775-a2a3-e0f2-b0840bab1923.htm" />
     <Content Include="Help\Html\81b67844-29a6-82a8-fc44-709b347bed9b.htm" />
     <Content Include="Help\Html\88d864a2-0e96-6c71-0063-ec92c0343b90.htm" />
     <Content Include="Help\Html\8b427c91-56cb-32c3-ca6f-f51b384836f7.htm" />
@@ -224,10 +226,12 @@
     <Content Include="Help\Html\eba6f645-21e2-f0ff-088b-23b7991bd2a4.htm" />
     <Content Include="Help\Html\ebf3ba83-01b5-873d-7fee-5d0cfe0b191c.htm" />
     <Content Include="Help\Html\eebbbef7-3b21-442a-54fa-7a6729b8284d.htm" />
+    <Content Include="Help\Html\ef016cd5-1568-7b45-ebda-008dc0d16b8a.htm" />
     <Content Include="Help\Html\f0b85425-8126-3026-20df-a3f81c272ae7.htm" />
     <Content Include="Help\Html\f190cdc6-12e4-d8bb-c113-f6882f6c6936.htm" />
     <Content Include="Help\Html\f242d4c1-0b6e-669d-4c96-71d8ae3173bb.htm" />
     <Content Include="Help\Html\f2a72283-3d59-d445-beb8-c8f2a4c4ab54.htm" />
+    <Content Include="Help\Html\f427e310-1bde-11ca-6496-7d69e3e3800b.htm" />
     <Content Include="Help\Html\fd4079f1-9323-66d1-c553-ba07fff06a34.htm" />
     <Content Include="Help\Html\feef22e3-7ed1-90a8-e2c7-ccc813831660.htm" />
     <Content Include="Help\Html\ff18cf21-d1f4-dfd9-587d-07481ede0114.htm" />

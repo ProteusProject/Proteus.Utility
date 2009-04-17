@@ -673,23 +673,36 @@ namespace Proteus.Utility.UnitTest
             }
         }
 
+        /// <summary>
+        /// Helper class to assist in the creation of Guids with specific values.
+        /// </summary>
         protected static class GuidGen
         {
-            public static Guid Repeat(string character)
+            /// <summary>
+            /// Creates a new Guid constructed by repeating the specified character.
+            /// </summary>
+            /// <param name="characterToRepeat">The character to repeat for the Guid.</param>
+            /// <returns>A new Guid constructed from the provided character.</returns>
+            /// <example>GuidGen.Repeat("1") returns a new Guid of the form 1111-1111-1111-111111111111-11111111</example>
+            public static Guid Repeat(object characterToRepeat)
             {
-                if (character == null)
-                    throw new ArgumentNullException("character", "Cannot be null.");
+                if (characterToRepeat == null)
+                    throw new ArgumentNullException("characterToRepeat", "Cannot be null.");
 
-                if (character.Length != 1)
-                    throw new ArgumentOutOfRangeException("character", "Length cannot exceed one character.");
+                var characterToRepeatString = characterToRepeat.ToString();
+
+                characterToRepeatString = characterToRepeatString.Trim();
+
+                if (characterToRepeatString.Length != 1)
+                    throw new ArgumentOutOfRangeException("characterToRepeat", "Length must be exactly one character.");
                 
                 try
                 {
-                    return new Guid(string.Format("{0}{0}{0}{0}{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}", character));
+                    return new Guid(string.Format("{0}{0}{0}{0}{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}", characterToRepeat));
                 }
                 catch (Exception ex)
                 {
-                    throw new ArgumentException(ex.Message, "character", ex);
+                    throw new ArgumentException(ex.Message, "characterToRepeat", ex);
                 }
             }
 

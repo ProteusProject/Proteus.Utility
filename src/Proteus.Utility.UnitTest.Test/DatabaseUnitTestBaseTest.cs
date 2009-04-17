@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Text;
 using MbUnit.Framework;
 using Proteus.Utility.UnitTest;
+using System.Data;
 
 namespace UnitTestTest
 {
@@ -70,7 +71,16 @@ namespace UnitTestTest
         }
 
         [Test]
-        public void GuidGen_Repeat_ReturnsCorrectGuid()
+        public void GuidGen_Repeat_ReturnsCorrectGuidWhenCharacterIsInt()
+        {
+            Guid actual = GuidGen.Repeat(1);
+            Guid expected = new Guid("11111111-1111-1111-1111-111111111111");
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ReturnsCorrectGuidWhenCharacterIsString()
         {
             Guid actual = GuidGen.Repeat("1");
             Guid expected = new Guid("11111111-1111-1111-1111-111111111111");
@@ -79,11 +89,45 @@ namespace UnitTestTest
         }
 
         [Test]
-        public void GuidGen_Repeat_ThrowsWhenCharacterOutOfRange()
+        public void GuidGen_Repeat_ThrowsWhenCharacterIsComplexObject()
+        {
+
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                Guid actual = GuidGen.Repeat(dataSet);
+                Assert.Fail("Expected ArgumentException not Thrown!");
+            }
+            catch (ArgumentException)
+            {
+
+            }
+
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ThrowsWhenCharacterIsDouble()
+        {
+
+            try
+            {
+                Guid actual = GuidGen.Repeat(2.1);
+                Assert.Fail("Expected ArgumentException not Thrown!");
+            }
+            catch (ArgumentException)
+            {
+
+            }
+
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ThrowsWhenCharacterIsEmptyString()
         {
             try
             {
-                Guid actual = GuidGen.Repeat("Z");
+                Guid actual = GuidGen.Repeat(string.Empty);
                 Assert.Fail("Expected ArgumentException not Thrown!");
             }
             catch (ArgumentException)
@@ -117,6 +161,21 @@ namespace UnitTestTest
                 Assert.Fail("Expected ArgumentOutOfRangeException not Thrown!");
             }
             catch (ArgumentOutOfRangeException)
+            {
+
+            }
+
+        }
+
+        [Test]
+        public void GuidGen_Repeat_ThrowsWhenCharacterOutOfRange()
+        {
+            try
+            {
+                Guid actual = GuidGen.Repeat("Z");
+                Assert.Fail("Expected ArgumentException not Thrown!");
+            }
+            catch (ArgumentException)
             {
 
             }
