@@ -111,6 +111,11 @@ namespace Proteus.Utility.UnitTest
             SqliteClient,
 
             /// <summary>
+            /// MySQL database
+            /// </summary>
+            MySqlClient,
+
+            /// <summary>
             /// Oracle database (NOT YET SUPPORTED)
             /// </summary>
             /// <remarks>
@@ -478,6 +483,9 @@ namespace Proteus.Utility.UnitTest
 
                 case DatabaseClientType.SqliteClient:
                     return new NDbUnit.Core.SqlLite.SqlLiteUnitTest(connectionString);
+
+                case DatabaseClientType.MySqlClient:
+                    return new NDbUnit.Core.MySqlClient.MySqlDbUnitTest(connectionString);
 
                 case DatabaseClientType.OracleClient:
                     throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
