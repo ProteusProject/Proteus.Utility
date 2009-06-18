@@ -26,14 +26,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Proteus.Domain.Foundation
+namespace Proteus.Domain.Foundation.Tests
 {
-    /// <summary>
-    /// Base Class for Persistent Entities using GUID as the data type for their identity field.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    [Obsolete("The type GuidIdentityPersistenceBase<T> is depricated; use IdentityPersistenceBase<TObject, TIdentity> in its place.")]
-    public class GuidIdentityPersistenceBase<T> : IdentityPersistenceBase<T, Guid> where T : class
+    class Address : ValueObjectBase<Address>
     {
+        public string Street { get; set; }
+        public int BuildingNumber { get; set; }
+        public string UnitNumber { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+
     }
 }

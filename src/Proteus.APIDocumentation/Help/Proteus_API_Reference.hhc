@@ -492,6 +492,72 @@
         </UL>
       </UL>
     </UL>
+    <UL>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="ValueObjectBase(TObject) Class">
+        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
+      </OBJECT></LI>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ValueObjectBase(TObject) Members">
+          <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ValueObjectBase(TObject) Constructor ">
+          <param name="Local" value="html\7a046db4-82da-3f88-890c-4f2678b9075c.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="ValueObjectBase(TObject) Methods ">
+          <param name="Local" value="html\21970664-451e-5cf3-05c9-1a437a40622f.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Equality Operator">
+            <param name="Local" value="html\637e2254-a4fe-0258-ad7a-97e037ddba46.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Equals Method ">
+            <param name="Local" value="html\20061930-e1a0-908b-9f51-34396607bae7.htm">
+          </OBJECT></LI>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Equals Method (Object)">
+              <param name="Local" value="html\ac461cfe-3ef0-f58d-db5e-008f98f1a94c.htm">
+            </OBJECT></LI>
+          </UL>
+          <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="Equals Method (TObject)">
+              <param name="Local" value="html\c7f42dfa-b360-01f0-0e6a-d1622c78ecc2.htm">
+            </OBJECT></LI>
+          </UL>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="GetFields Method ">
+            <param name="Local" value="html\1b73c481-1e65-4429-7bcd-51684252d7fe.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="GetHashCode Method ">
+            <param name="Local" value="html\a079c3dd-6c8a-a1e7-8918-cec564206640.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Inequality Operator">
+            <param name="Local" value="html\f4ae9a49-b9f9-f758-41e1-2ee28c5ba401.htm">
+          </OBJECT></LI>
+        </UL>
+      </UL>
+    </UL>
   </UL>
   <UL>
     <LI><OBJECT type="text/sitemap">

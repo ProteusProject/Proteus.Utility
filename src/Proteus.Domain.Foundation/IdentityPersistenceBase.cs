@@ -34,7 +34,7 @@ namespace Proteus.Domain.Foundation
     /// </summary>
     /// <typeparam name="TObject">The type of the object.</typeparam>
     /// <typeparam name="TIdentity">The type of the identity.</typeparam>
-    public abstract class IdentityPersistenceBase<TObject, TIdentity> : IPersistentObject
+    public abstract class IdentityPersistenceBase<TObject, TIdentity> : IPersistentObject where TObject: class 
     {
         /// <summary>
         /// Last-updated-by value for the Entity
