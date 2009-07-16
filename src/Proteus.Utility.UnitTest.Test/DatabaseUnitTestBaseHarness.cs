@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Text;
 using MbUnit.Framework;
 using Proteus.Utility.UnitTest;
+using System.Diagnostics;
 
 namespace UnitTestTest
 {
@@ -37,7 +38,7 @@ namespace UnitTestTest
         public void FixtureSetUp()
         {
             DatabaseFixtureSetUp();
-            System.Diagnostics.Trace.WriteLine("DERIVED: FixtureSetUp");
+            Trace.WriteLine("DERIVED: FixtureSetUp");
         }
 
         [FixtureTearDown]
@@ -45,34 +46,34 @@ namespace UnitTestTest
         {
             //other stuff you also need to do goes here!
             DatabaseFixtureTearDown();
-            System.Diagnostics.Trace.WriteLine("DERIVED: FixtureTearDown");
+            Trace.WriteLine("DERIVED: FixtureTearDown");
         }
 
         [Test]
         public void ImATest2()
         {
-            System.Diagnostics.Trace.WriteLine("DERIVED: Test2");
+            Trace.WriteLine("DERIVED: Test2");
         }
 
         [Test]
         public void ImATest()
         {
 
-            System.Diagnostics.Trace.WriteLine("DERIVED: Test1");
+            Trace.WriteLine("DERIVED: Test1");
         }
 
         [SetUp]
         public void SetUp()
         {
             DatabaseSetUp();
-            System.Diagnostics.Trace.WriteLine("DERIVED: TestSetUp");
+            Trace.WriteLine("DERIVED: TestSetUp");
         }
 
         [TearDown]
         public void TearDown()
         {
             DatabaseTearDown();
-            System.Diagnostics.Trace.WriteLine("DERIVED: TestTearDown");
+            Trace.WriteLine("DERIVED: TestTearDown");
         }
 
     }

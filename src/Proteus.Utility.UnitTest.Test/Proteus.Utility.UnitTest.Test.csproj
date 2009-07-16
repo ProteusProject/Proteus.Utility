@@ -43,8 +43,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\NDbUnit.Core.dll</HintPath>
     </Reference>
+    <Reference Include="NDbUnit.SqlClient, Version=1.5.0.18984, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NDbUnit.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +59,7 @@
     <Compile Include="DatabaseUnitTestBaseHarness.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatabaseSpecificTypeFactoryTests.cs" />
     <Compile Include="TestData\database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

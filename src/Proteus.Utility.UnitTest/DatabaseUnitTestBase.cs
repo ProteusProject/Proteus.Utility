@@ -446,9 +446,10 @@ namespace Proteus.Utility.UnitTest
 
             _database.ReadXmlSchema(schemaFilePathName);
 
-            DataSet ds = new DataSet();
-            ds = _database.GetDataSetFromDb();
-            ds.WriteXml(datasetFilePathName);
+            using (DataSet ds = _database.GetDataSetFromDb())
+            {
+                ds.WriteXml(datasetFilePathName);
+            }
         }
 
         /// <summary>
@@ -473,19 +474,19 @@ namespace Proteus.Utility.UnitTest
             switch (clientType)
             {
                 case DatabaseClientType.SqlClient:
-                    return new NDbUnit.Core.SqlClient.SqlDbUnitTest(connectionString);
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlClient.SqlDbUnitTest", "NDbUnit.SqlClient", connectionString);
 
                 case DatabaseClientType.OleDBClient:
-                    return new NDbUnit.Core.OleDb.OleDbUnitTest(connectionString);
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.OleDb.OleDbUnitTest","NDbUnit.OleDb", connectionString);
 
                 case DatabaseClientType.SqlCeClient:
-                    return new NDbUnit.Core.SqlServerCe.SqlCeUnitTest(connectionString);
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlServerCe.SqlCeUnitTest","NDbUnit.SqlServerCe", connectionString);
 
                 case DatabaseClientType.SqliteClient:
-                    return new NDbUnit.Core.SqlLite.SqlLiteUnitTest(connectionString);
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlLite.SqlLiteUnitTest","NDbUnit.SqlLite", connectionString);
 
                 case DatabaseClientType.MySqlClient:
-                    return new NDbUnit.Core.MySqlClient.MySqlDbUnitTest(connectionString);
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.MySqlClient.MySqlDbUnitTest","NDbUnit.MySql", connectionString);
 
                 case DatabaseClientType.OracleClient:
                     throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
@@ -513,7 +514,7 @@ namespace Proteus.Utility.UnitTest
         private static void ValidateConnectionString(string connectionString)
         {
             if (String.IsNullOrEmpty(connectionString))
-                throw new System.InvalidOperationException("_databaseConnectionString field cannot be null or empty!\nSet a value for _databaseConnectionString\nor override the DatabaseConnectionString property from the base class to provide a custom getter for this value.");
+                throw new InvalidOperationException("_databaseConnectionString field cannot be null or empty!\nSet a value for _databaseConnectionString\nor override the DatabaseConnectionString property from the base class to provide a custom getter for this value.");
         }
 
         /// <summary>
@@ -529,103 +530,92 @@ namespace Proteus.Utility.UnitTest
 
             SchemaComparisonReport compareResults = new SchemaComparisonReport();
 
-            DataSet dsSchema = new DataSet();
-            dsSchema.ReadXmlSchema(schemaFilename);
-            string tblName;
-            string colName;
-
-            IDbConnection databaseConnection = null;
-            IDbDataAdapter dataAdapter = null;
-
-            switch (_databaseClientType)
+            using (DataSet dsSchema = new DataSet())
             {
-                case DatabaseClientType.SqlClient:
-                    databaseConnection = new SqlConnection(DatabaseConnectionString);
-                    dataAdapter = new SqlDataAdapter("", DatabaseConnectionString);
-                    break;
-                case DatabaseClientType.OleDBClient:
-                    databaseConnection = new OleDbConnection(this.DatabaseConnectionString);
-                    dataAdapter = new OleDbDataAdapter("", DatabaseConnectionString);
-                    break;
-                case DatabaseClientType.OracleClient:
-                    throw new InvalidOperationException(string.Format("Unsupported Database client type: {0}", _databaseClientType.ToString()));
-
-            }
-
-            DataSet dsDB = new DataSet();
-            DataTable dtDB;
-            DataColumn dcDB;
-
-            foreach (System.Data.DataTable dtSchema in dsSchema.Tables)
-            {
-                tblName = dtSchema.TableName;
-                dataAdapter.SelectCommand.CommandText = string.Format("select top 1 * from [{0}]", tblName);
-
-                try
+                dsSchema.ReadXmlSchema(schemaFilename);
+                string tblName;
+                string colName;
+                string assemblyName;
+                IDbConnection databaseConnection = null;
+                IDbDataAdapter dataAdapter = null;
+                switch (_databaseClientType)
                 {
-                    // determine if the table exists in the database
-                    dataAdapter.FillSchema(dsDB, SchemaType.Source);
-                    dsDB.Tables[dsDB.Tables.Count - 1].TableName = tblName;
-                    dtDB = dsDB.Tables[tblName];
-
-                    // determine if there are any differences between the columns in the xsd and the database
-                    foreach (DataColumn dcSchema1 in dtSchema.Columns)
-                    {
-                        colName = dcSchema1.ColumnName;
-                        dcDB = dtDB.Columns[colName];
-
-                        if (dcDB == null) // does the column exist in the database
-                        {
-                            compareResults.Errors.Add(tblName + "." + colName + "  :  Column does not exist in database.");
-                        }
-                        else if (dcSchema1.DataType != dcDB.DataType) // do the datatypes match
-                        {
-                            compareResults.Errors.Add(tblName + "." + colName + "  :  Column's datatype does not match (Db = " + dcDB.DataType.FullName + ",  Xsd = " + dcSchema1.DataType.FullName + ")");
-                        }
-                        else if (dcSchema1.DataType == typeof(string) && dcSchema1.MaxLength != dcDB.MaxLength)	// if the column is a string, compare the maximum length
-                        {
-                            compareResults.Errors.Add(tblName + "." + colName + "  : Column of type String has different maximum length (Db = " + dcDB.MaxLength + ",  Xsd = " + dcSchema1.MaxLength + ")");
-                        }
-                        // do we want to compare: AutoIncrement, AutoIncrementSeed, AutoIncrementStep?
-                    }
-
-                    // determine if new columns have been added to database
-                    DataColumn dcSchema2;
-                    foreach (DataColumn dcDB2 in dtDB.Columns)
-                    {
-                        colName = dcDB2.ColumnName;
-                        dcSchema2 = dtSchema.Columns[colName];
-
-                        if (dcSchema2 == null)
-                        {
-                            if (dcDB2.AllowDBNull == false)
-                            {
-                                if (dcDB2.AutoIncrement == true)
-                                {
-                                    compareResults.Information.Add(tblName + "." + colName + "  :  Column does not exist in test schema and Db column does not allow null values, but should be okay because Db column is set to auto increment (Identity).");
-                                }
-                                else
-                                {
-                                    /*
-                                    If we've gotten here, there is no way to determine what will happen if the test data is inserted into the database because there is not enough information to determine
-                                    whether the database insert command will fail due to null values.
-                                    The database column contains a DefaultValue property but it is misleading because it does not reflect the actual default value in the database.
-                                    The only accurate way to determine the default value of a database column is to query the INFORMATION_SCHEMA which only works with MS SQL Server.
-                                    Since we are trying to make this database agnostic, we need to avoid querying the INFORMATION_SCHEMA.
-                                    */
-                                    compareResults.Warnings.Add(tblName + "." + colName + "  :  Column does not exist in test schema, Db column does not allow null values, Db Column is not set to Auto Increment (Identity), and there is no way to determine if Db column has a default value therefore SqlExceptions may occur when test data is inserted into database.");
-                                }
-                            }
-                            else
-                            {
-                                compareResults.Information.Add(tblName + "." + colName + "  :  Column does not exist in test schema, but should be okay because Db column allows null values.");
-                            }
-                        }
-                    }
+                    case DatabaseClientType.SqlClient:
+                        assemblyName = "System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
+                        databaseConnection = DatabaseSpecificTypeFactory.CreateIDbConnection("System.Data.SqlClient.SqlConnection", assemblyName, DatabaseConnectionString);
+                        dataAdapter = DatabaseSpecificTypeFactory.CreateIDbDataAdapter("System.Data.SqlClient.SqlDataAdapter", assemblyName, DatabaseConnectionString); ;
+                        break;
+                    
+                    case DatabaseClientType.OleDBClient:
+                        assemblyName = "System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
+                        databaseConnection = DatabaseSpecificTypeFactory.CreateIDbConnection("System.Data.OleDbClient.OleDbConnection", assemblyName, DatabaseConnectionString);
+                        dataAdapter = DatabaseSpecificTypeFactory.CreateIDbDataAdapter("System.Data.OleDbClient.OleDbDataAdapter", assemblyName, DatabaseConnectionString); ;
+                        break;
+                    
+                    default:
+                        throw new InvalidOperationException(string.Format("Unsupported Database client type: {0}", _databaseClientType.ToString()));
                 }
-                catch (SqlException)
+                using (DataSet dsDB = new DataSet())
                 {
-                    compareResults.Errors.Add(tblName + "  :  Table does not exist in database.");
+                    DataTable dtDB;
+                    DataColumn dcDB;
+                    foreach (System.Data.DataTable dtSchema in dsSchema.Tables)
+                    {
+                        tblName = dtSchema.TableName;
+                        dataAdapter.SelectCommand.CommandText = string.Format("select top 1 * from [{0}]", tblName);
+                        try
+                        {
+                            // determine if the table exists in the database
+                            dataAdapter.FillSchema(dsDB, SchemaType.Source);
+                            dsDB.Tables[dsDB.Tables.Count - 1].TableName = tblName;
+                            dtDB = dsDB.Tables[tblName];
+                            // determine if there are any differences between the columns in the xsd and the database
+                            foreach (DataColumn dcSchema1 in dtSchema.Columns)
+                            {
+                                colName = dcSchema1.ColumnName;
+                                dcDB = dtDB.Columns[colName];
+                                if (dcDB == null)
+                                    // does the column exist in the database
+                                    compareResults.Errors.Add(String.Format("{0}.{1}  :  Column does not exist in database.", tblName, colName));
+                                else
+                                    if (dcSchema1.DataType != dcDB.DataType)
+                                        // do the datatypes match
+                                        compareResults.Errors.Add(String.Format("{0}.{1}  :  Column's datatype does not match (Db = {2},  Xsd = {3})", tblName, colName, dcDB.DataType.FullName, dcSchema1.DataType.FullName));
+                                    else
+                                        if (dcSchema1.DataType == typeof(string) && dcSchema1.MaxLength != dcDB.MaxLength)
+                                            // if the column is a string, compare the maximum length
+                                            compareResults.Errors.Add(tblName + "." + colName + "  : Column of type String has different maximum length (Db = " + dcDB.MaxLength + ",  Xsd = " + dcSchema1.MaxLength + ")");
+                                // do we want to compare: AutoIncrement, AutoIncrementSeed, AutoIncrementStep?
+                            }
+                            // determine if new columns have been added to database
+                            DataColumn dcSchema2;
+                            foreach (DataColumn dcDB2 in dtDB.Columns)
+                            {
+                                colName = dcDB2.ColumnName;
+                                dcSchema2 = dtSchema.Columns[colName];
+                                if (dcSchema2 == null)
+                                    if (dcDB2.AllowDBNull == false)
+                                    {
+                                        if (dcDB2.AutoIncrement == true)
+                                            compareResults.Information.Add(String.Format("{0}.{1}  :  Column does not exist in test schema and Db column does not allow null values, but should be okay because Db column is set to auto increment (Identity).", tblName, colName));
+                                        else
+                                            /*If we've gotten here, there is no way to determine what will happen if the test data is inserted into the database because there is not enough information to determine
+                                              whether the database insert command will fail due to null values.
+                                              The database column contains a DefaultValue property but it is misleading because it does not reflect the actual default value in the database.
+                                              The only accurate way to determine the default value of a database column is to query the INFORMATION_SCHEMA which only works with MS SQL Server.
+                                              Since we are trying to make this database agnostic, we need to avoid querying the INFORMATION_SCHEMA.
+                                            */
+                                            compareResults.Warnings.Add(String.Format("{0}.{1}  :  Column does not exist in test schema, Db column does not allow null values, Db Column is not set to Auto Increment (Identity), and there is no way to determine if Db column has a default value therefore SqlExceptions may occur when test data is inserted into database.", tblName, colName));
+                                    }
+                                    else
+                                        compareResults.Information.Add(String.Format("{0}.{1}  :  Column does not exist in test schema, but should be okay because Db column allows null values.", tblName, colName));
+                            }
+                        }
+                        catch (SqlException)
+                        {
+                            compareResults.Errors.Add(String.Format("{0}  :  Table does not exist in database.", tblName));
+                        }
+                    }
                 }
             }
             foreach (string errorReport in compareResults.Errors)
@@ -655,7 +645,7 @@ namespace Proteus.Utility.UnitTest
         {
             if (string.IsNullOrEmpty(filePathName))
             {
-                throw new System.InvalidOperationException("XSD and/or XML file paths cannot be empty or null!");
+                throw new InvalidOperationException("XSD and/or XML file paths cannot be empty or null!");
             }
 
             if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(filePathName)))
@@ -672,7 +662,7 @@ namespace Proteus.Utility.UnitTest
         {
             if (string.IsNullOrEmpty(filePathName))
             {
-                throw new System.InvalidOperationException("XSD and/or XML file paths cannot be empty or null!");
+                throw new InvalidOperationException("XSD and/or XML file paths cannot be empty or null!");
             }
 
             if (!System.IO.File.Exists(filePathName))
@@ -703,7 +693,7 @@ namespace Proteus.Utility.UnitTest
 
                 if (characterToRepeatString.Length != 1)
                     throw new ArgumentOutOfRangeException("characterToRepeat", "Length must be exactly one character.");
-                
+
                 try
                 {
                     return new Guid(string.Format("{0}{0}{0}{0}{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}-{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}", characterToRepeat));
@@ -714,7 +704,7 @@ namespace Proteus.Utility.UnitTest
                 }
             }
 
-            
+
 
         }
 
