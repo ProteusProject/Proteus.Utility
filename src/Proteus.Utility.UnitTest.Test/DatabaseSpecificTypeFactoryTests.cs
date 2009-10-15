@@ -33,19 +33,28 @@ namespace Proteus.Utility.UnitTest.Test
     public class DatabaseSpecificTypeFactoryTests
     {
 
-        private string CONN_STRING;
+        private string CONN_STRING = string.Empty;
 
-        [FixtureSetUp]
-        public void _TestFixtureSetUp()
-        {
-            CONN_STRING = System.Configuration.ConfigurationManager.ConnectionStrings["testDatabase"].ConnectionString;
-        }
-        
+              
         
         [Test]
-        public void CanInstantiateNDbUnitTestObject()
+        public void CanInstantiateNDbUnitTestObject_With_SqlServer()
         {
             var actual = DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlClient.SqlDbUnitTest","NDbUnit.SqlClient", CONN_STRING);
+            Assert.IsNotNull(actual);
+        }
+
+        [Test]
+        public void CanInstantiateNDbUnitTestObject_With_SqlServerCe()
+        {
+            var actual = DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlServerCe.SqlCeUnitTest", "NDbUnit.SqlServerCe", CONN_STRING);
+            Assert.IsNotNull(actual);
+        }
+
+        [Test]
+        public void CanInstantiateNDbUnitTestObject_With_MySql()
+        {
+            var actual = DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.MySqlClient.MySqlDbUnitTest", "NDbUnit.MySql", CONN_STRING);
             Assert.IsNotNull(actual);
         }
 

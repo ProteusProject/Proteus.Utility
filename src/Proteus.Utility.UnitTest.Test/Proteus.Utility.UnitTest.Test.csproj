@@ -43,9 +43,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\NDbUnit.Core.dll</HintPath>
     </Reference>
+    <Reference Include="NDbUnit.MySql, Version=1.5.0.24566, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NDbUnit.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="NDbUnit.OleDb, Version=1.5.0.24566, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NDbUnit.OleDb.dll</HintPath>
+    </Reference>
     <Reference Include="NDbUnit.SqlClient, Version=1.5.0.18984, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\NDbUnit.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="NDbUnit.SqlLite, Version=1.5.0.24566, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NDbUnit.SqlLite.dll</HintPath>
+    </Reference>
+    <Reference Include="NDbUnit.SqlServerCe, Version=1.5.0.24566, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NDbUnit.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
