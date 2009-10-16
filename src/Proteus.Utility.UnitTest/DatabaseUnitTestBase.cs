@@ -523,7 +523,7 @@ namespace Proteus.Utility.UnitTest
         /// <param name="schemaFilename">The schema filename.</param>
         /// <exception cref="System.InvalidOperationException">Differences exist between the schema file and the database that must be resolved before running test(s).
         /// </exception>
-        private void ValidateSchemaAgainstDatabase(string schemaFilename)
+        protected void ValidateSchemaAgainstDatabase(string schemaFilename)
         {
             ValidateConnectionString(DatabaseConnectionString);
             ValidateSupportFileExists(schemaFilename);

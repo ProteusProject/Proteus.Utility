@@ -35,14 +35,14 @@ namespace UnitTestTest
     public class DatabaseUnitTestBaseHarness : DatabaseUnitTestBase
     {
         [FixtureSetUp]
-        public void FixtureSetUp()
+        public void _FixtureSetUp()
         {
             DatabaseFixtureSetUp();
             Trace.WriteLine("DERIVED: FixtureSetUp");
         }
 
         [FixtureTearDown]
-        public void FixtureTearDown()
+        public void _FixtureTearDown()
         {
             //other stuff you also need to do goes here!
             DatabaseFixtureTearDown();
@@ -63,14 +63,14 @@ namespace UnitTestTest
         }
 
         [SetUp]
-        public void SetUp()
+        public void _SetUp()
         {
             DatabaseSetUp();
             Trace.WriteLine("DERIVED: TestSetUp");
         }
 
         [TearDown]
-        public void TearDown()
+        public void _TearDown()
         {
             DatabaseTearDown();
             Trace.WriteLine("DERIVED: TestTearDown");

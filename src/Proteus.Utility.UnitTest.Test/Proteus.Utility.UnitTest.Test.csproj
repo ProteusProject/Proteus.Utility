@@ -84,6 +84,7 @@
     <Compile Include="UnitTestBaseTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ValidateSchemaOnlyTestHarness.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
