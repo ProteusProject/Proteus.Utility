@@ -566,6 +566,66 @@
     </OBJECT></LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory Class">
+        <param name="Local" value="html\bbc41f3f-46ea-e802-2be4-76ef44dfe72d.htm">
+      </OBJECT></LI>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DatabaseSpecificTypeFactory Members">
+          <param name="Local" value="html\b71e6a70-551e-795c-8895-7ae8d928520f.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DatabaseSpecificTypeFactory Constructor ">
+          <param name="Local" value="html\0d2afe6d-cc27-f82d-5012-20083b3428a7.htm">
+        </OBJECT></LI>
+      </UL>
+      <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="DatabaseSpecificTypeFactory Methods ">
+          <param name="Local" value="html\d9dae2b7-e41b-dd36-de08-fcbe5f934ec9.htm">
+        </OBJECT></LI>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CreateIDbConnection Method ">
+            <param name="Local" value="html\4546c394-a13d-aca3-8d67-bbbdcc1ad67a.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CreateIDbDataAdapter Method ">
+            <param name="Local" value="html\f002539f-f6e5-c2b4-3f5b-90b8f754abe0.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CreateINDBUnitTest Method ">
+            <param name="Local" value="html\ad2ba5ee-7239-421e-9d4a-f6468d9627b4.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CreateObjectWithOneStringConstructor(T) Method ">
+            <param name="Local" value="html\42b9aece-d4a6-2e46-1e18-112bfdeb376c.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="CreateObjectWithTwoStringConstructor(T) Method ">
+            <param name="Local" value="html\3a8de674-9bd6-14dd-e50b-b8123a65b1ae.htm">
+          </OBJECT></LI>
+        </UL>
+        <UL>
+          <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="ResolveType Method ">
+            <param name="Local" value="html\fc154960-bc98-ffe8-ec4f-d6be8766229e.htm">
+          </OBJECT></LI>
+        </UL>
+      </UL>
+    </UL>
+    <UL>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="DatabaseUnitTestBase Class">
         <param name="Local" value="html\c700f99c-fd99-c64d-5b19-4c05d7cedc88.htm">
       </OBJECT></LI>

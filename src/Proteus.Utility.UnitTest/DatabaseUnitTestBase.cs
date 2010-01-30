@@ -1,7 +1,7 @@
 ﻿/*
  *
  * Proteus
- * Copyright (C) 2008, 2009
+ * Copyright (C) 2008, 2009, 2010
  * Stephen A. Bohlen
  * http://www.unhandled-exceptions.com
  *
@@ -23,10 +23,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.OleDb;
+
 
 namespace Proteus.Utility.UnitTest
 {
@@ -66,17 +65,17 @@ namespace Proteus.Utility.UnitTest
         /// <summary>
         /// Read-only collection of error-level messages returned from the SchemaComparisonReport
         /// </summary>
-        public IList<string> Errors { get { return this._errors; } }
+        public IList<string> Errors { get { return _errors; } }
 
         /// <summary>
         /// Read-only collection of information-level messages returned from the SchemaComparisonReport
         /// </summary>
-        public IList<string> Information { get { return this._information; } }
+        public IList<string> Information { get { return _information; } }
 
         /// <summary>
         /// Read-only collection of warning-level messages returned from the SchemaComparisonReport
         /// </summary>
-        public IList<string> Warnings { get { return this._warnings; } }
+        public IList<string> Warnings { get { return _warnings; } }
 
     }
 
@@ -139,6 +138,30 @@ namespace Proteus.Utility.UnitTest
         /// Defaults to "..\..\TestData\Database.xsd" (Database.xsd located in the \TestData\ folder directly beneath the Project folder)
         /// </remarks>
         private const string BACKUPSCHEMAXMLFILENAME = @"..\..\TestData\Database.xsd";
+
+        public static string NDBUNIT_MYSQL_ASSEMBLY = "NDbUnit.MySql";
+
+        public static string NDBUNIT_MYSQL_TYPE = "NDbUnit.Core.MySqlClient.MySqlDbUnitTest";
+
+        public static string NDBUNIT_OLEDB_ASSEMBLY = "NDbUnit.OleDb";
+
+        public static string NDBUNIT_OLEDB_TYPE = "NDbUnit.Core.OleDb.OleDbUnitTest";
+
+        public static string NDBUNIT_ORACLE_ASSEMBLY = "NDbUnit.OracleClient";
+
+        public static string NDBUNIT_ORACLE_TYPE = "NDbUnit.OracleClient.OracleClientDbUnitTest";
+
+        public static string NDBUNIT_SQLCE_ASSEMBLY = "NDbUnit.SqlServerCe";
+
+        public static string NDBUNIT_SQLCE_TYPE = "NDbUnit.Core.SqlServerCe.SqlCeUnitTest";
+
+        public static string NDBUNIT_SQLCLIENT_ASSEMBLY = "NDbUnit.SqlClient";
+
+        public static string NDBUNIT_SQLCLIENT_TYPE = "NDbUnit.Core.SqlClient.SqlDbUnitTest";
+
+        public static string NDBUNIT_SQLLITE_ASSEMBLY = "NDbUnit.SqlLite";
+
+        public static string NDBUNIT_SQLLITE_TYPE = "NDbUnit.Core.SqlLite.SqlLiteUnitTest";
 
         /// <summary>
         /// Represents the default filepath to the XML file that contains the test data to load into the database to support the tests
@@ -310,6 +333,14 @@ namespace Proteus.Utility.UnitTest
         /// <summary>
         /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
         /// </summary>
+        protected virtual void DatabaseFixtureSetUp()
+        {
+            DatabaseFixtureSetUp(false);
+        }
+
+        /// <summary>
+        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
+        /// </summary>
         /// <param name="ignoreSchemaDifferences">if set to <c>true</c> [ignore schema differences].</param>
         protected virtual void DatabaseFixtureSetUp(bool ignoreSchemaDifferences)
         {
@@ -327,14 +358,6 @@ namespace Proteus.Utility.UnitTest
             SaveBackupDatabase();
             OutputTraceMessage("DatabaseUnitTestBase: DatabaseFixtureSetUp Complete");
 
-        }
-
-        /// <summary>
-        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
-        /// </summary>
-        protected virtual void DatabaseFixtureSetUp()
-        {
-            DatabaseFixtureSetUp(false);
         }
 
         /// <summary>
@@ -464,60 +487,6 @@ namespace Proteus.Utility.UnitTest
         }
 
         /// <summary>
-        /// Gets the database.
-        /// </summary>
-        /// <param name="connectionString">The connection string.</param>
-        /// <param name="clientType">Type of the client.</param>
-        /// <returns>NDbUnit database object to interact with the Database</returns>
-        private NDbUnit.Core.INDbUnitTest GetDatabase(string connectionString, DatabaseClientType clientType)
-        {
-            switch (clientType)
-            {
-                case DatabaseClientType.SqlClient:
-                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlClient.SqlDbUnitTest", "NDbUnit.SqlClient", connectionString);
-
-                case DatabaseClientType.OleDBClient:
-                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.OleDb.OleDbUnitTest","NDbUnit.OleDb", connectionString);
-
-                case DatabaseClientType.SqlCeClient:
-                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlServerCe.SqlCeUnitTest","NDbUnit.SqlServerCe", connectionString);
-
-                case DatabaseClientType.SqliteClient:
-                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.SqlLite.SqlLiteUnitTest","NDbUnit.SqlLite", connectionString);
-
-                case DatabaseClientType.MySqlClient:
-                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest("NDbUnit.Core.MySqlClient.MySqlDbUnitTest","NDbUnit.MySql", connectionString);
-
-                case DatabaseClientType.OracleClient:
-                    throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
-
-                default:
-                    throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
-            }
-
-        }
-
-        /// <summary>
-        /// Outputs the trace message depending on the value of _printTraceOutput.
-        /// </summary>
-        /// <param name="msg">The message.</param>
-        private void OutputTraceMessage(string msg)
-        {
-            if (this._printTraceOutput)
-                System.Diagnostics.Trace.WriteLine(msg);
-        }
-
-        /// <summary>
-        /// Validates the connection string is not empty.
-        /// </summary>
-        /// <param name="connectionString">The connection string.</param>
-        private static void ValidateConnectionString(string connectionString)
-        {
-            if (String.IsNullOrEmpty(connectionString))
-                throw new InvalidOperationException("_databaseConnectionString field cannot be null or empty!\nSet a value for _databaseConnectionString\nor override the DatabaseConnectionString property from the base class to provide a custom getter for this value.");
-        }
-
-        /// <summary>
         /// Validates the schema against the database and throws exceptions if differences exist.
         /// </summary>
         /// <param name="schemaFilename">The schema filename.</param>
@@ -545,13 +514,13 @@ namespace Proteus.Utility.UnitTest
                         databaseConnection = DatabaseSpecificTypeFactory.CreateIDbConnection("System.Data.SqlClient.SqlConnection", assemblyName, DatabaseConnectionString);
                         dataAdapter = DatabaseSpecificTypeFactory.CreateIDbDataAdapter("System.Data.SqlClient.SqlDataAdapter", assemblyName, DatabaseConnectionString); ;
                         break;
-                    
+
                     case DatabaseClientType.OleDBClient:
                         assemblyName = "System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089";
                         databaseConnection = DatabaseSpecificTypeFactory.CreateIDbConnection("System.Data.OleDbClient.OleDbConnection", assemblyName, DatabaseConnectionString);
                         dataAdapter = DatabaseSpecificTypeFactory.CreateIDbDataAdapter("System.Data.OleDbClient.OleDbDataAdapter", assemblyName, DatabaseConnectionString); ;
                         break;
-                    
+
                     default:
                         throw new InvalidOperationException(string.Format("Unsupported Database client type: {0}", _databaseClientType.ToString()));
                 }
@@ -559,7 +528,7 @@ namespace Proteus.Utility.UnitTest
                 {
                     DataTable dtDB;
                     DataColumn dcDB;
-                    foreach (System.Data.DataTable dtSchema in dsSchema.Tables)
+                    foreach (DataTable dtSchema in dsSchema.Tables)
                     {
                         tblName = dtSchema.TableName;
                         dataAdapter.SelectCommand.CommandText = string.Format("select top 1 * from [{0}]", tblName);
@@ -584,7 +553,7 @@ namespace Proteus.Utility.UnitTest
                                     else
                                         if (dcSchema1.DataType == typeof(string) && dcSchema1.MaxLength != dcDB.MaxLength)
                                             // if the column is a string, compare the maximum length
-                                            compareResults.Errors.Add(tblName + "." + colName + "  : Column of type String has different maximum length (Db = " + dcDB.MaxLength + ",  Xsd = " + dcSchema1.MaxLength + ")");
+                                            compareResults.Errors.Add(String.Format("{0}.{1}  : Column of type String has different maximum length (Db = {2},  Xsd = {3})", tblName, colName, dcDB.MaxLength, dcSchema1.MaxLength));
                                 // do we want to compare: AutoIncrement, AutoIncrementSeed, AutoIncrementStep?
                             }
                             // determine if new columns have been added to database
@@ -635,6 +604,60 @@ namespace Proteus.Utility.UnitTest
             if (compareResults.Errors.Count > 0)
                 throw new InvalidOperationException(string.Format("Cannot validate XSD Schema file {0} against existing database schema.\nTests cannot continue else data may be lost.\nCorrect errors in schema file and attempt tests again.", schemaFilename));
 
+        }
+
+        /// <summary>
+        /// Gets the database.
+        /// </summary>
+        /// <param name="connectionString">The connection string.</param>
+        /// <param name="clientType">Type of the client.</param>
+        /// <returns>NDbUnit database object to interact with the Database</returns>
+        private NDbUnit.Core.INDbUnitTest GetDatabase(string connectionString, DatabaseClientType clientType)
+        {
+            switch (clientType)
+            {
+                case DatabaseClientType.SqlClient:
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_SQLCLIENT_TYPE, NDBUNIT_SQLCLIENT_ASSEMBLY, connectionString);
+
+                case DatabaseClientType.OleDBClient:
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_OLEDB_TYPE, NDBUNIT_OLEDB_ASSEMBLY, connectionString);
+
+                case DatabaseClientType.SqlCeClient:
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_SQLCE_TYPE, NDBUNIT_SQLCE_ASSEMBLY, connectionString);
+
+                case DatabaseClientType.SqliteClient:
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_SQLLITE_TYPE, NDBUNIT_SQLLITE_ASSEMBLY, connectionString);
+
+                case DatabaseClientType.MySqlClient:
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_MYSQL_TYPE, NDBUNIT_MYSQL_ASSEMBLY, connectionString);
+
+                case DatabaseClientType.OracleClient:
+                    return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_ORACLE_TYPE, NDBUNIT_ORACLE_ASSEMBLY, connectionString);
+
+                default:
+                    throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
+            }
+
+        }
+
+        /// <summary>
+        /// Outputs the trace message depending on the value of _printTraceOutput.
+        /// </summary>
+        /// <param name="msg">The message.</param>
+        private void OutputTraceMessage(string msg)
+        {
+            if (_printTraceOutput)
+                System.Diagnostics.Trace.WriteLine(msg);
+        }
+
+        /// <summary>
+        /// Validates the connection string is not empty.
+        /// </summary>
+        /// <param name="connectionString">The connection string.</param>
+        private static void ValidateConnectionString(string connectionString)
+        {
+            if (String.IsNullOrEmpty(connectionString))
+                throw new InvalidOperationException("_databaseConnectionString field cannot be null or empty!\nSet a value for _databaseConnectionString\nor override the DatabaseConnectionString property from the base class to provide a custom getter for this value.");
         }
 
         /// <summary>
@@ -703,8 +726,6 @@ namespace Proteus.Utility.UnitTest
                     throw new ArgumentException(ex.Message, "characterToRepeat", ex);
                 }
             }
-
-
 
         }
 

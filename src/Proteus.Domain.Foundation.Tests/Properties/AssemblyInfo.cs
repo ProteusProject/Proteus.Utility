@@ -1,7 +1,7 @@
 ﻿/*
  *
  * Proteus
- * Copyright (C) 2008, 2009
+ * Copyright (C) 2008, 2009, 2010
  * Stephen A. Bohlen
  * http://www.unhandled-exceptions.com
  *
@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Stephen A. Bohlen")]
 [assembly: AssemblyProduct("Domain.Foundation.Tests")]
-[assembly: AssemblyCopyright("Copyright © 2008, 2009 Stephen A. Bohlen")]
+[assembly: AssemblyCopyright("Copyright © 2008, 2009, 2010 Stephen A. Bohlen")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

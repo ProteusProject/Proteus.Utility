@@ -84,11 +84,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="And method">
-        <param name="Local" value="html\e6bc4715-daa6-64f9-5289-8c561f2b43c4.htm">
+        <param name="Local" value="html\dbc60249-fbf4-8795-3aa7-6211e67a2c9d.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="And method">
-        <param name="Local" value="html\dbc60249-fbf4-8795-3aa7-6211e67a2c9d.htm">
+        <param name="Local" value="html\e6bc4715-daa6-64f9-5289-8c561f2b43c4.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="AndSpecification(Of T) class">
@@ -138,11 +138,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="AndSpecification<T> class">
-        <param name="Local" value="html\f242d4c1-0b6e-669d-4c96-71d8ae3173bb.htm">
+        <param name="Local" value="html\75d14dda-927d-ffd9-7e16-b7f7f4e2fb57.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="AndSpecification<T> class">
-        <param name="Local" value="html\75d14dda-927d-ffd9-7e16-b7f7f4e2fb57.htm">
+        <param name="Local" value="html\f242d4c1-0b6e-669d-4c96-71d8ae3173bb.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -246,11 +246,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="CompositeSpecification<T> class">
-        <param name="Local" value="html\b2a53301-3e0a-53d0-fecb-8249e152c1bf.htm">
+        <param name="Local" value="html\08e0be44-686a-c40a-ee7c-fce122c59e8f.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="CompositeSpecification<T> class">
-        <param name="Local" value="html\08e0be44-686a-c40a-ee7c-fce122c59e8f.htm">
+        <param name="Local" value="html\b2a53301-3e0a-53d0-fecb-8249e152c1bf.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -291,6 +291,34 @@
         <param name="Local" value="html\afbd760e-67a5-5e4f-6806-c367d74d20d9.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateIDbConnection method">
+        <param name="Local" value="html\4546c394-a13d-aca3-8d67-bbbdcc1ad67a.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateIDbDataAdapter method">
+        <param name="Local" value="html\f002539f-f6e5-c2b4-3f5b-90b8f754abe0.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateINDBUnitTest method">
+        <param name="Local" value="html\ad2ba5ee-7239-421e-9d4a-f6468d9627b4.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateObjectWithOneStringConstructor(Of T) method">
+        <param name="Local" value="html\42b9aece-d4a6-2e46-1e18-112bfdeb376c.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateObjectWithOneStringConstructor<T> method">
+        <param name="Local" value="html\42b9aece-d4a6-2e46-1e18-112bfdeb376c.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateObjectWithTwoStringConstructor(Of T) method">
+        <param name="Local" value="html\3a8de674-9bd6-14dd-e50b-b8123a65b1ae.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="CreateObjectWithTwoStringConstructor<T> method">
+        <param name="Local" value="html\3a8de674-9bd6-14dd-e50b-b8123a65b1ae.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="DatabaseConnectionString property">
         <param name="Local" value="html\187938ed-b79b-88e9-820b-147c856a0fca.htm">
       </OBJECT><LI>
@@ -311,16 +339,78 @@
         <param name="Local" value="html\67f5c042-6a2a-5657-2918-260954d4742d.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory class">
+        <param name="Local" value="html\bbc41f3f-46ea-e802-2be4-76ef44dfe72d.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory class">
+        <param name="Local" value="html\b71e6a70-551e-795c-8895-7ae8d928520f.htm">
+      </OBJECT><LI>
+    <UL>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="about DatabaseSpecificTypeFactory class">
+        <param name="Local" value="html\bbc41f3f-46ea-e802-2be4-76ef44dfe72d.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="all members">
+        <param name="Local" value="html\b71e6a70-551e-795c-8895-7ae8d928520f.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="constructor">
+        <param name="Local" value="html\0d2afe6d-cc27-f82d-5012-20083b3428a7.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="methods">
+        <param name="Local" value="html\d9dae2b7-e41b-dd36-de08-fcbe5f934ec9.htm">
+      </OBJECT><LI>
+    </UL>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateIDbConnection method">
+        <param name="Local" value="html\4546c394-a13d-aca3-8d67-bbbdcc1ad67a.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateIDbDataAdapter method">
+        <param name="Local" value="html\f002539f-f6e5-c2b4-3f5b-90b8f754abe0.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateINDBUnitTest method">
+        <param name="Local" value="html\ad2ba5ee-7239-421e-9d4a-f6468d9627b4.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateObjectWithOneStringConstructor(Of T) method">
+        <param name="Local" value="html\42b9aece-d4a6-2e46-1e18-112bfdeb376c.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateObjectWithOneStringConstructor<T> method">
+        <param name="Local" value="html\42b9aece-d4a6-2e46-1e18-112bfdeb376c.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateObjectWithTwoStringConstructor(Of T) method">
+        <param name="Local" value="html\3a8de674-9bd6-14dd-e50b-b8123a65b1ae.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.CreateObjectWithTwoStringConstructor<T> method">
+        <param name="Local" value="html\3a8de674-9bd6-14dd-e50b-b8123a65b1ae.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.DatabaseSpecificTypeFactory constructor">
+        <param name="Local" value="html\0d2afe6d-cc27-f82d-5012-20083b3428a7.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="DatabaseSpecificTypeFactory.ResolveType method">
+        <param name="Local" value="html\fc154960-bc98-ffe8-ec4f-d6be8766229e.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="DatabaseTearDown method">
         <param name="Local" value="html\e03ef6ce-54df-eb1d-bc3e-b78361487714.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="DatabaseUnitTestBase class">
-        <param name="Local" value="html\1f19eb30-9b06-482f-1cac-1bcad22842d9.htm">
+        <param name="Local" value="html\c700f99c-fd99-c64d-5b19-4c05d7cedc88.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="DatabaseUnitTestBase class">
-        <param name="Local" value="html\c700f99c-fd99-c64d-5b19-4c05d7cedc88.htm">
+        <param name="Local" value="html\1f19eb30-9b06-482f-1cac-1bcad22842d9.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -528,11 +618,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Equals method">
-        <param name="Local" value="html\6935f428-8823-4444-b872-7e4508d9a08e.htm">
+        <param name="Local" value="html\a395edb6-a989-8735-6b44-aba975fe92e1.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Equals method">
-        <param name="Local" value="html\a395edb6-a989-8735-6b44-aba975fe92e1.htm">
+        <param name="Local" value="html\6935f428-8823-4444-b872-7e4508d9a08e.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Equals method">
@@ -556,15 +646,15 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="GetHashCode method">
-        <param name="Local" value="html\384d7113-2489-0b1b-3e79-2e835de32e08.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="GetHashCode method">
         <param name="Local" value="html\a079c3dd-6c8a-a1e7-8918-cec564206640.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="GetHashCode method">
         <param name="Local" value="html\a3e1daf0-570c-c5dd-e595-750b723c7408.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="GetHashCode method">
+        <param name="Local" value="html\384d7113-2489-0b1b-3e79-2e835de32e08.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="GetInstanceFieldValue method">
@@ -610,11 +700,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="GuidIdentityPersistenceBase<T> class">
-        <param name="Local" value="html\92e2ea5c-9e98-f17c-63d1-d5d43172c1fc.htm">
+        <param name="Local" value="html\8b427c91-56cb-32c3-ca6f-f51b384836f7.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="GuidIdentityPersistenceBase<T> class">
-        <param name="Local" value="html\8b427c91-56cb-32c3-ca6f-f51b384836f7.htm">
+        <param name="Local" value="html\92e2ea5c-9e98-f17c-63d1-d5d43172c1fc.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -648,11 +738,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="ICompositeSpecification(Of T) interface">
-        <param name="Local" value="html\aae8e6c4-2f28-ab03-db77-68f252d09ebb.htm">
+        <param name="Local" value="html\bc2b0b0d-9e03-6cad-deff-a7a3a43a09c4.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="ICompositeSpecification(Of T) interface">
-        <param name="Local" value="html\bc2b0b0d-9e03-6cad-deff-a7a3a43a09c4.htm">
+        <param name="Local" value="html\aae8e6c4-2f28-ab03-db77-68f252d09ebb.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -716,11 +806,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IdentityPersistenceBase(Of TObject, TIdentity) class">
-        <param name="Local" value="html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm">
+        <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IdentityPersistenceBase(Of TObject, TIdentity) class">
-        <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
+        <param name="Local" value="html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -798,11 +888,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IdentityPersistenceBase<TObject, TIdentity> class">
-        <param name="Local" value="html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm">
+        <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IdentityPersistenceBase<TObject, TIdentity> class">
-        <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
+        <param name="Local" value="html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -880,11 +970,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Inequality operator">
-        <param name="Local" value="html\93a3ca84-a04c-0839-a40c-9958b59895b8.htm">
+        <param name="Local" value="html\f4ae9a49-b9f9-f758-41e1-2ee28c5ba401.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Inequality operator">
-        <param name="Local" value="html\f4ae9a49-b9f9-f758-41e1-2ee28c5ba401.htm">
+        <param name="Local" value="html\93a3ca84-a04c-0839-a40c-9958b59895b8.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Information property">
@@ -1036,15 +1126,7 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IsSatisfiedBy method">
-        <param name="Local" value="html\e271db47-9d72-8370-3761-caa02b14101e.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="IsSatisfiedBy method">
-        <param name="Local" value="html\dfeb74db-cd82-102c-a391-ad8a33c0dca9.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="IsSatisfiedBy method">
-        <param name="Local" value="html\c44270b2-0c22-ab4d-ddb6-faba08c9f22d.htm">
+        <param name="Local" value="html\771e19f3-11b9-a2a7-9c5c-78e395d7c63f.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IsSatisfiedBy method">
@@ -1052,7 +1134,15 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IsSatisfiedBy method">
-        <param name="Local" value="html\771e19f3-11b9-a2a7-9c5c-78e395d7c63f.htm">
+        <param name="Local" value="html\c44270b2-0c22-ab4d-ddb6-faba08c9f22d.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="IsSatisfiedBy method">
+        <param name="Local" value="html\e271db47-9d72-8370-3761-caa02b14101e.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="IsSatisfiedBy method">
+        <param name="Local" value="html\dfeb74db-cd82-102c-a391-ad8a33c0dca9.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="IsTransient property">
@@ -1250,11 +1340,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="OrSpecification<T> class">
-        <param name="Local" value="html\2d3ae2c0-6925-21f3-3d67-ba8dd0d462ad.htm">
+        <param name="Local" value="html\ea5e1cfd-3ad0-7cab-c187-4611734c8cbe.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="OrSpecification<T> class">
-        <param name="Local" value="html\ea5e1cfd-3ad0-7cab-c187-4611734c8cbe.htm">
+        <param name="Local" value="html\2d3ae2c0-6925-21f3-3d67-ba8dd0d462ad.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -1304,11 +1394,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.AndSpecification(Of T) class">
-        <param name="Local" value="html\75d14dda-927d-ffd9-7e16-b7f7f4e2fb57.htm">
+        <param name="Local" value="html\f242d4c1-0b6e-669d-4c96-71d8ae3173bb.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.AndSpecification(Of T) class">
-        <param name="Local" value="html\f242d4c1-0b6e-669d-4c96-71d8ae3173bb.htm">
+        <param name="Local" value="html\75d14dda-927d-ffd9-7e16-b7f7f4e2fb57.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.AndSpecification<T> class">
@@ -1328,13 +1418,13 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.CompositeSpecification<T> class">
-        <param name="Local" value="html\b2a53301-3e0a-53d0-fecb-8249e152c1bf.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.CompositeSpecification<T> class">
         <param name="Local" value="html\08e0be44-686a-c40a-ee7c-fce122c59e8f.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Domain.Foundation.CompositeSpecification<T> class">
+        <param name="Local" value="html\b2a53301-3e0a-53d0-fecb-8249e152c1bf.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.GuidIdentityPersistenceBase(Of T) class">
         <param name="Local" value="html\8b427c91-56cb-32c3-ca6f-f51b384836f7.htm">
       </OBJECT><LI>
@@ -1360,13 +1450,13 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.ICompositeSpecification<T> interface">
-        <param name="Local" value="html\aae8e6c4-2f28-ab03-db77-68f252d09ebb.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.ICompositeSpecification<T> interface">
         <param name="Local" value="html\bc2b0b0d-9e03-6cad-deff-a7a3a43a09c4.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Domain.Foundation.ICompositeSpecification<T> interface">
+        <param name="Local" value="html\aae8e6c4-2f28-ab03-db77-68f252d09ebb.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IdentityPersistenceBase(Of TObject, TIdentity) class">
         <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
       </OBJECT><LI>
@@ -1376,11 +1466,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IdentityPersistenceBase<TObject, TIdentity> class">
-        <param name="Local" value="html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm">
+        <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IdentityPersistenceBase<TObject, TIdentity> class">
-        <param name="Local" value="html\c5b82ecd-3220-8587-38c4-891a428c29ad.htm">
+        <param name="Local" value="html\5c107e39-1b5d-75e7-9026-3ab8306dfbd2.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IPersistenceIdentityField interface">
@@ -1388,11 +1478,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IPersistenceUpdateTrackable interface">
-        <param name="Local" value="html\9418c319-ce36-3948-36ea-33272ef107f3.htm">
+        <param name="Local" value="html\383a1b82-dafb-a65d-79b1-9e5168851878.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IPersistenceUpdateTrackable interface">
-        <param name="Local" value="html\383a1b82-dafb-a65d-79b1-9e5168851878.htm">
+        <param name="Local" value="html\9418c319-ce36-3948-36ea-33272ef107f3.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IPersistenceVersionField interface">
@@ -1400,18 +1490,22 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.IPersistentObject interface">
-        <param name="Local" value="html\08ce6cd8-f256-5253-d8fa-4f7904db3e00.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.IPersistentObject interface">
         <param name="Local" value="html\5b5e8038-cdc4-f1b4-7cae-dd20081a44d5.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Domain.Foundation.IPersistentObject interface">
+        <param name="Local" value="html\08ce6cd8-f256-5253-d8fa-4f7904db3e00.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Domain.Foundation.ISpecification(Of T) interface">
+        <param name="Local" value="html\aa52e34a-2607-67c7-35fc-3c7593be8495.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.ISpecification(Of T) interface">
         <param name="Local" value="html\feef22e3-7ed1-90a8-e2c7-ccc813831660.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.ISpecification(Of T) interface">
+        <param name="Name" value="Proteus.Domain.Foundation.ISpecification<T> interface">
         <param name="Local" value="html\aa52e34a-2607-67c7-35fc-3c7593be8495.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
@@ -1419,19 +1513,11 @@
         <param name="Local" value="html\feef22e3-7ed1-90a8-e2c7-ccc813831660.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.ISpecification<T> interface">
-        <param name="Local" value="html\aa52e34a-2607-67c7-35fc-3c7593be8495.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.NotSpecification(Of T) class">
-        <param name="Local" value="html\d7f3fefd-dc25-505d-368c-7506ad1ea191.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.NotSpecification(Of T) class">
         <param name="Local" value="html\53984af7-23ef-2237-b3c1-7ad4435907e1.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.NotSpecification<T> class">
+        <param name="Name" value="Proteus.Domain.Foundation.NotSpecification(Of T) class">
         <param name="Local" value="html\d7f3fefd-dc25-505d-368c-7506ad1ea191.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
@@ -1439,12 +1525,16 @@
         <param name="Local" value="html\53984af7-23ef-2237-b3c1-7ad4435907e1.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.OrSpecification(Of T) class">
-        <param name="Local" value="html\2d3ae2c0-6925-21f3-3d67-ba8dd0d462ad.htm">
+        <param name="Name" value="Proteus.Domain.Foundation.NotSpecification<T> class">
+        <param name="Local" value="html\d7f3fefd-dc25-505d-368c-7506ad1ea191.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.OrSpecification(Of T) class">
         <param name="Local" value="html\ea5e1cfd-3ad0-7cab-c187-4611734c8cbe.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Domain.Foundation.OrSpecification(Of T) class">
+        <param name="Local" value="html\2d3ae2c0-6925-21f3-3d67-ba8dd0d462ad.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.OrSpecification<T> class">
@@ -1456,31 +1546,39 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.ValueObjectBase(Of TObject) class">
-        <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
+        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.ValueObjectBase(Of TObject) class">
-        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
-      </OBJECT><LI>
-      <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Domain.Foundation.ValueObjectBase<TObject> class">
-        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
+        <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Domain.Foundation.ValueObjectBase<TObject> class">
         <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Domain.Foundation.ValueObjectBase<TObject> class">
+        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Utility.UnitTest namespace">
         <param name="Local" value="html\33dd314c-3c55-a2ad-060c-99279e29efcb.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
-        <param name="Name" value="Proteus.Utility.UnitTest.DatabaseUnitTestBase class">
-        <param name="Local" value="html\c700f99c-fd99-c64d-5b19-4c05d7cedc88.htm">
+        <param name="Name" value="Proteus.Utility.UnitTest.DatabaseSpecificTypeFactory class">
+        <param name="Local" value="html\bbc41f3f-46ea-e802-2be4-76ef44dfe72d.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Utility.UnitTest.DatabaseSpecificTypeFactory class">
+        <param name="Local" value="html\b71e6a70-551e-795c-8895-7ae8d928520f.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Utility.UnitTest.DatabaseUnitTestBase class">
         <param name="Local" value="html\1f19eb30-9b06-482f-1cac-1bcad22842d9.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="Proteus.Utility.UnitTest.DatabaseUnitTestBase class">
+        <param name="Local" value="html\c700f99c-fd99-c64d-5b19-4c05d7cedc88.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Utility.UnitTest.DatabaseUnitTestBase.DatabaseClientType enumeration">
@@ -1488,11 +1586,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Utility.UnitTest.DatabaseUnitTestBase.GuidGen class">
-        <param name="Local" value="html\7eeb32d3-7775-a2a3-e0f2-b0840bab1923.htm">
+        <param name="Local" value="html\f427e310-1bde-11ca-6496-7d69e3e3800b.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Utility.UnitTest.DatabaseUnitTestBase.GuidGen class">
-        <param name="Local" value="html\f427e310-1bde-11ca-6496-7d69e3e3800b.htm">
+        <param name="Local" value="html\7eeb32d3-7775-a2a3-e0f2-b0840bab1923.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="Proteus.Utility.UnitTest.SchemaComparisonReport class">
@@ -1527,6 +1625,10 @@
         <param name="Local" value="html\66337735-986f-058a-1508-b0941bafc85c.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
+        <param name="Name" value="ResolveType method">
+        <param name="Local" value="html\fc154960-bc98-ffe8-ec4f-d6be8766229e.htm">
+      </OBJECT><LI>
+      <LI><OBJECT type="text/sitemap">
         <param name="Name" value="SaveBackupDatabase method">
         <param name="Local" value="html\d691929e-6e40-bb9b-bec9-fb170167efe6.htm">
       </OBJECT><LI>
@@ -1540,11 +1642,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="SchemaComparisonReport class">
-        <param name="Local" value="html\59ec776f-6a6e-84f3-a873-53c5ad1b3835.htm">
+        <param name="Local" value="html\ea15264f-d7e1-d136-f66f-163327172485.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="SchemaComparisonReport class">
-        <param name="Local" value="html\ea15264f-d7e1-d136-f66f-163327172485.htm">
+        <param name="Local" value="html\59ec776f-6a6e-84f3-a873-53c5ad1b3835.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -1634,11 +1736,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="UnitTestBase class">
-        <param name="Local" value="html\745dae35-e035-01b7-65a9-eaba6acccc16.htm">
+        <param name="Local" value="html\1cf32c63-32c3-72b5-9768-e2034ed11121.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="UnitTestBase class">
-        <param name="Local" value="html\1cf32c63-32c3-72b5-9768-e2034ed11121.htm">
+        <param name="Local" value="html\745dae35-e035-01b7-65a9-eaba6acccc16.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -1734,11 +1836,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="ValueObjectBase(Of TObject) class">
-        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
+        <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="ValueObjectBase(Of TObject) class">
-        <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
+        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
@@ -1784,11 +1886,11 @@
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="ValueObjectBase<TObject> class">
-        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
+        <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
       </OBJECT><LI>
       <LI><OBJECT type="text/sitemap">
         <param name="Name" value="ValueObjectBase<TObject> class">
-        <param name="Local" value="html\9b3f8ba1-a91d-fd19-3119-94c5940b1bfa.htm">
+        <param name="Local" value="html\70a045b1-84ee-84b1-8881-4f53fa647fc1.htm">
       </OBJECT><LI>
     <UL>
       <LI><OBJECT type="text/sitemap">
