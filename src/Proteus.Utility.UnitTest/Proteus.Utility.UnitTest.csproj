@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseUnitTestBase.cs" />
+    <Compile Include="ISchemaValidator.cs" />
+    <Compile Include="NullSchemaValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DatabaseSpecificTypeFactory.cs" />
+    <Compile Include="SchemaComparisonReport.cs" />
+    <Compile Include="SqlClientSchemaValidator.cs" />
     <Compile Include="UnitTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
