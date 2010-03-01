@@ -5,23 +5,17 @@ using MbUnit.Framework;
 
 namespace Proteus.Utility.UnitTest.Test
 {
-    public class ValidateSchemaOnlyTestHarness : DatabaseUnitTestBase
+
+    public class ValidateSchemaUsingSchemaPrefixedTablenames : DatabaseUnitTestBase
     {
-        protected override void DatabaseFixtureSetUp()
+        protected override string TestDataFilename
         {
-            
+            get { return @"..\..\TestData\DataFileWithSchemaPrefixes.xml"; }
         }
-        protected override void DatabaseFixtureTearDown()
+
+        protected override string TestSchemaFilename
         {
-            
-        }
-        protected override void DatabaseSetUp()
-        {
-            
-        }
-        protected override void DatabaseTearDown()
-        {
-            
+            get { return @"..\..\TestData\SchemaWithSchemaPrefixes.xsd"; }
         }
 
         [Test]
@@ -30,6 +24,31 @@ namespace Proteus.Utility.UnitTest.Test
             ValidateSchemaAgainstDatabase(TestSchemaFilename);
         }
 
+        protected override void DatabaseFixtureSetUp() { }
+
+        protected override void DatabaseFixtureTearDown() { }
+
+        protected override void DatabaseSetUp() { }
+
+        protected override void DatabaseTearDown() { }
+
+    }
+
+    public class ValidateSchemaUsingNonSchemaPrefixedTablenames : DatabaseUnitTestBase
+    {
+        [Test]
+        public void ValidateSchema()
+        {
+            ValidateSchemaAgainstDatabase(TestSchemaFilename);
+        }
+
+        protected override void DatabaseFixtureSetUp() { }
+
+        protected override void DatabaseFixtureTearDown() { }
+
+        protected override void DatabaseSetUp() { }
+
+        protected override void DatabaseTearDown() { }
 
     }
 }

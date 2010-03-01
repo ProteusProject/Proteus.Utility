@@ -49,6 +49,7 @@
     <Compile Include="DatabaseSpecificTypeFactory.cs" />
     <Compile Include="SchemaComparisonReport.cs" />
     <Compile Include="SqlClientSchemaValidator.cs" />
+    <Compile Include="TableNameEncoder.cs" />
     <Compile Include="UnitTestBase.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -56,6 +56,12 @@
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DatabaseSpecificTypeFactoryTests.cs" />
+    <Compile Include="TableNameEncoderTests.cs" />
+    <Compile Include="TestData\SchemaWithSchemaPrefixes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchemaWithSchemaPrefixes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UnitTestBaseTest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -68,6 +74,17 @@
       <LastGenOutput>database.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="TestData\SchemaWithSchemaPrefixes.xsc">
+      <DependentUpon>SchemaWithSchemaPrefixes.xsd</DependentUpon>
+    </None>
+    <None Include="TestData\SchemaWithSchemaPrefixes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SchemaWithSchemaPrefixes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestData\SchemaWithSchemaPrefixes.xss">
+      <DependentUpon>SchemaWithSchemaPrefixes.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Proteus.Utility.UnitTest\Proteus.Utility.UnitTest.csproj">
@@ -77,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestData\BackupData.xml" />
+    <Content Include="TestData\DataFileWithSchemaPrefixes.xml" />
     <Content Include="TestData\Testdata.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

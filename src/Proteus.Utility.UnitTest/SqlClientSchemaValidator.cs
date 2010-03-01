@@ -29,6 +29,7 @@ using System.Data.SqlClient;
 
 namespace Proteus.Utility.UnitTest
 {
+
     public class SqlClientSchemaValidator : ISchemaValidator
     {
         private string _connectionString;
@@ -51,6 +52,7 @@ namespace Proteus.Utility.UnitTest
             _connectionString = connectionString;
         }
 
+
         public SchemaComparisonReport Validate()
         {
 
@@ -59,6 +61,8 @@ namespace Proteus.Utility.UnitTest
                 SchemaComparisonReport compareResults = new SchemaComparisonReport();
 
                 dsSchema.ReadXmlSchema(_schemaFilename);
+
+                var encoder = new TableNameEncoder();
 
                 string tblName;
                 string colName;
@@ -77,8 +81,8 @@ namespace Proteus.Utility.UnitTest
                     DataColumn dcDB;
                     foreach (DataTable dtSchema in dsSchema.Tables)
                     {
-                        tblName = dtSchema.TableName;
-                        dataAdapter.SelectCommand.CommandText = string.Format("select top 1 * from [{0}]", tblName);
+                        tblName = encoder.Encode(dtSchema.TableName);
+                        dataAdapter.SelectCommand.CommandText = string.Format("select top 1 * from {0}", tblName);
                         try
                         {
                             // determine if the table exists in the database
@@ -127,7 +131,7 @@ namespace Proteus.Utility.UnitTest
                                         compareResults.Information.Add(String.Format("{0}.{1}  :  Column does not exist in test schema, but should be okay because Db column allows null values.", tblName, colName));
                             }
                         }
-                        catch (SqlException)
+                        catch (SqlException ex)
                         {
                             compareResults.Errors.Add(String.Format("{0}  :  Table does not exist in database.", tblName));
                         }
