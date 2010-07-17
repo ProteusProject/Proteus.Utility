@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proteus.Utility.UnitTest", "Proteus.Utility.UnitTest\Proteus.Utility.UnitTest.csproj", "{B64E4C8C-D622-42E9-AD6F-244581F33D82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proteus.Utility.UnitTest.Test", "Proteus.Utility.UnitTest.Test\Proteus.Utility.UnitTest.Test.csproj", "{1296F952-000F-4E02-A991-4C135C73D98F}"
