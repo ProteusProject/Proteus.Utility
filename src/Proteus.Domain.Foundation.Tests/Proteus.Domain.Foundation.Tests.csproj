@@ -93,7 +93,21 @@
     <Compile Include="NHibernateSessionManager.cs" />
     <Compile Include="PersistenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpecificationTests.cs" />
+    <Compile Include="Specifications\AdHocSpecificationTests.cs" />
+    <Compile Include="Specifications\BasicISpecificationTests.cs" />
+    <Compile Include="Specifications\BasicQuerySpecificationTests.cs" />
+    <Compile Include="Specifications\Domain.Services\IRepository.cs" />
+    <Compile Include="Specifications\Domain\Base\EntityBase.cs" />
+    <Compile Include="Specifications\Domain\Base\IEntity.cs" />
+    <Compile Include="Specifications\Domain\Blog.cs" />
+    <Compile Include="Specifications\Domain\User.cs" />
+    <Compile Include="Specifications\Infrastructure\MemoryRepository.cs" />
+    <Compile Include="Specifications\Infrastructure\Repository.cs" />
+    <Compile Include="Specifications\ISpecificationWithSimpleReturnTypeTests.cs" />
+    <Compile Include="Specifications\MiscTests.cs" />
+    <Compile Include="Specifications\QuerySpecificationWithCustomComplexReturnTypeTests.cs" />
+    <Compile Include="Specifications\QuerySpecificationWithCustomSimpleReturnTypeTests.cs" />
+    <Compile Include="Specifications\SpecificationTestFixture.cs" />
     <Compile Include="TestData\Database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
