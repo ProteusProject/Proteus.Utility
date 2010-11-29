@@ -34,6 +34,7 @@ namespace Proteus.Domain.Foundation
     /// </summary>
     /// <typeparam name="TObject">The type of the object.</typeparam>
     /// <typeparam name="TIdentity">The type of the identity.</typeparam>
+    [Serializable]
     public abstract class IdentityPersistenceBase<TObject, TIdentity> : IPersistentObject where TObject: class 
     {
         /// <summary>

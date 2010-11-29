@@ -9,6 +9,7 @@ namespace Proteus.Domain.Foundation
     /// Based on CodeCamp Server codebase http://code.google.com/p/codecampserver
     /// </summary>
     /// <typeparam name="TObject">The type of the object.</typeparam>
+    [Serializable]
     public abstract class ValueObjectBase<TObject> : IEquatable<TObject> where TObject : class
     {
 

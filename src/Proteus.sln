@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proteus.Domain.Foundation",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proteus.Domain.Foundation.Tests", "Proteus.Domain.Foundation.Tests\Proteus.Domain.Foundation.Tests.csproj", "{D636B834-6E81-4594-B033-D5A7A072BE08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proteus.APIDocumentation", "Proteus.APIDocumentation\Proteus.APIDocumentation.csproj", "{29DD215A-C6A2-43C0-877F-B008A30D8A0F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,10 +31,6 @@ Global
 		{D636B834-6E81-4594-B033-D5A7A072BE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D636B834-6E81-4594-B033-D5A7A072BE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D636B834-6E81-4594-B033-D5A7A072BE08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29DD215A-C6A2-43C0-877F-B008A30D8A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29DD215A-C6A2-43C0-877F-B008A30D8A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29DD215A-C6A2-43C0-877F-B008A30D8A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29DD215A-C6A2-43C0-877F-B008A30D8A0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
