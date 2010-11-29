@@ -86,7 +86,9 @@
     <None Include="Specifications\Specifications.cd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="_ClassDiagram.cd" />
+    <None Include="_ClassDiagram.cd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

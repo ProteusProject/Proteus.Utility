@@ -1,34 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Proteus.Domain.Foundation.CompositeSpecification&lt;T&gt;" Collapsed="true">
-    <Position X="3" Y="0.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAACAAAABgAAAAAAAAAAA=</HashCode>
-      <FileName>Specifications.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Proteus.Domain.Foundation.AndSpecification&lt;T&gt;" Collapsed="true">
-    <Position X="3.25" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAACIAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>Specifications.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Proteus.Domain.Foundation.OrSpecification&lt;T&gt;" Collapsed="true">
-    <Position X="0.75" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAACIAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>Specifications.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Proteus.Domain.Foundation.NotSpecification&lt;T&gt;" Collapsed="true">
-    <Position X="5.75" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAA=</HashCode>
-      <FileName>Specifications.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Proteus.Domain.Foundation.GuidIdentityPersistenceBase&lt;T&gt;" Collapsed="true">
     <Position X="8.5" Y="4.5" Width="2.5" />
     <TypeIdentifier>
