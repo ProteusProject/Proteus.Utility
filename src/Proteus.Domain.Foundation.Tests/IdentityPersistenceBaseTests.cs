@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- */ 
+ */
 
 
 
@@ -37,7 +37,6 @@ namespace Domain.Foundation.Tests
     [TestFixture]
     public class IdentityPersistenceBaseTests : UnitTestBase
     {
-        //TODO: figure out why this test ALWAYS succeeds even if not all of the props are indeed virtual in the base-class
         [Test]
         public void AllPublicPropertiesAreDeclaredVirtual()
         {
@@ -47,7 +46,8 @@ namespace Domain.Foundation.Tests
             {
                 foreach (MethodInfo methodInfo in prop.GetAccessors())
                 {
-                    if ((methodInfo.Attributes & MethodAttributes.Virtual) != MethodAttributes.Virtual)
+                    //http://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isvirtual.aspx
+                    if (!methodInfo.IsVirtual || methodInfo.IsFinal)
                     {
                         Assert.Fail(string.Format("Property {0} must be declared virtual in type {1}", prop.Name, p.GetType().BaseType.ToString()));
                     }
