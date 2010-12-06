@@ -37,7 +37,7 @@ namespace Proteus.Domain.Foundation.Specifications
             this.expression = expression;
         }
 
-        public override Expression<Func<T, bool>> MatchingCriteria
+        public override Expression<Func<T, bool>> Predicate
         {
             get { return expression; }
         }

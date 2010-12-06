@@ -95,7 +95,7 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
                 this.username = username;
             }
 
-            public override Expression<Func<User, bool>> MatchingCriteria
+            public override Expression<Func<User, bool>> Predicate
             {
                 get { return u => u.Username == username; }
             }

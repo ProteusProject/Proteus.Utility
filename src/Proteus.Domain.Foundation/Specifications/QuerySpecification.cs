@@ -41,35 +41,34 @@ namespace Proteus.Domain.Foundation.Specifications
     {
         public abstract Converter<T, TResult> ResultMap { get; }
 
-        public virtual Expression<Func<T, bool>> MatchingCriteria
+        public virtual Expression<Func<T, bool>> Predicate
         {
-            get { return t=> IsSatisfiedBy(t); }
+            get { return t => IsSatisfiedBy(t); }
         }
 
         #region ISpecification<T,TResult> Members
 
         public virtual IQueryable<TResult> SatisfyingElementsFrom(IQueryable<T> candidates)
         {
-            if (MatchingCriteria != null)
-                return candidates.Where(MatchingCriteria).ToList().ConvertAll(ResultMap).AsQueryable();
+            if (Predicate != null)
+                return candidates.Where(Predicate).ToList().ConvertAll(ResultMap).AsQueryable();
 
             return candidates.ToList().ConvertAll(ResultMap).AsQueryable();
         }
 
         public virtual bool IsSatisfiedBy(T candidate)
         {
-            if (MatchingCriteria ==null)
+            if (Predicate == null)
                 throw new InvalidOperationException("You cannot evaluate single candidate against a specification with a NULL MatchiingCriteria!");
 
-            Func<T, bool> criteria = MatchingCriteria.Compile();
+            Func<T, bool> criteria = Predicate.Compile();
 
             return criteria(candidate);
-
         }
 
         #endregion
 
 
-        
+
     }
 }

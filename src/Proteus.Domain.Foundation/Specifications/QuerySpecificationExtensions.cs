@@ -34,15 +34,15 @@ namespace Proteus.Domain.Foundation.Specifications
         public static QuerySpecification<T> And<T>(this QuerySpecification<T> specification1,
                                                    QuerySpecification<T> specification2)
         {
-            var adHocSpec1 = new AdHoc<T>(specification1.MatchingCriteria);
-            var adHocSpec2 = new AdHoc<T>(specification2.MatchingCriteria);
+            var adHocSpec1 = new AdHoc<T>(specification1.Predicate);
+            var adHocSpec2 = new AdHoc<T>(specification2.Predicate);
 
-            InvocationExpression invokedExpr = Expression.Invoke(adHocSpec2.MatchingCriteria,
-                                                                 adHocSpec1.MatchingCriteria.Parameters.Cast<Expression>
+            InvocationExpression invokedExpr = Expression.Invoke(adHocSpec2.Predicate,
+                                                                 adHocSpec1.Predicate.Parameters.Cast<Expression>
                                                                      ());
             Expression<Func<T, bool>> dynamicClause = Expression.Lambda<Func<T, bool>>
-                (Expression.AndAlso(adHocSpec1.MatchingCriteria.Body, invokedExpr),
-                 adHocSpec1.MatchingCriteria.Parameters);
+                (Expression.AndAlso(adHocSpec1.Predicate.Body, invokedExpr),
+                 adHocSpec1.Predicate.Parameters);
 
             return new AdHoc<T>(dynamicClause);
         }
@@ -50,15 +50,15 @@ namespace Proteus.Domain.Foundation.Specifications
         public static QuerySpecification<T> Or<T>(this QuerySpecification<T> specification1,
                                                   QuerySpecification<T> specification2)
         {
-            var adHocSpec1 = new AdHoc<T>(specification1.MatchingCriteria);
-            var adHocSpec2 = new AdHoc<T>(specification2.MatchingCriteria);
+            var adHocSpec1 = new AdHoc<T>(specification1.Predicate);
+            var adHocSpec2 = new AdHoc<T>(specification2.Predicate);
 
-            InvocationExpression invokedExpr = Expression.Invoke(adHocSpec2.MatchingCriteria,
-                                                                 adHocSpec1.MatchingCriteria.Parameters.Cast<Expression>
+            InvocationExpression invokedExpr = Expression.Invoke(adHocSpec2.Predicate,
+                                                                 adHocSpec1.Predicate.Parameters.Cast<Expression>
                                                                      ());
             Expression<Func<T, bool>> dynamicClause = Expression.Lambda<Func<T, bool>>
-                (Expression.OrElse(adHocSpec1.MatchingCriteria.Body, invokedExpr),
-                 adHocSpec1.MatchingCriteria.Parameters);
+                (Expression.OrElse(adHocSpec1.Predicate.Body, invokedExpr),
+                 adHocSpec1.Predicate.Parameters);
 
             return new AdHoc<T>(dynamicClause);
         }

@@ -116,7 +116,7 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
                 get { return b => b.Author; }
             }
 
-            public override Expression<Func<Blog, bool>> MatchingCriteria
+            public override Expression<Func<Blog, bool>> Predicate
             {
                 get { return b => b.Name == blogname; }
             }

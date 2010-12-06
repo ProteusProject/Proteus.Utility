@@ -140,7 +140,7 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
 
     public class PersonWithLastNameBohlenSpecification : QuerySpecification<Person>
     {
-        public override Expression<Func<Person, bool>> MatchingCriteria
+        public override Expression<Func<Person, bool>> Predicate
         {
             get
             {
@@ -200,15 +200,10 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
             _firstname = firstname;
         }
 
-        public override Expression<Func<Person, bool>> MatchingCriteria
+        public override Expression<Func<Person, bool>> Predicate
         {
             get { return p => p.Firstname == _firstname; }
         }
-
-        //public IQueryable<Person> SatisfyingElementsFrom(IQueryable<Person> candidates)
-        //{
-        //    return candidates.Where(c => c.Firstname == _firstname);
-        //}
     }
 
     public class PersonByLastnameSpecification : QuerySpecification<Person>
@@ -225,14 +220,9 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
             _lastname = lastname;
         }
 
-        public override Expression<Func<Person, bool>> MatchingCriteria
+        public override Expression<Func<Person, bool>> Predicate
         {
             get { return p => p.Lastname == _lastname; }
         }
-
-        //public IQueryable<Person> SatisfyingElementsFrom(IQueryable<Person> candidates)
-        //{
-        //    return candidates.Where(c => c.Lastname == _lastname);
-        //}
     }
 }

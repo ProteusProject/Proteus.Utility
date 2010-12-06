@@ -100,7 +100,7 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
                 get { return u => u.Username; }
             }
 
-            public override Expression<Func<User, bool>> MatchingCriteria
+            public override Expression<Func<User, bool>> Predicate
             {
                 get { return u => u.Id == id; }
             }

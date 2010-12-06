@@ -59,8 +59,8 @@ namespace Proteus.Domain.Foundation.Specifications
         {
             var result = candidates;
 
-            if (MatchingCriteria != null)
-                result = candidates.Where(MatchingCriteria);
+            if (Predicate != null)
+                result = candidates.Where(Predicate);
 
             if (OrderingCriteria != null)
             {
