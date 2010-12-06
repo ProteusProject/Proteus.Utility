@@ -41,9 +41,9 @@ namespace Proteus.Domain.Foundation.Specifications
     {
         public abstract Converter<T, TResult> ResultMap { get; }
 
-        public virtual Expression<Func<T, bool>> Predicate
+        public abstract Expression<Func<T, bool>> Predicate
         {
-            get { return t => IsSatisfiedBy(t); }
+            get;
         }
 
         #region ISpecification<T,TResult> Members

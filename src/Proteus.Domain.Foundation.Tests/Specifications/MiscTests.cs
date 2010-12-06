@@ -23,7 +23,6 @@
  * 
  */
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +31,7 @@ using MbUnit.Framework;
 using System.Linq.Expressions;
 using Proteus.Domain.Foundation.Specifications;
 
-namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
+namespace Proteus.Domain.Foundation.Tests.Specifications
 {
     public class Address
     {
@@ -61,12 +60,20 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
     [TestFixture]
     public class Tests
     {
+        private Person _alsoNotParent;
+
         private Person _child1;
+
         private Person _child2;
+
         private Person _child3;
+
         private List<Person> _children;
+
         private Person _notParent;
+
         private Person _parent;
+
         private List<Person> _people;
 
         [FixtureSetUp]
@@ -93,8 +100,38 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
                                     };
 
             _notParent = new Person() { Firstname = "Susan", Lastname = "Doe" };
+            _alsoNotParent = new Person() { Firstname = "Susan", Lastname = "UniqueLastname" };
 
-            _people = new List<Person>() { _parent, _notParent, _child1, _child2, _child3 };
+            _people = new List<Person>() { _parent, _notParent, _alsoNotParent, _child1, _child2, _child3 };
+        }
+
+        [Test]
+        public void CanApplySpecToSingleElement()
+        {
+            var spec = new PersonWithLastNameBohlenSpecification();
+            var result = spec.IsSatisfiedBy(_parent);
+
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void CanFindByCompoundAndSpec()
+        {
+            var spec = new PersonByFirstnameAndLastnameSpecification("Susan", "UniqueLastname");
+            var results = spec.SatisfyingElementsFrom(_people.AsQueryable());
+
+            Assert.Contains(results.ToList(), _alsoNotParent, "Didn't get the right Susan");
+            Assert.DoesNotContain(results.ToList(), _notParent, "Got an extra Susan in the results");
+        }
+
+        [Test]
+        public void CanFindByCompoundOrSpec()
+        {
+            var spec = new PersonByFirstnameOrLastnameSpecification("Johnny", "Bohlen");
+            var results = spec.SatisfyingElementsFrom(_people.AsQueryable());
+
+            Assert.Contains(results.ToList(), _parent);
+            Assert.Contains(results.ToList(), _child3);
         }
 
         [Test]
@@ -108,10 +145,10 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
         }
 
         [Test]
-        public void CanApplySpecToSingleElement()
+        public void CanMatchSingleByCompoundAndSpec()
         {
-            var spec = new PersonWithLastNameBohlenSpecification();
-            var result = spec.IsSatisfiedBy(_parent);
+            var spec = new PersonByFirstnameOrLastnameSpecification("Susan", "UniqueLastname");
+            var result = spec.IsSatisfiedBy(_alsoNotParent);
 
             Assert.IsTrue(result);
         }
@@ -126,16 +163,6 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
 
         }
 
-        [Test]
-        public void CanFindByCompountOrSpec()
-        {
-            var spec = new PersonByFirstnameOrLastnameSpecification("Johnny", "Bohlen");
-            var results = spec.SatisfyingElementsFrom(_people.AsQueryable());
-
-            Assert.Contains(results.ToList(), _parent);
-            Assert.Contains(results.ToList(), _child3);
-
-        }
     }
 
     public class PersonWithLastNameBohlenSpecification : QuerySpecification<Person>
@@ -173,17 +200,40 @@ namespace Proteus.Domain.Foundation.Tests.Specifications.MyShit
             _lnameSpec = new PersonByLastnameSpecification(_lastname);
         }
 
-        public override bool IsSatisfiedBy(Person candidate)
+        public override Expression<Func<Person, bool>> Predicate
         {
-            return _fnameSpec.IsSatisfiedBy(candidate) || _lnameSpec.IsSatisfiedBy(candidate);
+            get { return _fnameSpec.Or(_lnameSpec).Predicate; }
+        }
+    }
+
+    public class PersonByFirstnameAndLastnameSpecification : QuerySpecification<Person>
+    {
+        private string _firstname;
+
+        private PersonByFirstnameSpecification _fnameSpec;
+
+        private string _lastname;
+
+        private PersonByLastnameSpecification _lnameSpec;
+
+        /// <summary>
+        /// Initializes a new instance of the PersonByFirstnameOrLastnameSpecification class.
+        /// </summary>
+        /// <param name="firstname"></param>
+        /// <param name="lastname"></param>
+        public PersonByFirstnameAndLastnameSpecification(string firstname, string lastname)
+        {
+            _firstname = firstname;
+            _lastname = lastname;
+
+            _fnameSpec = new PersonByFirstnameSpecification(_firstname);
+            _lnameSpec = new PersonByLastnameSpecification(_lastname);
         }
 
-        public override IQueryable<Person> SatisfyingElementsFrom(IQueryable<Person> candidates)
+        public override Expression<Func<Person, bool>> Predicate
         {
-
-            return _fnameSpec.Or(_lnameSpec).SatisfyingElementsFrom(candidates);
+            get { return _fnameSpec.And(_lnameSpec).Predicate; }
         }
-
     }
 
     public class PersonByFirstnameSpecification : QuerySpecification<Person>
