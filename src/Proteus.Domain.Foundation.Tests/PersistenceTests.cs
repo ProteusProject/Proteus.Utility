@@ -25,7 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 using NHibernate;
 using NHibernate.Criterion;
 using Proteus.Utility.UnitTest;
@@ -49,8 +49,8 @@ namespace Proteus.Domain.Foundation.Tests
             base.DatabaseTearDown();
         }
 
-        [FixtureSetUp]
-        public void _TestFixtureSetup()
+        [TestFixtureSetUp]
+        public void _TestTestFixtureSetUp()
         {
 
             NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration().Configure();
@@ -64,13 +64,13 @@ namespace Proteus.Domain.Foundation.Tests
 
             ISessionFactory sessionFactory = _sessionManager.GetSession().SessionFactory;
 
-            base.DatabaseFixtureSetUp();
+            base.DatabaseTestFixtureSetUp();
         }
 
-        [FixtureTearDown]
+        [TestFixtureTearDown]
         public void _TestFixtureTearDown()
         {
-            base.DatabaseFixtureTearDown();
+            base.DatabaseTestFixtureTearDown();
         }
 
         [Test]

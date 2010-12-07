@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 using System.Linq.Expressions;
 using Proteus.Domain.Foundation.Specifications;
 
@@ -76,8 +76,8 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
 
         private List<Person> _people;
 
-        [FixtureSetUp]
-        public void _TestFixtureSetUp()
+        [TestFixtureSetUp]
+        public void _TestTestFixtureSetUp()
         {
             _child1 = new Person() { Firstname = "Suzy", Lastname = "Bohlen" };
             _child2 = new Person() { Firstname = "Timmy", Lastname = "Bohlen" };
@@ -120,8 +120,8 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
             var spec = new PersonByFirstnameAndLastnameSpecification("Susan", "UniqueLastname");
             var results = spec.SatisfyingElementsFrom(_people.AsQueryable());
 
-            Assert.Contains(results.ToList(), _alsoNotParent, "Didn't get the right Susan");
-            Assert.DoesNotContain(results.ToList(), _notParent, "Got an extra Susan in the results");
+            Assert.That(results.ToList(), Has.Member(_alsoNotParent), "Didn't get the right Susan");
+            Assert.That(results.ToList(), Has.No.Member(_notParent), "Got an extra Susan in the results");
         }
 
         [Test]
@@ -130,8 +130,8 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
             var spec = new PersonByFirstnameOrLastnameSpecification("Johnny", "Bohlen");
             var results = spec.SatisfyingElementsFrom(_people.AsQueryable());
 
-            Assert.Contains(results.ToList(), _parent);
-            Assert.Contains(results.ToList(), _child3);
+            Assert.That(results.ToList(), Has.Member(_parent));
+            Assert.That(results.ToList(), Has.Member(_child3));
         }
 
         [Test]
@@ -140,7 +140,7 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
             var spec = new PersonByLastnameSpecification("Bohlen");
             var results = spec.SatisfyingElementsFrom(_people.AsQueryable());
 
-            Assert.Contains(results.ToList(), _parent);
+            Assert.That(results.ToList(), Has.Member(_parent));
 
         }
 

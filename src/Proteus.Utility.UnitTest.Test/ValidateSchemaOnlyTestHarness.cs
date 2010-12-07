@@ -22,7 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 
 namespace Proteus.Utility.UnitTest.Test
 {
@@ -45,9 +45,9 @@ namespace Proteus.Utility.UnitTest.Test
             ValidateSchemaAgainstDatabase(TestSchemaFilename);
         }
 
-        protected override void DatabaseFixtureSetUp() { }
+        protected override void DatabaseTestFixtureSetUp() { }
 
-        protected override void DatabaseFixtureTearDown() { }
+        protected override void DatabaseTestFixtureTearDown() { }
 
         protected override void DatabaseSetUp() { }
 
@@ -63,9 +63,9 @@ namespace Proteus.Utility.UnitTest.Test
             ValidateSchemaAgainstDatabase(TestSchemaFilename);
         }
 
-        protected override void DatabaseFixtureSetUp() { }
+        protected override void DatabaseTestFixtureSetUp() { }
 
-        protected override void DatabaseFixtureTearDown() { }
+        protected override void DatabaseTestFixtureTearDown() { }
 
         protected override void DatabaseSetUp() { }
 

@@ -17,14 +17,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- */ 
+ */
 
 
 
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Proteus.Utility.UnitTest;
 using System.Diagnostics;
 
@@ -34,19 +34,19 @@ namespace UnitTestTest
     [Category(UnitTestType.DatabaseDependent)]
     public class DatabaseUnitTestBaseHarness : DatabaseUnitTestBase
     {
-        [FixtureSetUp]
-        public void _FixtureSetUp()
+        [TestFixtureSetUp]
+        public void _TestFixtureSetUp()
         {
-            DatabaseFixtureSetUp();
-            Trace.WriteLine("DERIVED: FixtureSetUp");
+            DatabaseTestFixtureSetUp();
+            Trace.WriteLine("DERIVED: TestFixtureSetUp");
         }
 
-        [FixtureTearDown]
-        public void _FixtureTearDown()
+        [TestFixtureTearDown]
+        public void _TestFixtureTearDown()
         {
             //other stuff you also need to do goes here!
-            DatabaseFixtureTearDown();
-            Trace.WriteLine("DERIVED: FixtureTearDown");
+            DatabaseTestFixtureTearDown();
+            Trace.WriteLine("DERIVED: TestFixtureTearDown");
         }
 
         [Test]

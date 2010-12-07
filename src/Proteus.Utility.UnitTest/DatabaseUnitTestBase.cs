@@ -281,18 +281,18 @@ namespace Proteus.Utility.UnitTest
         }
 
         /// <summary>
-        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
+        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestTestFixtureSetUp]-attributed method.
         /// </summary>
-        protected virtual void DatabaseFixtureSetUp()
+        protected virtual void DatabaseTestFixtureSetUp()
         {
-            DatabaseFixtureSetUp(false);
+            DatabaseTestFixtureSetUp(false);
         }
 
         /// <summary>
-        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestFixtureSetUp]-attributed method.
+        /// Performs initial database setup tasks.  Intended to be invoked from within the [TestTestFixtureSetUp]-attributed method.
         /// </summary>
         /// <param name="ignoreSchemaDifferences">if set to <c>true</c> [ignore schema differences].</param>
-        protected virtual void DatabaseFixtureSetUp(bool ignoreSchemaDifferences)
+        protected virtual void DatabaseTestFixtureSetUp(bool ignoreSchemaDifferences)
         {
 
             if (!ignoreSchemaDifferences)
@@ -306,17 +306,17 @@ namespace Proteus.Utility.UnitTest
             }
 
             SaveBackupDatabase();
-            OutputTraceMessage("DatabaseUnitTestBase: DatabaseFixtureSetUp Complete");
+            OutputTraceMessage("DatabaseUnitTestBase: DatabaseTestFixtureSetUp Complete");
 
         }
 
         /// <summary>
         /// Returns database to original state after all tests are run.  Intended to be invoked from within the [TestFixtureTearDown]-attributed method.
         /// </summary>
-        protected virtual void DatabaseFixtureTearDown()
+        protected virtual void DatabaseTestFixtureTearDown()
         {
             LoadBackupDatabase();
-            OutputTraceMessage("DatabaseUnitTestBase: DatabaseFixtureTearDown Complete");
+            OutputTraceMessage("DatabaseUnitTestBase: DatabaseTestFixtureTearDown Complete");
         }
 
         /// <summary>

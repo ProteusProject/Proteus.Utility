@@ -24,7 +24,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Proteus.Utility.UnitTest;
 using System.IO;
 
@@ -37,8 +37,8 @@ namespace Proteus.Utility.UnitTest.Test
 
         private string CONN_STRING = string.Empty;
 
-        [FixtureSetUp]
-        public void _TestFixtureSetUp()
+        [TestFixtureSetUp]
+        public void _TestTestFixtureSetUp()
         {
             //have to ensure that all NDbUnit.* files are properly located in the app-local folder in order to be dynamically loaded when needed
             //...since they (by design) aren't attached as binary references, VS won't copy them to the output folder for us!

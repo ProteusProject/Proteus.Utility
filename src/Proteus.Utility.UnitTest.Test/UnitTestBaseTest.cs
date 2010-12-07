@@ -24,7 +24,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Proteus.Utility.UnitTest;
 
 namespace UnitTestTest

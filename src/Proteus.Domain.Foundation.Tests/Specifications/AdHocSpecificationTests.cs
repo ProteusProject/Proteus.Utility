@@ -24,7 +24,7 @@
  */
 
 
-using MbUnit.Framework;
+using NUnit.Framework;
 using Proteus.Domain.Foundation.Tests.Specifications.Domain;
 using Proteus.Domain.Foundation.Tests.Specifications.Infrastructure;
 using Proteus.Domain.Foundation.Specifications;

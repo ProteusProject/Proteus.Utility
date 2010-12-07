@@ -25,7 +25,7 @@
 
 
 using System.Linq;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Proteus.Domain.Foundation.Tests.Specifications.Domain.Base;
 using Proteus.Domain.Foundation.Tests.Specifications.Infrastructure;
 using Proteus.Domain.Foundation.Specifications;
@@ -41,14 +41,14 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
         protected static void SpecificationDoesMatch(T instance, TResult expected,
                                                      ISpecification<T, TResult> specification)
         {
-            IQueryable<TResult> matching = specification.SatisfyingElementsFrom(new[] {instance}.AsQueryable());
+            IQueryable<TResult> matching = specification.SatisfyingElementsFrom(new[] { instance }.AsQueryable());
             Assert.AreEqual(1, matching.Count());
             Assert.AreEqual(expected, matching.First());
         }
 
         protected static void SpecificationDoesMatch(T instance, ISpecification<T, TResult> specification)
         {
-            IQueryable<TResult> matching = specification.SatisfyingElementsFrom(new[] {instance}.AsQueryable());
+            IQueryable<TResult> matching = specification.SatisfyingElementsFrom(new[] { instance }.AsQueryable());
             Assert.AreEqual(1, matching.Count());
             Assert.AreEqual(instance, matching.Cast<T>().First());
         }
@@ -63,7 +63,7 @@ namespace Proteus.Domain.Foundation.Tests.Specifications
 
         protected static void SpecificationDoesNotMatch(T instance, ISpecification<T, TResult> specification)
         {
-            IQueryable<TResult> matching = specification.SatisfyingElementsFrom(new[] {instance}.AsQueryable());
+            IQueryable<TResult> matching = specification.SatisfyingElementsFrom(new[] { instance }.AsQueryable());
             Assert.AreEqual(0, matching.Count());
         }
 
