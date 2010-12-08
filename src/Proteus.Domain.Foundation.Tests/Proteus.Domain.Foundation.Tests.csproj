@@ -100,6 +100,9 @@
     <Compile Include="Specifications\Infrastructure\Repository.cs" />
     <Compile Include="Specifications\ISpecificationWithSimpleReturnTypeTests.cs" />
     <Compile Include="Specifications\MiscTests.cs" />
+    <Compile Include="Specifications\PagingTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Specifications\QuerySpecificationWithCustomComplexReturnTypeTests.cs" />
     <Compile Include="Specifications\QuerySpecificationWithCustomSimpleReturnTypeTests.cs" />
     <Compile Include="Specifications\SpecificationTestFixture.cs" />
