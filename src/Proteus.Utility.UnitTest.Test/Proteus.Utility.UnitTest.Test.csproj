@@ -75,16 +75,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DatabaseSpecificTypeFactoryTests.cs" />
     <Compile Include="TableNameEncoderTests.cs" />
-    <Compile Include="TestData\database.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>database.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="TestData\SchemaWithSchemaPrefixes.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SchemaWithSchemaPrefixes.xsd</DependentUpon>
-    </Compile>
     <Compile Include="UnitTestBaseTest.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,12 +83,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="TestData\database.xsd">
-      <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>database.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="TestData\SchemaWithSchemaPrefixes.xsd">
-      <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SchemaWithSchemaPrefixes.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
