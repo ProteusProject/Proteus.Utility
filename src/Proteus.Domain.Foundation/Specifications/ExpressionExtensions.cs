@@ -1,7 +1,7 @@
 /*
  *
  * Proteus
- * Copyright (C) 2010, 2011
+ * Copyright (c) 2010 - 2011
  * Stephen A. Bohlen
  * http://www.unhandled-exceptions.com
  *
