@@ -32,7 +32,7 @@ namespace Proteus.Domain.Foundation
     /// <summary>
     /// High-level persistent object interface, indicates support for the entire collection of persistence interfaces
     /// </summary>
-    public interface IPersistentObject : IPersistenceIdentityField, IPersistenceVersionField, IPersistenceUpdateTrackable
+    public interface IPersistentObject<out TUpdater> : IPersistenceIdentityField, IPersistenceVersionField, IPersistenceUpdateTrackable<TUpdater>
     {
         /// <summary>
         /// Equalses the specified other.

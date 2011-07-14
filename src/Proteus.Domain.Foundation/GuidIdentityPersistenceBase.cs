@@ -31,9 +31,10 @@ namespace Proteus.Domain.Foundation
     /// <summary>
     /// Base Class for Persistent Entities using GUID as the data type for their identity field.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    [Obsolete("The type GuidIdentityPersistenceBase<T> is depricated; use IdentityPersistenceBase<TObject, TIdentity> in its place.")]
-    public class GuidIdentityPersistenceBase<T> : IdentityPersistenceBase<T, Guid> where T : class
+    /// <typeparam name="TObject"></typeparam>
+    /// <typeparam name="TUpdater"></typeparam>
+    [Obsolete("The type GuidIdentityPersistenceBase<TObject, TUpdater> is depricated; use IdentityPersistenceBase<TObject, TIdentity, TUpdater> in its place.")]
+    public class GuidIdentityPersistenceBase<TObject, TUpdater> : IdentityPersistenceBase<TObject, Guid, TUpdater> where TObject : class
     {
     }
 }

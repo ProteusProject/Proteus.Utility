@@ -28,7 +28,7 @@ using System.Text;
 
 namespace Proteus.Domain.Foundation.Tests
 {
-    public class Customer : Proteus.Domain.Foundation.IdentityPersistenceBase<Customer, Guid>
+    public class Customer : Proteus.Domain.Foundation.IdentityPersistenceBase<Customer, Guid, string>
     {
         private string _firstname;
         public virtual string Firstname

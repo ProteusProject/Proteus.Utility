@@ -51,6 +51,6 @@ namespace Domain.Foundation.Tests
     }
 
 
-    internal class ClassDerivedFromGuidIdentityPersistenceBase : GuidIdentityPersistenceBase<ClassDerivedFromGuidIdentityPersistenceBase> {}
+    internal class ClassDerivedFromGuidIdentityPersistenceBase : GuidIdentityPersistenceBase<ClassDerivedFromGuidIdentityPersistenceBase, string> {}
     
 }

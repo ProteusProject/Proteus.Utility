@@ -60,7 +60,7 @@ namespace Domain.Foundation.Tests
         [Test]
         public void CanDeriveFromBaseClass()
         {
-            Assert.IsTrue(new ClassUsingGuidIdentity() is IdentityPersistenceBase<ClassUsingGuidIdentity, Guid>);
+            Assert.IsTrue(new ClassUsingGuidIdentity() is IdentityPersistenceBase<ClassUsingGuidIdentity, Guid, string>);
         }
 
         [Test]
@@ -242,9 +242,9 @@ namespace Domain.Foundation.Tests
 
     }
 
-    internal class ClassUsingDoubleIdentity : IdentityPersistenceBase<ClassUsingDoubleIdentity, double> { }
+    internal class ClassUsingDoubleIdentity : IdentityPersistenceBase<ClassUsingDoubleIdentity, double, string> { }
 
-    internal class ClassUsingGuidIdentity : IdentityPersistenceBase<ClassUsingGuidIdentity, Guid>
+    internal class ClassUsingGuidIdentity : IdentityPersistenceBase<ClassUsingGuidIdentity, Guid, string>
     {
         private string _nonVirtualProp;
         public string NonVirtualProp
@@ -258,11 +258,11 @@ namespace Domain.Foundation.Tests
 
     }
 
-    internal class ClassUsingIntIdentity : IdentityPersistenceBase<ClassUsingIntIdentity, int> { }
+    internal class ClassUsingIntIdentity : IdentityPersistenceBase<ClassUsingIntIdentity, int, string> { }
 
     internal class IntentionallyInvalidIdentityType { }
 
-    internal class ClassUsingIntentionallyInvalidIdentity : IdentityPersistenceBase<ClassUsingIntentionallyInvalidIdentity, IntentionallyInvalidIdentityType> { }
+    internal class ClassUsingIntentionallyInvalidIdentity : IdentityPersistenceBase<ClassUsingIntentionallyInvalidIdentity, IntentionallyInvalidIdentityType, string> { }
 
 
 }

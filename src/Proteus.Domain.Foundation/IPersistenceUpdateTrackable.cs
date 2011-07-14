@@ -31,7 +31,7 @@ namespace Proteus.Domain.Foundation
     /// <summary>
     /// Indicates publicly-accessible persistence update tracking properties are available
     /// </summary>
-    public interface IPersistenceUpdateTrackable
+    public interface IPersistenceUpdateTrackable <out TUpdater>
     {
         /// <summary>
         /// Gets the last updated date time.
@@ -42,6 +42,6 @@ namespace Proteus.Domain.Foundation
         /// Gets the last updated by.
         /// </summary>
         /// <value>The last updated by.</value>
-        object LastUpdatedBy { get; }
+        TUpdater LastUpdatedBy { get; }
     }
 }

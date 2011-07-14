@@ -33,14 +33,15 @@ namespace Proteus.Domain.Foundation
     /// Abstract Base Class for Persistent Entities
     /// </summary>
     /// <typeparam name="TObject">The type of the object.</typeparam>
-    /// <typeparam name="TIdentity">The type of the identity.</typeparam>
+    /// <typeparam name="TIdentity">The type of the identity value.</typeparam>
+    /// <typeparam name="TUpdater">The type of the logical 'user' data indicating last-updated-by</typeparam>
     [Serializable]
-    public abstract class IdentityPersistenceBase<TObject, TIdentity> : IPersistentObject where TObject: class 
+    public abstract class IdentityPersistenceBase<TObject, TIdentity, TUpdater> : IPersistentObject<TUpdater> where TObject: class 
     {
         /// <summary>
         /// Last-updated-by value for the Entity
         /// </summary>
-        protected object _lastUpdatedBy = null;
+        protected TUpdater _lastUpdatedBy;
 
         /// <summary>
         /// Last-updated-date-time for the Entity
@@ -63,7 +64,7 @@ namespace Proteus.Domain.Foundation
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator ==(IdentityPersistenceBase<TObject, TIdentity> left, IdentityPersistenceBase<TObject, TIdentity> right)
+        public static bool operator ==(IdentityPersistenceBase<TObject, TIdentity, TUpdater> left, IdentityPersistenceBase<TObject, TIdentity, TUpdater> right)
         {
             return Equals(left, right);
         }
@@ -74,7 +75,7 @@ namespace Proteus.Domain.Foundation
         /// <param name="left">The left.</param>
         /// <param name="right">The right.</param>
         /// <returns>The result of the operator.</returns>
-        public static bool operator !=(IdentityPersistenceBase<TObject, TIdentity> left, IdentityPersistenceBase<TObject, TIdentity> right)
+        public static bool operator !=(IdentityPersistenceBase<TObject, TIdentity, TUpdater> left, IdentityPersistenceBase<TObject, TIdentity, TUpdater> right)
         {
             return !(left == right);
         }
@@ -109,7 +110,7 @@ namespace Proteus.Domain.Foundation
         /// Gets the last updated by.
         /// </summary>
         /// <value>The last updated by.</value>
-        public virtual object LastUpdatedBy
+        public virtual TUpdater LastUpdatedBy
         {
             get { return _lastUpdatedBy; }
 
