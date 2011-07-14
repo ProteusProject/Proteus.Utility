@@ -1,7 +1,7 @@
 ﻿/*
  *
  * Proteus
- * Copyright (c) 2008 - 2011
+ * Copyright (C) 2008 - 2011
  * Stephen A. Bohlen
  * http://www.unhandled-exceptions.com
  *
@@ -17,10 +17,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- */ 
+ */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace Proteus.Domain.Foundation
@@ -94,26 +96,38 @@ namespace Proteus.Domain.Foundation
 
             foreach (FieldInfo field in fields)
             {
-                object value1 = field.GetValue(other);
-                object value2 = field.GetValue(this);
+                object otherValue = field.GetValue(other);
+                object thisValue = field.GetValue(this);
 
-                if (value1 == null)
+                //if the value is null...
+                if (otherValue == null)
                 {
-                    if (value2 != null)
+                    if (thisValue != null)
                         return false;
                 }
+                //if the value is a datetime-related type...
                 else if ((typeof(DateTime).IsAssignableFrom(field.FieldType)) ||
                          ((typeof(DateTime?).IsAssignableFrom(field.FieldType))))
                 {
-                    string dateString1 = ((DateTime)value1).ToLongDateString();
-                    string dateString2 = ((DateTime)value2).ToLongDateString();
+                    string dateString1 = ((DateTime)otherValue).ToLongDateString();
+                    string dateString2 = ((DateTime)thisValue).ToLongDateString();
                     if (!dateString1.Equals(dateString2))
                     {
                         return false;
                     }
                     continue;
                 }
-                else if (!value1.Equals(value2))
+                //if the value is any collection...
+                else if (typeof(IEnumerable).IsAssignableFrom(field.FieldType))
+                {
+                    IEnumerable otherEnumerable = (IEnumerable)otherValue;
+                    IEnumerable thisEnumerable = (IEnumerable)thisValue;
+
+                    if (!otherEnumerable.Cast<object>().SequenceEqual(thisEnumerable.Cast<object>()))
+                        return false;
+                }
+                //if we get this far, just compare the two values...
+                else if (!otherValue.Equals(thisValue))
                     return false;
             }
 

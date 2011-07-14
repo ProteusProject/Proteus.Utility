@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- */ 
+ */
 
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace Proteus.Domain.Foundation.Tests
         [Test]
         public void CanDeriveFromBaseClass()
         {
-            Assert.IsTrue(new Address() is ValueObjectBase<Address>);
+            Assert.That(new Address() is ValueObjectBase<Address>, Is.True);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Proteus.Domain.Foundation.Tests
             var address1 = new Address() { BuildingNumber = 123, City = "New York", State = "NY", Street = "Main Street", UnitNumber = "6B" };
             var address2 = new Address() { BuildingNumber = 321, City = "York New", State = "YN", Street = "Street Main", UnitNumber = "B6" };
 
-            Assert.AreNotEqual(address2, address1);
+            Assert.That(address1, Is.Not.EqualTo(address2));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace Proteus.Domain.Foundation.Tests
             var address1 = new Address() { BuildingNumber = 123, City = "New York", State = "NY", Street = "Main Street", UnitNumber = "6B" };
             var address2 = new Address() { BuildingNumber = address1.BuildingNumber, City = address1.City, State = address1.State, Street = address1.Street, UnitNumber = address1.UnitNumber };
 
-            Assert.AreEqual(address1, address2);
+            Assert.That(address1, Is.EqualTo(address2));
 
         }
 
@@ -61,8 +61,36 @@ namespace Proteus.Domain.Foundation.Tests
             var address1 = new Address() { BuildingNumber = 123, City = "New York", State = "NY", Street = "Main Street", UnitNumber = "6B" };
             var address2 = new Address() { BuildingNumber = 321, City = address1.City, State = address1.State, Street = address1.Street, UnitNumber = address1.UnitNumber };
 
-            Assert.AreNotEqual(address2, address1);
+            Assert.That(address1, Is.Not.EqualTo(address2));
+        }
+
+        [Test]
+        public void ObjectsWithNoFieldsAreEqual()
+        {
+            Assert.That(new Thing(), Is.EqualTo(new Thing()));
+        }
+
+        [Test]
+        public void ObjectsWithCollectionsOfEqualThingsAreEqual()
+        {
+            var thingWithCollection1 = new ThingWithACollectionOfOtherThings()
+                                           {Things = new List<Thing>() {new Thing()}};
+            var thingWithCollection2 = new ThingWithACollectionOfOtherThings()
+                                           {Things = new List<Thing>() {new Thing()}};
+
+            Assert.That(thingWithCollection1, Is.EqualTo(thingWithCollection2));
+        }
+
+        public class Thing : ValueObjectBase<Thing>
+        {
+        }
+
+        public class ThingWithACollectionOfOtherThings: ValueObjectBase<ThingWithACollectionOfOtherThings>
+        {
+            public IList<Thing> Things { get; set; }
         }
 
     }
+
+
 }
