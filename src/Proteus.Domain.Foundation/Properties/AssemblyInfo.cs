@@ -1,7 +1,7 @@
 ﻿/*
  *
  * Proteus
- * Copyright (C) 2008, 2009, 2010
+ * Copyright (C) 2008, 2009, 2010, 2011
  * Stephen A. Bohlen
  * http://www.unhandled-exceptions.com
  *
@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Stephen A. Bohlen")]
 [assembly: AssemblyProduct("Proteus.Domain.Foundation")]
-[assembly: AssemblyCopyright("Copyright © 2008, 2009 Stephen A. Bohlen")]
+[assembly: AssemblyCopyright("Copyright © 2008-2011 Stephen A. Bohlen")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -55,5 +55,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.4.*")]
+[assembly: AssemblyVersion("1.0.5.*")]
 //[assembly: AssemblyFileVersion("1.0.1.0")]
