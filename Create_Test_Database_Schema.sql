@@ -2,10 +2,10 @@ Create Database [testdb]
 GO
 USE [testdb]
 GO
-/****** Object:  Schema [OtherSchema]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Schema [OtherSchema]    Script Date: 12/18/2014 6:04:56 PM ******/
 CREATE SCHEMA [OtherSchema]
 GO
-/****** Object:  Table [dbo].[Customer]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Table [dbo].[Customer]    Script Date: 12/18/2014 6:04:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -24,7 +24,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Role]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Table [dbo].[Role]    Script Date: 12/18/2014 6:04:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -44,7 +44,7 @@ PRIMARY KEY CLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 12/18/2014 6:04:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -66,7 +66,7 @@ CREATE TABLE [dbo].[User](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[UserRole]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Table [dbo].[UserRole]    Script Date: 12/18/2014 6:04:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -82,7 +82,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [OtherSchema].[Item]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Table [OtherSchema].[Item]    Script Date: 12/18/2014 6:04:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -101,7 +101,7 @@ CREATE TABLE [OtherSchema].[Item](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [OtherSchema].[Order]    Script Date: 12/18/2014 5:47:36 PM ******/
+/****** Object:  Table [OtherSchema].[Order]    Script Date: 12/18/2014 6:04:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,6 +112,7 @@ CREATE TABLE [OtherSchema].[Order](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[OrderNumber] [int] NOT NULL,
 	[Description] [varchar](50) NOT NULL,
+	[ItemId] [int] NOT NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -134,7 +135,7 @@ REFERENCES [dbo].[User] ([ID])
 GO
 ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK__UserRole__UserID__014935CB]
 GO
-ALTER TABLE [OtherSchema].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Item] FOREIGN KEY([id])
+ALTER TABLE [OtherSchema].[Order]  WITH CHECK ADD  CONSTRAINT [FK_Order_Item] FOREIGN KEY([ItemId])
 REFERENCES [OtherSchema].[Item] ([id])
 GO
 ALTER TABLE [OtherSchema].[Order] CHECK CONSTRAINT [FK_Order_Item]
