@@ -1,3 +1,5 @@
+Create Database [testdb]
+GO
 USE [testdb]
 GO
 /****** Object:  Table [dbo].[User]    Script Date: 03/15/2009 11:16:52 ******/
