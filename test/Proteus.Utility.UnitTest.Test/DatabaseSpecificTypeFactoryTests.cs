@@ -44,7 +44,7 @@ namespace Proteus.Utility.UnitTest.Test
             //...since they (by design) aren't attached as binary references, VS won't copy them to the output folder for us!
             foreach (string filename in _providerAssemblyNames)
             {
-                File.Copy(string.Format(@"..\..\..\..\Lib\{0}", filename), string.Format(@".\{0}", filename), true);
+                File.Copy(string.Format(@"..\..\Lib\{0}", filename), string.Format(@".\{0}", filename), true);
             }
 
         }

@@ -31,12 +31,12 @@ namespace Proteus.Utility.UnitTest.Test
     {
         protected override string TestDataFilename
         {
-            get { return @"..\..\TestData\DataFileWithSchemaPrefixes.xml"; }
+            get { return @"TestData\DataFileWithSchemaPrefixes.xml"; }
         }
 
         protected override string TestSchemaFilename
         {
-            get { return @"..\..\TestData\SchemaWithSchemaPrefixes.xsd"; }
+            get { return @"TestData\SchemaWithSchemaPrefixes.xsd"; }
         }
 
         [Test]

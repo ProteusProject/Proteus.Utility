@@ -79,7 +79,7 @@ namespace Proteus.Utility.UnitTest
         /// <remarks>
         /// Defaults to "..\..\TestData\BackupData.xml" (BackupData.xml located in the \TestData\ folder directly beneath the Project folder)
         /// </remarks>
-        private const string BACKUPDATAXMLFILENAME = @"..\..\TestData\BackupData.xml";
+        private const string BACKUPDATAXMLFILENAME = @"TestData\BackupData.xml";
 
         /// <summary>
         /// Represents the default filepath to the XSD file used to represent the scope of the Database schema upon which to interact
@@ -87,7 +87,7 @@ namespace Proteus.Utility.UnitTest
         /// <remarks>
         /// Defaults to "..\..\TestData\Database.xsd" (Database.xsd located in the \TestData\ folder directly beneath the Project folder)
         /// </remarks>
-        private const string BACKUPSCHEMAXMLFILENAME = @"..\..\TestData\Database.xsd";
+        private const string BACKUPSCHEMAXMLFILENAME = @"TestData\Database.xsd";
 
         /// <summary>
         /// Represents the default filepath to the XML file that contains the test data to load into the database to support the tests
@@ -95,7 +95,7 @@ namespace Proteus.Utility.UnitTest
         /// <remarks>
         /// Defaults to "..\..\TestData\TestData.xml" (TestData.xml located in the \TestData\ folder directly beneath the Project folder)
         /// </remarks>
-        private const string TESTDATAXMLFILENAME = @"..\..\TestData\TestData.xml";
+        private const string TESTDATAXMLFILENAME = @"TestData\TestData.xml";
 
         /// <summary>
         /// Full path and filename of XML file used to persist the existing (pre-test) content of the database to disk before tests are run.
