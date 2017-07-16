@@ -1,10 +1,10 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 init: []
-services: mssql2012sp1
+services: mssql2014
 before_build:
 - cmd: >-
-    sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -i "%APPVEYOR_BUILD_FOLDER%\Create_Test_Database_Schema.sql"
+    sqlcmd -S ".\SQL2014" -U sa -P Password12! -i "%APPVEYOR_BUILD_FOLDER%\Create_Test_Database_Schema.sql"
 
     dotnet restore
 build:
