@@ -17,7 +17,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- */ 
+ */
 
 
 
@@ -56,6 +56,24 @@ namespace Proteus.Utility.UnitTest
             {
                 throw new ArgumentException(string.Format("Non-public instance field '{0}' could not be found in class of type '{1}'", fieldName, obj.GetType().ToString()));
             }
+        }
+
+        protected virtual TResult GetInstanceFieldValue<TResult>(object obj, string fieldName)
+        {
+            var objectResult = GetInstanceFieldValue(obj, fieldName);
+
+            TResult result;
+
+            try
+            {
+                result = (TResult)objectResult;
+            }
+            catch (InvalidCastException)
+            {
+                throw new ArgumentException(string.Format("Non-public instance field '{0}' in object of type '{1}' is not expected type of '{2}'", fieldName, obj.GetType().ToString(), typeof(TResult)));
+            }
+
+            return result;
         }
 
         /// <summary>
