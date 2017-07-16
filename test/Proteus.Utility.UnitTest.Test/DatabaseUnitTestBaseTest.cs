@@ -67,7 +67,7 @@ namespace UnitTestTest
         [Test]
         public void DerivesFromProperAncestor()
         {
-            Assert.IsInstanceOf<UnitTestBase>(this);
+            Assert.IsInstanceOfType(typeof(UnitTestBase), this);
         }
 
         [Test]
