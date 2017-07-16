@@ -1,8 +1,12 @@
 version: 1.0.{build}
+image: Visual Studio 2017
 init: []
 services: mssql2012sp1
 before_build:
-- sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -i "%APPVEYOR_BUILD_FOLDER%\Create_Test_Database_Schema.sql"
+- cmd: >-
+    sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -i "%APPVEYOR_BUILD_FOLDER%\Create_Test_Database_Schema.sql"
+
+    dotnet restore
 build:
   project: Proteus.Utility.build.xml
   verbosity: minimal
