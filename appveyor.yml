@@ -5,8 +5,6 @@ services: mssql2014
 before_build:
 - cmd: >-
     sqlcmd -S ".\SQL2014" -U sa -P Password12! -i "%APPVEYOR_BUILD_FOLDER%\Create_Test_Database_Schema.sql"
-
-    dotnet restore
 build:
   project: Proteus.Utility.build.xml
   verbosity: minimal
