@@ -67,7 +67,7 @@ namespace UnitTestTest
         [Test]
         public void DerivesFromProperAncestor()
         {
-            Assert.IsAssignableFrom<UnitTestBase>(this);
+            Assert.IsInstanceOf<UnitTestBase>(this);
         }
 
         [Test]
