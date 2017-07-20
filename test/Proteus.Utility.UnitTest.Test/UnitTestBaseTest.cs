@@ -47,10 +47,10 @@ namespace UnitTestTest
         }
 
         /// <summary>
-        /// Determines whether this instance [can set private field ininstance of object].
+        /// Determines whether this instance [can set private field instance of object].
         /// </summary>
         [Test]
-        public void CanSetPrivateFieldIninstanceOfObject()
+        public void CanSetPrivateFieldInstanceOfObject()
         {
             Person p = new Person();
             SetInstanceFieldValue(p, PERSON_TEST_FIELD_NAME, PERSON_TEST_FIELD_VALUE);
@@ -59,10 +59,10 @@ namespace UnitTestTest
         }
 
         /// <summary>
-        /// Determines whether this instance [can throw exception on fieldname not found in object].
+        /// Determines whether this instance [can throw exception on fieldName not found in object].
         /// </summary>
         [Test]
-        public void CanThrowExceptionOnFieldnameNotFoundInObject()
+        public void CanThrowExceptionOnFieldNameNotFoundInObject()
         {
             try
             {
