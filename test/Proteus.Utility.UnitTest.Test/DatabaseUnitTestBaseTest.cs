@@ -64,7 +64,7 @@ namespace Proteus.Utility.UnitTest.Test
         [Test]
         public void DerivesFromProperAncestor()
         {
-            Assert.IsInstanceOfType(typeof(UnitTestBase), this);
+            Assert.IsInstanceOf<UnitTestBase>(this);
         }
 
         [Test]
