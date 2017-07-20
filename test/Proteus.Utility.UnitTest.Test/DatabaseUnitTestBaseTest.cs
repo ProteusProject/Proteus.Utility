@@ -20,15 +20,12 @@
  */
 
 
-
 using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
-using Proteus.Utility.UnitTest;
 using System.Data;
+using NUnit.Framework;
+using Proteus.Utility.UnitTest.Database;
 
-namespace UnitTestTest
+namespace Proteus.Utility.UnitTest.Test
 {
     [TestFixture]
     [Category(UnitTestType.DatabaseDependent)]

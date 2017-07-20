@@ -58,6 +58,14 @@ namespace Proteus.Utility.UnitTest
             }
         }
 
+        /// <summary>
+        /// Gets the instance field value.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the t result.</typeparam>
+        /// <param name="obj">The object.</param>
+        /// <param name="fieldName">Name of the field.</param>
+        /// <returns>TResult.</returns>
+        /// <exception cref="System.ArgumentException"></exception>
         protected virtual TResult GetInstanceFieldValue<TResult>(object obj, string fieldName)
         {
             var objectResult = GetInstanceFieldValue(obj, fieldName);

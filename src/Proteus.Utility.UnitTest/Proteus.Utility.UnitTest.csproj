@@ -57,28 +57,14 @@
     <DocumentationFile>..\..build\Release\Proteus.Utility.UnitTest.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NDbUnit.Core">
-      <HintPath>..\..\packages\NDbUnit.Core.1.6.8.0\lib\Net35\NDbUnit.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseUnitTestBase.cs" />
-    <Compile Include="ISchemaValidator.cs" />
-    <Compile Include="NullSchemaValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DatabaseSpecificTypeFactory.cs" />
-    <Compile Include="SchemaComparisonReport.cs" />
-    <Compile Include="SqlClientSchemaValidator.cs" />
-    <Compile Include="TableNameEncoder.cs" />
     <Compile Include="UnitTestBase.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="_ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

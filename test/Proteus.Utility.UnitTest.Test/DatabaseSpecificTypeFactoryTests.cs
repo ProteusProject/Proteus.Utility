@@ -27,6 +27,7 @@ using System.Text;
 using NUnit.Framework;
 using Proteus.Utility.UnitTest;
 using System.IO;
+using Proteus.Utility.UnitTest.Database;
 
 namespace Proteus.Utility.UnitTest.Test
 {

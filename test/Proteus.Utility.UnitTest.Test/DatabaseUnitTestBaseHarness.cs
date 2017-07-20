@@ -27,11 +27,12 @@ using System.Text;
 using NUnit.Framework;
 using Proteus.Utility.UnitTest;
 using System.Diagnostics;
+using Proteus.Utility.UnitTest.Database;
 
 namespace UnitTestTest
 {
     [TestFixture]
-    [Category(UnitTestType.DatabaseDependent)]
+    [Category(UnitTestBase.UnitTestType.DatabaseDependent)]
     public class DatabaseUnitTestBaseHarness : DatabaseUnitTestBase
     {
         [TestFixtureSetUp]

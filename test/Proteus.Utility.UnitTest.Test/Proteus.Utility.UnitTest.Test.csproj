@@ -96,6 +96,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Proteus.Utility.UnitTest.Database\Proteus.Utility.UnitTest.Database.csproj">
+      <Project>{d7ea2548-f901-44fc-8f7e-1c38b8ce02d9}</Project>
+      <Name>Proteus.Utility.UnitTest.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Proteus.Utility.UnitTest\Proteus.Utility.UnitTest.csproj">
       <Project>{B64E4C8C-D622-42E9-AD6F-244581F33D82}</Project>
       <Name>Proteus.Utility.UnitTest</Name>
