@@ -28,7 +28,7 @@ using Proteus.Utility.UnitTest;
 namespace UnitTestTest
 {
     [TestFixture]
-    [Category(UnitTestBase.UnitTestType.Unit)]
+    [Category(UnitTestType.Unit)]
     public class UnitTestBaseTest : UnitTestBase
     {
 

@@ -116,37 +116,5 @@ namespace Proteus.Utility.UnitTest
                     $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType().ToString()}'");
             }
         }
-
-        /// <summary>
-        /// Static String values for [Category(...)] attribute to ensure consistency across all TestFixtures
-        /// </summary>
-        public static class UnitTestType
-        {
-            /// <summary>
-            /// All unit tests with dependencies on interacting with a database
-            /// </summary>
-            public const string DatabaseDependent = "DatabaseDependent";
-
-            /// <summary>
-            /// All unit tests with dependencies on other external applications (e.g. thru COM automation, etc.)
-            /// </summary>
-            public const string ExternalApplicationDependent = "ExternalApplicationDependent";
-
-            /// <summary>
-            /// All unit tests that interact with any other external dependency
-            /// </summary>
-            public const string Integration = "Integration";
-
-            /// <summary>
-            /// All 'pure' unit tests that do not have any extenal dependencies (intended to be the most common value used)
-            /// </summary>
-            public const string Unit = "Unit";
-
-            /// <summary>
-            /// All unit tests that exercise the user-interface aspects of the code (e.g., WatiN, etc.)
-            /// </summary>
-            public const string UserInterface = "UserInterface";
-
-        }
     }
 }

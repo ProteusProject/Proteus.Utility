@@ -28,7 +28,7 @@ using Proteus.Utility.UnitTest.Database;
 namespace UnitTestTest
 {
     [TestFixture]
-    [Category(UnitTestBase.UnitTestType.DatabaseDependent)]
+    [Category(UnitTestType.DatabaseDependent)]
     public class DatabaseUnitTestBaseHarness : DatabaseUnitTestBase
     {
         [OneTimeSetUp]
