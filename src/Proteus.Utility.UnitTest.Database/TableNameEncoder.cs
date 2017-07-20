@@ -28,7 +28,7 @@ namespace Proteus.Utility.UnitTest.Database
         public string Encode(string inputString)
         {
             if (!inputString.Contains("."))
-                return string.Format("[{0}]", inputString);
+                return $"[{inputString}]";
 
             var delimiter = ".".ToCharArray();
 
@@ -36,7 +36,7 @@ namespace Proteus.Utility.UnitTest.Database
 
             foreach (string element in inputString.Split(delimiter))
             {
-                result.Append(string.Format("[{0}].", element));
+                result.Append($"[{element}].");
             }
 
             return result.ToString().TrimEnd(delimiter);

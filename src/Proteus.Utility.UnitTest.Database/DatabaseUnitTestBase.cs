@@ -241,7 +241,8 @@ namespace Proteus.Utility.UnitTest.Database
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(string.Format("Unable to read named connection string '{0}' from .config file; ensure this named connection string is provided or override the DatabaseConnectionString property or the _databaseConnectionString field value directly to set the connection string properly.", _namedConnectionStringName), ex);
+                        throw new Exception(
+                            $"Unable to read named connection string '{_namedConnectionStringName}' from .config file; ensure this named connection string is provided or override the DatabaseConnectionString property or the _databaseConnectionString field value directly to set the connection string properly.", ex);
                     }
                 }
 
@@ -461,27 +462,29 @@ namespace Proteus.Utility.UnitTest.Database
                     break;
 
                 default:
-                    throw new InvalidOperationException(string.Format("Unsupported Database client type: {0}", _databaseClientType.ToString()));
+                    throw new InvalidOperationException(
+                        $"Unsupported Database client type: {_databaseClientType.ToString()}");
             }
 
             SchemaComparisonReport compareResults = validator.Validate();
 
             foreach (string errorReport in compareResults.Errors)
             {
-                System.Diagnostics.Debug.WriteLine(string.Format("SCHEMA_VALIDATION_ERROR ({0}): {1}", schemaFilename, errorReport));
+                System.Diagnostics.Debug.WriteLine($"SCHEMA_VALIDATION_ERROR ({schemaFilename}): {errorReport}");
             }
 
             foreach (string warnReport in compareResults.Warnings)
             {
-                System.Diagnostics.Debug.WriteLine(string.Format("SCHEMA_VALIDATION_WARNING ({0}): {1}", schemaFilename, warnReport));
+                System.Diagnostics.Debug.WriteLine($"SCHEMA_VALIDATION_WARNING ({schemaFilename}): {warnReport}");
             }
             foreach (string infoReport in compareResults.Information)
             {
-                System.Diagnostics.Debug.WriteLine(string.Format("SCHEMA_VALIDATION_INFO ({0}): {1}", schemaFilename, infoReport));
+                System.Diagnostics.Debug.WriteLine($"SCHEMA_VALIDATION_INFO ({schemaFilename}): {infoReport}");
             }
 
             if (compareResults.Errors.Count > 0)
-                throw new InvalidOperationException(string.Format("Cannot validate XSD Schema file {0} against existing database schema.\nTests cannot continue else data may be lost.\nCorrect errors in schema file and attempt tests again.", schemaFilename));
+                throw new InvalidOperationException(
+                    $"Cannot validate XSD Schema file {schemaFilename} against existing database schema.\nTests cannot continue else data may be lost.\nCorrect errors in schema file and attempt tests again.");
 
         }
 
@@ -514,7 +517,7 @@ namespace Proteus.Utility.UnitTest.Database
                     return DatabaseSpecificTypeFactory.CreateINDBUnitTest(NDBUNIT_ORACLE_TYPE, NDBUNIT_ORACLE_ASSEMBLY, connectionString);
 
                 default:
-                    throw new InvalidOperationException(string.Format("Unsupported DatabaseClientType: {0}", clientType.ToString()));
+                    throw new InvalidOperationException($"Unsupported DatabaseClientType: {clientType.ToString()}");
             }
 
         }
@@ -552,7 +555,9 @@ namespace Proteus.Utility.UnitTest.Database
 
             if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(filePathName)))
             {
-                throw new System.IO.IOException(string.Format(@"Folder ""{0}"" not found or inaccessible!", System.IO.Path.GetDirectoryName(System.IO.Path.GetFullPath(filePathName))));
+                throw new System.IO.IOException($@"Folder ""{
+                        System.IO.Path.GetDirectoryName(System.IO.Path.GetFullPath(filePathName))
+                    }"" not found or inaccessible!");
             }
         }
 
@@ -569,7 +574,9 @@ namespace Proteus.Utility.UnitTest.Database
 
             if (!System.IO.File.Exists(filePathName))
             {
-                throw new System.IO.IOException(String.Format(@"Unable to load XSD/XML file!  File ""{0}"" not found or inaccessible!", System.IO.Path.GetFullPath(filePathName)));
+                throw new System.IO.IOException($@"Unable to load XSD/XML file!  File ""{
+                        System.IO.Path.GetFullPath(filePathName)
+                    }"" not found or inaccessible!");
             }
         }
 

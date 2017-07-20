@@ -79,7 +79,7 @@ namespace Proteus.Utility.UnitTest.Database
                     foreach (DataTable dtSchema in dsSchema.Tables)
                     {
                         tblName = encoder.Encode(dtSchema.TableName);
-                        dataAdapter.SelectCommand.CommandText = string.Format("select top 1 * from {0}", tblName);
+                        dataAdapter.SelectCommand.CommandText = $"select top 1 * from {tblName}";
                         try
                         {
                             // determine if the table exists in the database
@@ -93,15 +93,18 @@ namespace Proteus.Utility.UnitTest.Database
                                 dcDB = dtDB.Columns[colName];
                                 if (dcDB == null)
                                     // does the column exist in the database
-                                    compareResults.Errors.Add(String.Format("{0}.{1}  :  Column does not exist in database.", tblName, colName));
+                                    compareResults.Errors.Add(
+                                        $"{tblName}.{colName}  :  Column does not exist in database.");
                                 else
                                     if (dcSchema1.DataType != dcDB.DataType)
                                         // do the datatypes match
-                                        compareResults.Errors.Add(String.Format("{0}.{1}  :  Column's datatype does not match (Db = {2},  Xsd = {3})", tblName, colName, dcDB.DataType.FullName, dcSchema1.DataType.FullName));
+                                        compareResults.Errors.Add(
+                                            $"{tblName}.{colName}  :  Column's datatype does not match (Db = {dcDB.DataType.FullName},  Xsd = {dcSchema1.DataType.FullName})");
                                     else
                                         if (dcSchema1.DataType == typeof(string) && dcSchema1.MaxLength != dcDB.MaxLength)
                                             // if the column is a string, compare the maximum length
-                                            compareResults.Errors.Add(String.Format("{0}.{1}  : Column of type String has different maximum length (Db = {2},  Xsd = {3})", tblName, colName, dcDB.MaxLength, dcSchema1.MaxLength));
+                                            compareResults.Errors.Add(
+                                                $"{tblName}.{colName}  : Column of type String has different maximum length (Db = {dcDB.MaxLength},  Xsd = {dcSchema1.MaxLength})");
                                 // do we want to compare: AutoIncrement, AutoIncrementSeed, AutoIncrementStep?
                             }
                             // determine if new columns have been added to database
@@ -114,7 +117,8 @@ namespace Proteus.Utility.UnitTest.Database
                                     if (dcDB2.AllowDBNull == false)
                                     {
                                         if (dcDB2.AutoIncrement == true)
-                                            compareResults.Information.Add(String.Format("{0}.{1}  :  Column does not exist in test schema and Db column does not allow null values, but should be okay because Db column is set to auto increment (Identity).", tblName, colName));
+                                            compareResults.Information.Add(
+                                                $"{tblName}.{colName}  :  Column does not exist in test schema and Db column does not allow null values, but should be okay because Db column is set to auto increment (Identity).");
                                         else
                                             /*If we've gotten here, there is no way to determine what will happen if the test data is inserted into the database because there is not enough information to determine
                                               whether the database insert command will fail due to null values.
@@ -122,15 +126,17 @@ namespace Proteus.Utility.UnitTest.Database
                                               The only accurate way to determine the default value of a database column is to query the INFORMATION_SCHEMA which only works with MS SQL Server.
                                               Since we are trying to make this database agnostic, we need to avoid querying the INFORMATION_SCHEMA.
                                             */
-                                            compareResults.Warnings.Add(String.Format("{0}.{1}  :  Column does not exist in test schema, Db column does not allow null values, Db Column is not set to Auto Increment (Identity), and there is no way to determine if Db column has a default value therefore SqlExceptions may occur when test data is inserted into database.", tblName, colName));
+                                            compareResults.Warnings.Add(
+                                                $"{tblName}.{colName}  :  Column does not exist in test schema, Db column does not allow null values, Db Column is not set to Auto Increment (Identity), and there is no way to determine if Db column has a default value therefore SqlExceptions may occur when test data is inserted into database.");
                                     }
                                     else
-                                        compareResults.Information.Add(String.Format("{0}.{1}  :  Column does not exist in test schema, but should be okay because Db column allows null values.", tblName, colName));
+                                        compareResults.Information.Add(
+                                            $"{tblName}.{colName}  :  Column does not exist in test schema, but should be okay because Db column allows null values.");
                             }
                         }
-                        catch (SqlException ex)
+                        catch (SqlException)
                         {
-                            compareResults.Errors.Add(String.Format("{0}  :  Table does not exist in database.", tblName));
+                            compareResults.Errors.Add($"{tblName}  :  Table does not exist in database.");
                         }
                     }
                 }

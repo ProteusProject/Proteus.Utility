@@ -41,18 +41,18 @@ namespace Proteus.Utility.UnitTest.Database
         {
             Type type = ResolveType(className, assemblyName);
             if (type == null)
-                throw new ArgumentException(String.Format("Can't load type {0}", className));
+                throw new ArgumentException($"Can't load type {className}");
 
 
             Type[] types = new Type[] { typeof(string), typeof(string) };
             ConstructorInfo info = type.GetConstructor(types);
 
             if (info == null)
-                throw new ArgumentException(String.Format("Can't find matching constructor (string, string) for type {0}", className));
+                throw new ArgumentException($"Can't find matching constructor (string, string) for type {className}");
 
             object targetType = info.Invoke(new object[] { string.Empty, constructorArg });
             if (targetType == null)
-                throw new ArgumentException(String.Format("Can't instantiate type {0}", className));
+                throw new ArgumentException($"Can't instantiate type {className}");
 
             return targetType as T;
         }
@@ -61,18 +61,18 @@ namespace Proteus.Utility.UnitTest.Database
         {
             Type type = ResolveType(className, assemblyName);
             if (type == null)
-                throw new ArgumentException(String.Format("Can't load type {0}", className));
+                throw new ArgumentException($"Can't load type {className}");
 
 
             Type[] types = new Type[] { typeof(string) };
             ConstructorInfo info = type.GetConstructor(types);
 
             if (info == null)
-                throw new ArgumentException(String.Format("Can't find matching constructor (string, string) for type {0}", className));
+                throw new ArgumentException($"Can't find matching constructor (string, string) for type {className}");
 
             object targetType = info.Invoke(new object[] { constructorArg });
             if (targetType == null)
-                throw new ArgumentException(String.Format("Can't instantiate type {0}", className));
+                throw new ArgumentException($"Can't instantiate type {className}");
 
             return targetType as T;
         }
@@ -98,7 +98,8 @@ namespace Proteus.Utility.UnitTest.Database
             }
             catch
             {
-                throw new ArgumentException(String.Format("Can't load assembly {0}; ensure the assembly is located in the app binary directory or the GAC", assemblyName));
+                throw new ArgumentException(
+                    $"Can't load assembly {assemblyName}; ensure the assembly is located in the app binary directory or the GAC");
             }
 
             return assembly.GetType(className, false, false);

@@ -54,7 +54,8 @@ namespace Proteus.Utility.UnitTest
                 return f.GetValue(obj);
             else
             {
-                throw new ArgumentException(string.Format("Non-public instance field '{0}' could not be found in class of type '{1}'", fieldName, obj.GetType().ToString()));
+                throw new ArgumentException(
+                    $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType().ToString()}'");
             }
         }
 
@@ -78,7 +79,8 @@ namespace Proteus.Utility.UnitTest
             }
             catch (InvalidCastException)
             {
-                throw new ArgumentException(string.Format("Non-public instance field '{0}' in object of type '{1}' is not expected type of '{2}'", fieldName, obj.GetType().ToString(), typeof(TResult)));
+                throw new ArgumentException(
+                    $"Non-public instance field '{fieldName}' in object of type '{obj.GetType().ToString()}' is not expected type of '{typeof(TResult)}'");
             }
 
             return result;
@@ -106,13 +108,15 @@ namespace Proteus.Utility.UnitTest
             if (f != null)
             {
                 if (f.FieldType != fieldValue.GetType())
-                    throw new ArgumentException(string.Format("fieldValue for fieldName '{0}' of object type '{1}' must be of type '{2}' but was of type '{3}'", fieldName, obj.GetType().ToString(), f.FieldType.ToString(), fieldValue.GetType().ToString()), "fieldValue");
+                    throw new ArgumentException(
+                        $"fieldValue for fieldName '{fieldName}' of object type '{obj.GetType().ToString()}' must be of type '{f.FieldType.ToString()}' but was of type '{fieldValue.GetType().ToString()}'", "fieldValue");
 
                 f.SetValue(obj, fieldValue);
             }
             else
             {
-                throw new ArgumentException(string.Format("Non-public instance field '{0}' could not be found in class of type '{1}'", fieldName, obj.GetType().ToString()));
+                throw new ArgumentException(
+                    $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType().ToString()}'");
             }
         }
 

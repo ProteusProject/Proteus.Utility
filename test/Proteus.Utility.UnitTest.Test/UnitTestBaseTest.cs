@@ -69,7 +69,7 @@ namespace UnitTestTest
             try
             {
                 Person p = new Person();
-                SetInstanceFieldValue(p, String.Format("{0}zzz", PERSON_TEST_FIELD_NAME), PERSON_TEST_FIELD_VALUE);
+                SetInstanceFieldValue(p, $"{PERSON_TEST_FIELD_NAME}zzz", PERSON_TEST_FIELD_VALUE);
                 Assert.Fail("Expected Exception of type 'InvalidOperationException 'not thrown.");
             }
             catch (ArgumentException)
