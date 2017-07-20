@@ -42,9 +42,9 @@ namespace Proteus.Utility.UnitTest
         protected virtual object GetInstanceFieldValue(object obj, string fieldName)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj", "obj is null.");
-            if (String.IsNullOrEmpty(fieldName))
-                throw new ArgumentException("fieldName is null or empty.", "fieldName");
+                throw new ArgumentNullException(nameof(obj), "obj is null.");
+            if (string.IsNullOrEmpty(fieldName))
+                throw new ArgumentException("fieldName is null or empty.", nameof(fieldName));
 
             FieldInfo f = obj.GetType().GetField(fieldName, BindingFlags.SetField | BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             if (f != null)
@@ -52,7 +52,7 @@ namespace Proteus.Utility.UnitTest
             else
             {
                 throw new ArgumentException(
-                    $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType().ToString()}'");
+                    $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType()}'");
             }
         }
 
@@ -77,7 +77,7 @@ namespace Proteus.Utility.UnitTest
             catch (InvalidCastException)
             {
                 throw new ArgumentException(
-                    $"Non-public instance field '{fieldName}' in object of type '{obj.GetType().ToString()}' is not expected type of '{typeof(TResult)}'");
+                    $"Non-public instance field '{fieldName}' in object of type '{obj.GetType()}' is not expected type of '{typeof(TResult)}'");
             }
 
             return result;
@@ -94,11 +94,11 @@ namespace Proteus.Utility.UnitTest
         {
 
             if (obj == null)
-                throw new ArgumentNullException("obj", "obj is null.");
+                throw new ArgumentNullException(nameof(obj), "obj is null.");
             if (String.IsNullOrEmpty(fieldName))
-                throw new ArgumentException("fieldName is null or empty.", "fieldName");
+                throw new ArgumentException("fieldName is null or empty.", nameof(fieldName));
             if (fieldValue == null)
-                throw new ArgumentNullException("fieldValue", "fieldValue is null.");
+                throw new ArgumentNullException(nameof(fieldValue), "fieldValue is null.");
 
             FieldInfo f = obj.GetType().GetField(fieldName, BindingFlags.SetField | BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
@@ -106,14 +106,14 @@ namespace Proteus.Utility.UnitTest
             {
                 if (f.FieldType != fieldValue.GetType())
                     throw new ArgumentException(
-                        $"fieldValue for fieldName '{fieldName}' of object type '{obj.GetType().ToString()}' must be of type '{f.FieldType.ToString()}' but was of type '{fieldValue.GetType().ToString()}'", "fieldValue");
+                        $"fieldValue for fieldName '{fieldName}' of object type '{obj.GetType()}' must be of type '{f.FieldType}' but was of type '{fieldValue.GetType()}'", nameof(fieldValue));
 
                 f.SetValue(obj, fieldValue);
             }
             else
             {
                 throw new ArgumentException(
-                    $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType().ToString()}'");
+                    $"Non-public instance field '{fieldName}' could not be found in class of type '{obj.GetType()}'");
             }
         }
     }
