@@ -34,8 +34,8 @@ namespace Proteus.Utility.UnitTest.Test
             {
                 var input = "TheTable";
                 var output = new TableNameEncoder().Encode(input);
-                Assert.That(output, Is.StringStarting("["));
-                Assert.That(output, Is.StringEnding("]"));
+                Assert.That(output, Does.StartWith("["));
+                Assert.That(output, Does.StartWith("]"));
             }
         }
 

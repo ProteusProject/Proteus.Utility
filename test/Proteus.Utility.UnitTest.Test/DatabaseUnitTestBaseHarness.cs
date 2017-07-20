@@ -31,14 +31,14 @@ namespace UnitTestTest
     [Category(UnitTestBase.UnitTestType.DatabaseDependent)]
     public class DatabaseUnitTestBaseHarness : DatabaseUnitTestBase
     {
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void _TestFixtureSetUp()
         {
             DatabaseTestFixtureSetUp();
             Trace.WriteLine("DERIVED: TestFixtureSetUp");
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void _TestFixtureTearDown()
         {
             //other stuff you also need to do goes here!

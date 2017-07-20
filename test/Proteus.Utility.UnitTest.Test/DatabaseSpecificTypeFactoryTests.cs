@@ -36,7 +36,7 @@ namespace Proteus.Utility.UnitTest.Test
 
         private string CONN_STRING = string.Empty;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void _TestTestFixtureSetUp()
         {
             //have to ensure that all NDbUnit.* files are properly located in the app-local folder in order to be dynamically loaded when needed

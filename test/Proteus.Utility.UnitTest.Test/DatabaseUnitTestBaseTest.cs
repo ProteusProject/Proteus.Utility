@@ -31,13 +31,13 @@ namespace Proteus.Utility.UnitTest.Test
     [Category(UnitTestType.DatabaseDependent)]
     public class DatabaseUnitTestBaseTest : DatabaseUnitTestBase
     {
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void _TestFixtureSetUp()
         {
             DatabaseTestFixtureSetUp();
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void _TestFixtureTearDown()
         {
             DatabaseTestFixtureTearDown();
