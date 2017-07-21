@@ -55,11 +55,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NDbUnit.Core">
-      <HintPath>..\..\packages\NDbUnit.Core.1.6.8.0\lib\Net35\NDbUnit.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.3.7.1\lib\net35\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -70,51 +67,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseUnitTestBaseTest.cs" />
-    <Compile Include="DatabaseUnitTestBaseHarness.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DatabaseSpecificTypeFactoryTests.cs" />
-    <Compile Include="TableNameEncoderTests.cs" />
     <Compile Include="UnitTestBaseTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ValidateSchemaOnlyTestHarness.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="TestData\database.xsd">
-      <LastGenOutput>database.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestData\SchemaWithSchemaPrefixes.xsd">
-      <LastGenOutput>SchemaWithSchemaPrefixes.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Proteus.Utility.UnitTest.Database\Proteus.Utility.UnitTest.Database.csproj">
-      <Project>{d7ea2548-f901-44fc-8f7e-1c38b8ce02d9}</Project>
-      <Name>Proteus.Utility.UnitTest.Database</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Proteus.Utility.UnitTest\Proteus.Utility.UnitTest.csproj">
       <Project>{B64E4C8C-D622-42E9-AD6F-244581F33D82}</Project>
       <Name>Proteus.Utility.UnitTest</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TestData\BackupData.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestData\DataFileWithSchemaPrefixes.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestData\Testdata.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

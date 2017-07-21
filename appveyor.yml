@@ -1,15 +1,5 @@
 version: 1.0.{build}
 init: []
-services: mssql2012sp1
-before_build:
-- sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -i "%APPVEYOR_BUILD_FOLDER%\Create_Test_Database_Schema.sql"
 build:
   project: Proteus.Utility.build.xml
   verbosity: minimal
-after_build:
-- cmd: >-
-    tree /a
-
-    dir lib\
-
-    dir build\debug\testdata
