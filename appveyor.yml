@@ -12,4 +12,4 @@ after_build:
 
     dir lib\
 
-    dir debug\testdata
+    dir build\debug\testdata
