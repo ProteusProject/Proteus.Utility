@@ -6,6 +6,7 @@ before_build:
 build:
   project: Proteus.Utility.build.xml
   verbosity: minimal
+after_build:
 - cmd: >-
     tree /a
 
