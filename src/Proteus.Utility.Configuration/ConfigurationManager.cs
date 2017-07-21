@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Proteus.Utility.Configuration
 {
-    public class ConfigurationManager
+    public static class ConfigurationManager
     {
+        public static string AppSettings(string key)
+        {
+            return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process) ?? System.Configuration.ConfigurationManager.AppSettings[key];
+        }
     }
 }
