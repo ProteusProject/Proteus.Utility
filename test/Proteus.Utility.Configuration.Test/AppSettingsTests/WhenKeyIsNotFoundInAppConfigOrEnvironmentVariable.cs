@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using NUnit.Framework;
 
-namespace Proteus.Utility.Configuration.Test
+namespace Proteus.Utility.Configuration.Test.AppSettingsTests
 {
     [TestFixture]
     public class WhenKeyIsNotFoundInAppConfigOrEnvironmentVariable

@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Proteus.Utility.Configuration.Test.ConnectionStringsTests;
 
-namespace Proteus.Utility.Configuration.Test
+namespace Proteus.Utility.Configuration.Test.AppSettingsTests
 {
     [TestFixture]
     public class WhenKeyIsFoundInAppConfigAndNotEnvironmentVariable

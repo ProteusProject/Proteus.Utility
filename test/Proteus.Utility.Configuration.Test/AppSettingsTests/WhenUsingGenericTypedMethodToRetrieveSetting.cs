@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
-namespace Proteus.Utility.Configuration.Test
+namespace Proteus.Utility.Configuration.Test.AppSettingsTests
 {
     [TestFixture]
     public class WhenUsingGenericTypedMethodToRetrieveSetting
