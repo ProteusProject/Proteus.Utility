@@ -10,23 +10,23 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         [SetUp]
         public void TestSetUp()
         {
-            Environment.SetEnvironmentVariable(TestConstants.TheTestkey, TestConstants.ValueFromAppEnvironmentVariable, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable(TestConstants.AppSettingTestKey, TestConstants.AppSettingsValueFromAppEnvironmentVariable, EnvironmentVariableTarget.Process);
         }
 
         [TearDown]
         public void TestTearDown()
         {
-            Environment.SetEnvironmentVariable(TestConstants.TheTestkey,string.Empty, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable(TestConstants.AppSettingTestKey,string.Empty, EnvironmentVariableTarget.Process);
 
         }
 
         [Test]
         public void ValueIsReadFromEnvironment()
         {
-            Assume.That(System.Configuration.ConfigurationManager.AppSettings[TestConstants.TheTestkey], Is.Not.EqualTo(TestConstants.ValueFromAppEnvironmentVariable), $"The value in app.config file for {TestConstants.TheTestkey} must not be {TestConstants.ValueFromAppEnvironmentVariable} when this test runs.");
+            Assume.That(System.Configuration.ConfigurationManager.AppSettings[TestConstants.AppSettingTestKey], Is.Not.EqualTo(TestConstants.AppSettingsValueFromAppEnvironmentVariable), $"The value in app.config file for {TestConstants.AppSettingTestKey} must not be {TestConstants.AppSettingsValueFromAppEnvironmentVariable} when this test runs.");
 
-            var value = EnvironmentAwareConfigurationManager.AppSettings(TestConstants.TheTestkey);
-            Assert.That(value, Is.EqualTo(TestConstants.ValueFromAppEnvironmentVariable));
+            var value = EnvironmentAwareConfigurationManager.AppSettings(TestConstants.AppSettingTestKey);
+            Assert.That(value, Is.EqualTo(TestConstants.AppSettingsValueFromAppEnvironmentVariable));
         }
     }
 }

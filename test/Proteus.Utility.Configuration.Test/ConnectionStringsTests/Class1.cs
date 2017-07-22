@@ -23,8 +23,8 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         public const string ConnectionStringFromAppConfig = "the-connection-string-from-app.config-file";
         public const string ProviderNameFromAppConfig = "the-provider-name-from-app.config-file";
 
-        public const string ValueFromAppEnvironmentVariable = "value-read-from-environment";
-        public const string TheTestkey = "theTestKey";
-        public const string ValueFromAppConfigFile = "value-read-from-app.config-file";
+        public const string AppSettingsValueFromAppEnvironmentVariable = "value-read-from-environment";
+        public const string AppSettingTestKey = "theTestKey";
+        public const string AppSettingsValueFromAppConfigFile = "value-read-from-app.config-file";
     }
 }
