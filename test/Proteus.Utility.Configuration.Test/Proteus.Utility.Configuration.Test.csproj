@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettingTests.cs" />
     <Compile Include="AppSettingsTests\WhenKeyIsFoundInAppConfigAndEnvironmentVariable.cs" />
     <Compile Include="AppSettingsTests\WhenKeyIsFoundInAppConfigAndNotEnvironmentVariable.cs" />
     <Compile Include="ConnectionStringsTests\SettingParserTests\WhenParsingEntirelyInvalidConnectionStringValue.cs" />
@@ -50,7 +51,7 @@
     <Compile Include="ConnectionStringsTests\WhenKeyIsNotFoundInAppConfigOrEnvironmentVariable.cs" />
     <Compile Include="ConnectionStringsTests\SettingParserTests\WhenParsingValidCompleteConnectionStringValue.cs" />
     <Compile Include="ConnectionStringsTests\SettingParserTests\WhenParsingValidPartialConnectionStringValue.cs" />
-    <Compile Include="TestConstants.cs" />
+    <Compile Include="ConnectionStringTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppSettingsTests\WhenKeyIsNotFoundInAppConfigOrEnvironmentVariable.cs" />
     <Compile Include="AppSettingsTests\WhenUsingGenericTypedMethodToRetrieveSetting.cs" />

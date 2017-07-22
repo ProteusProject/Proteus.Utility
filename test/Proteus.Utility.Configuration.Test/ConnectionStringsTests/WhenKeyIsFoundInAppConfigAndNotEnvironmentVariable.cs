@@ -9,10 +9,10 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         [Test]
         public void ValueIsReadFromAppConfig()
         {
-            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(TestConstants.ConnectionStringTestKey);
+            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(ConnectionStringTests.TestKey);
 
-            Assert.That(value.ConnectionString, Is.EqualTo(TestConstants.ConnectionStringValueFromAppConfig));
-            Assert.That(value.ProviderName, Is.EqualTo(TestConstants.ConnectionStringProviderNameFromAppConfig));
+            Assert.That(value.ConnectionString, Is.EqualTo(ConnectionStringTests.AppConfigConnectionStringValue));
+            Assert.That(value.ProviderName, Is.EqualTo(ConnectionStringTests.AppConfigProviderNameValue));
         }
     }
 }

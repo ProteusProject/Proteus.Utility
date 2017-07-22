@@ -13,22 +13,22 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         [SetUp]
         public void TestSetUp()
         {
-            Environment.SetEnvironmentVariable(TestConstants.ConnectionStringTestKey, TestConstants.ConnectionStringValueOfEnvironmentVariable, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable(ConnectionStringTests.TestKey, ConnectionStringTests.EnvironmentVariableSetting, EnvironmentVariableTarget.Process);
         }
 
         [TearDown]
         public void TestTearDown()
         {
-            Environment.SetEnvironmentVariable(TestConstants.ConnectionStringTestKey, string.Empty, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable(ConnectionStringTests.TestKey, string.Empty, EnvironmentVariableTarget.Process);
         }
 
         [Test]
         public void ValueIsReadFromEnvironment()
         {
-            Assume.That(System.Configuration.ConfigurationManager.ConnectionStrings[TestConstants.ConnectionStringTestKey], Is.Not.Null, $"The value in app.config file for {TestConstants.ConnectionStringTestKey} must not be {TestConstants.AppSettingsValueFromEnvironmentVariable} when this test runs.");
+            Assume.That(System.Configuration.ConfigurationManager.ConnectionStrings[ConnectionStringTests.TestKey], Is.Not.Null, $"The value in app.config file for {ConnectionStringTests.TestKey} must not be {AppSettingTests.EnvironmentVariableValue} when this test runs.");
 
-            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(TestConstants.ConnectionStringTestKey);
-            Assert.That(value.ConnectionString, Is.EqualTo(TestConstants.ConnectionStringValueFromEnvironmentVariable));
+            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(ConnectionStringTests.TestKey);
+            Assert.That(value.ConnectionString, Is.EqualTo(ConnectionStringTests.EnvironmentVariableConnectionStringValue));
         }
     }
 }
