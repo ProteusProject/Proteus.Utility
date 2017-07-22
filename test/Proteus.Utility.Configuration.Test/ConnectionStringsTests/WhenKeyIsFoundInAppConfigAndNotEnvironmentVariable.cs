@@ -11,8 +11,8 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         {
             var value = EnvironmentAwareConfigurationManager.ConnectionStrings(TestConstants.ConnectionStringTestKey);
 
-            Assert.That(value.ConnectionString, Is.EqualTo(TestConstants.ConnectionStringFromAppConfig));
-            Assert.That(value.ProviderName, Is.EqualTo(TestConstants.ProviderNameFromAppConfig));
+            Assert.That(value.ConnectionString, Is.EqualTo(TestConstants.ConnectionStringValueFromAppConfig));
+            Assert.That(value.ProviderName, Is.EqualTo(TestConstants.ConnectionStringProviderNameFromAppConfig));
         }
     }
 }
