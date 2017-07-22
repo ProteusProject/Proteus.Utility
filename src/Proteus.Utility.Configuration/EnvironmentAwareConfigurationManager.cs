@@ -15,7 +15,7 @@ namespace Proteus.Utility.Configuration
 
             if (null == value)
             {
-                throw new ConfigurationErrorsException($"Unable to read value for key: {key} from app.config or environment variable.");
+                throw new ConfigurationErrorsException($"Key: {key} not found in app.config or environment variables.");
             }
 
             return value;
@@ -34,7 +34,7 @@ namespace Proteus.Utility.Configuration
             }
             catch (FormatException ex)
             {
-               throw new ConfigurationErrorsException($"Unable to convert string value {stringValue} to requested type {typeof(TReturn)}", ex);
+               throw new ConfigurationErrorsException($"Unable to convert string value: {stringValue} to requested type: {typeof(TReturn)}", ex);
             }
 
             
