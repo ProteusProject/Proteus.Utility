@@ -73,12 +73,7 @@ namespace Proteus.Utility.Configuration
         private static ConnectionStringSettings GetConnectionStringFromEnvironmentVariable(string key)
         {
             var environmentValue = Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
-
-            //TODO: parse out name, connectionString, providerName valued from environmentValue
-
-
-
-            return null;
+            return string.IsNullOrEmpty(environmentValue) ? null : ConnectionStringSettingParser.Parse(environmentValue);
         }
     }
 }
