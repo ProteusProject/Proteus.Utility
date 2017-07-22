@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionStringSettingParser.cs" />
-    <Compile Include="EnvironmentAwareConfigurationManager.cs" />
+    <Compile Include="ExtensibleSourceConfigurationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

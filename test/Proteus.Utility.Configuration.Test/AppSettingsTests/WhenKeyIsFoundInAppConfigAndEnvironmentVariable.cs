@@ -25,7 +25,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         {
             Assume.That(System.Configuration.ConfigurationManager.AppSettings[AppSettingTests.TestKey], Is.Not.EqualTo(AppSettingTests.EnvironmentVariableValue), $"The value in app.config file for {AppSettingTests.TestKey} must not be {AppSettingTests.EnvironmentVariableValue} when this test runs.");
 
-            var value = EnvironmentAwareConfigurationManager.AppSettings(AppSettingTests.TestKey);
+            var value = ExtensibleSourceConfigurationManager.AppSettings(AppSettingTests.TestKey);
             Assert.That(value, Is.EqualTo(AppSettingTests.EnvironmentVariableValue));
         }
     }

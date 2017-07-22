@@ -27,7 +27,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         {
             Assume.That(System.Configuration.ConfigurationManager.ConnectionStrings[ConnectionStringTests.TestKey], Is.Not.Null, $"The value in app.config file for {ConnectionStringTests.TestKey} must not be {AppSettingTests.EnvironmentVariableValue} when this test runs.");
 
-            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(ConnectionStringTests.TestKey);
+            var value = ExtensibleSourceConfigurationManager.ConnectionStrings(ConnectionStringTests.TestKey);
             Assert.That(value.ConnectionString, Is.EqualTo(ConnectionStringTests.EnvironmentVariableConnectionStringValue));
         }
     }

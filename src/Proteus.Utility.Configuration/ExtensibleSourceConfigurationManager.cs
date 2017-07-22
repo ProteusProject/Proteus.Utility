@@ -7,12 +7,42 @@ using System.Text;
 
 namespace Proteus.Utility.Configuration
 {
-    public static class EnvironmentAwareConfigurationManager
+    public static class ExtensibleSourceConfigurationManager
     {
+        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { GetAppSettingFromEnvironmentVariable, GetAppSettingFromAppConfigFile };
+        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { GetConnectionStringFromEnvironmentVariable, GetConnectionStringFromAppConfig };
+
 
         public static string AppSettings(string key)
         {
-            var value = GetAppSettingFromEnvironmentVariable(key) ?? GetAppSettingFromAppConfigFile(key);
+            string value = null;
+
+            foreach (var reader in AppSettingReaders)
+            {
+                value = reader(key);
+                if (null == value) continue;
+                break;
+            }
+
+            if (null == value)
+            {
+                ThrowOnValueNotFound(key);
+                ThrowOnValueNotFound(key);
+            }
+
+            return value;
+        }
+
+        public static ConnectionStringSettings ConnectionStrings(string key)
+        {
+            ConnectionStringSettings value = null;
+
+            foreach (var reader in ConnectionStringReaders)
+            {
+                value = reader(key);
+                if (null == value) continue;
+                break;
+            }
 
             if (null == value)
             {
@@ -36,18 +66,6 @@ namespace Proteus.Utility.Configuration
             {
                 throw new ConfigurationErrorsException($"Unable to convert string value: {stringValue} to requested type: {typeof(TReturn)}", ex);
             }
-        }
-
-        public static ConnectionStringSettings ConnectionStrings(string key)
-        {
-            var value = GetConnectionStringFromEnvironmentVariable(key) ?? GetConnectionStringFromAppConfig(key);
-
-            if (null == value)
-            {
-                ThrowOnValueNotFound(key);
-            }
-
-            return value;
         }
 
         private static void ThrowOnValueNotFound(string key)

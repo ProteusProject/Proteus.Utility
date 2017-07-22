@@ -10,7 +10,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         public void ThrowsException()
         {
             Assert.Throws<ConfigurationErrorsException>(
-                () => EnvironmentAwareConfigurationManager.AppSettings("some-key-that-doesnt-exist-in-env-or-app.config"));
+                () => ExtensibleSourceConfigurationManager.AppSettings("some-key-that-doesnt-exist-in-env-or-app.config"));
         }
     }
 }

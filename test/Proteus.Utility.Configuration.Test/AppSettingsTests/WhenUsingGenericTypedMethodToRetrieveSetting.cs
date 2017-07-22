@@ -18,14 +18,14 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         public void CanRetrieveBooleanValue()
         {
             SetEnvironmentVariable("true");
-            Assert.That(EnvironmentAwareConfigurationManager.AppSettings<bool>("test-key"), Is.True);
+            Assert.That(ExtensibleSourceConfigurationManager.AppSettings<bool>("test-key"), Is.True);
         }
 
         [Test]
         public void CanRetrieveNumericValue()
         {
             SetEnvironmentVariable("10");
-            Assert.That(EnvironmentAwareConfigurationManager.AppSettings<int>("test-key"), Is.EqualTo(10));
+            Assert.That(ExtensibleSourceConfigurationManager.AppSettings<int>("test-key"), Is.EqualTo(10));
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         {
             var uriString = "http://some/host/some/resource";
             SetEnvironmentVariable(uriString);
-            var value = EnvironmentAwareConfigurationManager.AppSettings<Uri>("test-key");
+            var value = ExtensibleSourceConfigurationManager.AppSettings<Uri>("test-key");
 
             Assert.That(value, Is.TypeOf<Uri>());
             Assert.That(value.AbsoluteUri, Is.EqualTo(uriString));
@@ -43,7 +43,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         public void ThrowsIfKeyNotFound()
         {
             Assert.Throws<ConfigurationErrorsException>(
-                () => EnvironmentAwareConfigurationManager.AppSettings<object>("test-key"));
+                () => ExtensibleSourceConfigurationManager.AppSettings<object>("test-key"));
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
             
             try
             {
-                EnvironmentAwareConfigurationManager.AppSettings<bool>("test-key");
+                ExtensibleSourceConfigurationManager.AppSettings<bool>("test-key");
             }
             catch (ConfigurationErrorsException ex)
             {

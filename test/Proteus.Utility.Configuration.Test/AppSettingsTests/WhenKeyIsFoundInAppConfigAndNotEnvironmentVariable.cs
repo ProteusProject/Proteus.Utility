@@ -16,7 +16,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         {
             Assume.That(Environment.GetEnvironmentVariable(TheTestkey, EnvironmentVariableTarget.Process), Is.Null, $"Environment variable {TheTestkey} must be cleared before this test can run.");
 
-            var value = EnvironmentAwareConfigurationManager.AppSettings(TheTestkey);
+            var value = ExtensibleSourceConfigurationManager.AppSettings(TheTestkey);
             Assert.That(value, Is.EqualTo(AppSettingTests.AppConfigValue));
         }
     }

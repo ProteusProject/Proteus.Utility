@@ -11,7 +11,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         public void ThrowsException()
         {
             Assert.Throws<ConfigurationErrorsException>(
-                () => EnvironmentAwareConfigurationManager.ConnectionStrings("some-key-that-doesnt-exist-in-env-or-app.config"));
+                () => ExtensibleSourceConfigurationManager.ConnectionStrings("some-key-that-doesnt-exist-in-env-or-app.config"));
         }
     }
 }
