@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="AppSettingsTests\WhenKeyIsFoundInAppConfigAndEnvironmentVariable.cs" />
     <Compile Include="AppSettingsTests\WhenKeyIsFoundInAppConfigAndNotEnvironmentVariable.cs" />
-    <Compile Include="ConnectionStringsTests\Class1.cs" />
+    <Compile Include="ConnectionStringsTests\WhenKeyIsFoundInAppConfigAndEnvironmentVariable.cs" />
+    <Compile Include="ConnectionStringsTests\WhenKeyIsFoundInAppConfigAndNotEnvironmentVariable.cs" />
+    <Compile Include="ConnectionStringsTests\WhenKeyIsNotFoundInAppConfigOrEnvironmentVariable.cs" />
     <Compile Include="TestConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppSettingsTests\WhenKeyIsNotFoundInAppConfigOrEnvironmentVariable.cs" />

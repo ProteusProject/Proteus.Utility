@@ -4,10 +4,10 @@ using NUnit.Framework.Internal;
 namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
 {
     [TestFixture]
-    public class Class1
+    public class WhenKeyIsFoundInAppConfigAndNotEnvironmentVariable
     {
         [Test]
-        public void CanReadConnectionString()
+        public void ValueIsReadFromAppConfig()
         {
             var value = EnvironmentAwareConfigurationManager.ConnectionStrings(TestConstants.ConnectionStringTestKey);
 
