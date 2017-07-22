@@ -7,6 +7,13 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
     [TestFixture]
     public class WhenUsingGenericTypedMethodToRetrieveSetting
     {
+        [SetUp]
+        public void TestSetUp()
+        {
+            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(EnvironmentVariableConfigurationReader.GetAppSetting);
+        }
+
+
         [TearDown]
         public void TestTearDown()
         {

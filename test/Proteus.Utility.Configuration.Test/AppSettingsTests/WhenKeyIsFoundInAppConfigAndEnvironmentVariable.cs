@@ -11,6 +11,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         public void TestSetUp()
         {
             Environment.SetEnvironmentVariable(AppSettingTests.TestKey, AppSettingTests.EnvironmentVariableValue, EnvironmentVariableTarget.Process);
+            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(EnvironmentVariableConfigurationReader.GetAppSetting);
         }
 
         [TearDown]

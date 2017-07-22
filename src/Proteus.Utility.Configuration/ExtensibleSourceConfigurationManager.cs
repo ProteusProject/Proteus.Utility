@@ -9,15 +9,15 @@ namespace Proteus.Utility.Configuration
 {
     public static class ExtensibleSourceConfigurationManager
     {
-        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { EnvironmentVariableConfigurationReader.GetAppSetting, AppConfigConfigurationReader.GetAppSetting };
-        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { EnvironmentVariableConfigurationReader.GetConnectionString, AppConfigConfigurationReader.GetConnectionString };
+        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { AppConfigConfigurationReader.GetAppSetting };
+        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { AppConfigConfigurationReader.GetConnectionString };
 
 
         public static string AppSettings(string key)
         {
             string value = null;
 
-            foreach (var reader in AppSettingReaders)
+            foreach (var reader in AppSettingReaders.Reverse())
             {
                 value = reader(key);
                 if (null == value) continue;
@@ -37,7 +37,7 @@ namespace Proteus.Utility.Configuration
         {
             ConnectionStringSettings value = null;
 
-            foreach (var reader in ConnectionStringReaders)
+            foreach (var reader in ConnectionStringReaders.Reverse())
             {
                 value = reader(key);
                 if (null == value) continue;

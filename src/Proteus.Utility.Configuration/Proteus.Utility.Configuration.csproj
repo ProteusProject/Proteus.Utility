@@ -43,6 +43,7 @@
     <Compile Include="ConnectionStringSettingParser.cs" />
     <Compile Include="EnvironmentVariableConfigurationReader.cs" />
     <Compile Include="ExtensibleSourceConfigurationManager.cs" />
+    <Compile Include="IConfigurationReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
