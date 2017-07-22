@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfigConfigurationReader.cs" />
+    <Compile Include="AppConfigReader.cs" />
     <Compile Include="ConnectionStringSettingParser.cs" />
-    <Compile Include="EnvironmentVariableConfigurationReader.cs" />
+    <Compile Include="EnvironmentVariableReader.cs" />
     <Compile Include="ExtensibleSourceConfigurationManager.cs" />
     <Compile Include="IConfigurationReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

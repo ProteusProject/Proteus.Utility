@@ -9,8 +9,8 @@ namespace Proteus.Utility.Configuration
 {
     public static class ExtensibleSourceConfigurationManager
     {
-        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { AppConfigConfigurationReader.GetAppSetting };
-        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { AppConfigConfigurationReader.GetConnectionString };
+        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { AppConfigReader.GetAppSetting };
+        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { AppConfigReader.GetConnectionString };
 
 
         public static string AppSettings(string key)

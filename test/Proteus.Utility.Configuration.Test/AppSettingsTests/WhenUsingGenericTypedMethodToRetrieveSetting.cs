@@ -10,7 +10,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         [SetUp]
         public void TestSetUp()
         {
-            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(EnvironmentVariableConfigurationReader.GetAppSetting);
+            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(EnvironmentVariableReader.GetAppSetting);
         }
 
 

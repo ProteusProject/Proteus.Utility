@@ -2,7 +2,7 @@
 
 namespace Proteus.Utility.Configuration
 {
-    public static class AppConfigConfigurationReader
+    public static class AppConfigReader
     {
         public static string GetAppSetting(string key)
         {

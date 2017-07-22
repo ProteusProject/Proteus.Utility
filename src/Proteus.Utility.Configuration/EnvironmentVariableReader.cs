@@ -3,7 +3,7 @@ using System.Configuration;
 
 namespace Proteus.Utility.Configuration
 {
-    public static class EnvironmentVariableConfigurationReader
+    public static class EnvironmentVariableReader
     {
         public static string GetAppSetting(string key)
         {
