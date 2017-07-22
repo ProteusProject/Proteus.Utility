@@ -27,7 +27,6 @@ namespace Proteus.Utility.Configuration
             if (null == value)
             {
                 ThrowOnValueNotFound(key);
-                ThrowOnValueNotFound(key);
             }
 
             return value;
