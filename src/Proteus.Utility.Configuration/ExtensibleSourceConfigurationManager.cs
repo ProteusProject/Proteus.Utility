@@ -9,8 +9,8 @@ namespace Proteus.Utility.Configuration
 {
     public static class ExtensibleSourceConfigurationManager
     {
-        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { GetAppSettingFromEnvironmentVariable, GetAppSettingFromAppConfigFile };
-        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { GetConnectionStringFromEnvironmentVariable, GetConnectionStringFromAppConfig };
+        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { EnvironmentVariableConfigurationReader.GetAppSetting, AppConfigConfigurationReader.GetAppSetting };
+        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { EnvironmentVariableConfigurationReader.GetConnectionString, AppConfigConfigurationReader.GetConnectionString };
 
 
         public static string AppSettings(string key)
@@ -73,25 +73,6 @@ namespace Proteus.Utility.Configuration
             throw new ConfigurationErrorsException($"Key: {key} not found in app.config or environment variables.");
         }
 
-        private static string GetAppSettingFromAppConfigFile(string key)
-        {
-            return ConfigurationManager.AppSettings[key];
-        }
 
-        private static string GetAppSettingFromEnvironmentVariable(string key)
-        {
-            return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
-        }
-
-        private static ConnectionStringSettings GetConnectionStringFromAppConfig(string key)
-        {
-            return ConfigurationManager.ConnectionStrings[key];
-        }
-
-        private static ConnectionStringSettings GetConnectionStringFromEnvironmentVariable(string key)
-        {
-            var environmentValue = Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
-            return string.IsNullOrEmpty(environmentValue) ? null : ConnectionStringSettingParser.Parse(environmentValue);
-        }
     }
 }
