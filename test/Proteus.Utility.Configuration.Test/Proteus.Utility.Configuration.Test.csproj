@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WhenEnvironmentOverrideNotSet.cs" />
+    <Compile Include="WhenKeyIsFoundInAppConfigAndEnvironmentVariable.cs" />
+    <Compile Include="WhenKeyIsFoundInAppConfigAndNotEnvironmentVariable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhenKeyIsNotFoundInAppConfigOrEnvironmentVariable.cs" />
+    <Compile Include="WhenUsingGenericTypedMethodToRetrieveSetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Proteus.Utility.Configuration\Proteus.Utility.Configuration.csproj">
