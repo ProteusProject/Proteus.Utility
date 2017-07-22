@@ -6,19 +6,25 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
     [TestFixture]
     public class Class1
     {
-        private const string Key = "theTestKey";
-        private const string ConnectionString = "the-connection-string-from-app.config-file";
-        private const string ProviderName = "the-provider-name-from-app.config-file";
-
-
-
         [Test]
         public void CanReadConnectionString()
         {
-            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(Key);
+            var value = EnvironmentAwareConfigurationManager.ConnectionStrings(TestConstants.ConnectionStringTestKey);
 
-            Assert.That(value.ConnectionString, Is.EqualTo(ConnectionString));
-            Assert.That(value.ProviderName, Is.EqualTo(ProviderName));
+            Assert.That(value.ConnectionString, Is.EqualTo(TestConstants.ConnectionStringFromAppConfig));
+            Assert.That(value.ProviderName, Is.EqualTo(TestConstants.ProviderNameFromAppConfig));
         }
+    }
+
+
+    public class TestConstants
+    {
+        public const string ConnectionStringTestKey = "theTestKey";
+        public const string ConnectionStringFromAppConfig = "the-connection-string-from-app.config-file";
+        public const string ProviderNameFromAppConfig = "the-provider-name-from-app.config-file";
+
+        public const string ValueFromAppEnvironmentVariable = "value-read-from-environment";
+        public const string TheTestkey = "theTestKey";
+        public const string ValueFromAppConfigFile = "value-read-from-app.config-file";
     }
 }

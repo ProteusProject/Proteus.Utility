@@ -9,18 +9,18 @@ namespace Proteus.Utility.Configuration
 {
     public static class EnvironmentAwareConfigurationManager
     {
+
         public static string AppSettings(string key)
         {
-            var value = Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process) ?? ConfigurationManager.AppSettings[key];
+            var value = GetAppSettingFromEnvironmentVariable(key) ?? GetAppSettingFromAppConfigFile(key);
 
             if (null == value)
             {
-                throw new ConfigurationErrorsException($"Key: {key} not found in app.config or environment variables.");
+                ThrowOnValueNotFound(key);
             }
 
             return value;
         }
-
 
         public static TReturn AppSettings<TReturn>(string key)
         {
@@ -34,15 +34,45 @@ namespace Proteus.Utility.Configuration
             }
             catch (FormatException ex)
             {
-               throw new ConfigurationErrorsException($"Unable to convert string value: {stringValue} to requested type: {typeof(TReturn)}", ex);
+                throw new ConfigurationErrorsException($"Unable to convert string value: {stringValue} to requested type: {typeof(TReturn)}", ex);
             }
-
-            
         }
 
         public static ConnectionStringSettings ConnectionStrings(string key)
         {
+            var value = GetConnectionStringFromEnvironmentVariable(key) ?? GetConnectionStringFromAppConfig(key);
+
+            if (null == value)
+            {
+                ThrowOnValueNotFound(key);
+            }
+
+            return value;
+        }
+
+        private static void ThrowOnValueNotFound(string key)
+        {
+            throw new ConfigurationErrorsException($"Key: {key} not found in app.config or environment variables.");
+        }
+
+        private static string GetAppSettingFromAppConfigFile(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
+        private static string GetAppSettingFromEnvironmentVariable(string key)
+        {
+            return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
+        }
+
+        private static ConnectionStringSettings GetConnectionStringFromAppConfig(string key)
+        {
             return ConfigurationManager.ConnectionStrings[key];
+        }
+
+        private static ConnectionStringSettings GetConnectionStringFromEnvironmentVariable(string key)
+        {
+            return null;
         }
     }
 }
