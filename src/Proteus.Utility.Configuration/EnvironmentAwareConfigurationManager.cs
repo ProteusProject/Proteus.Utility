@@ -39,5 +39,10 @@ namespace Proteus.Utility.Configuration
 
             
         }
+
+        public static ConnectionStringSettings ConnectionStrings(string key)
+        {
+            return ConfigurationManager.ConnectionStrings[key];
+        }
     }
 }
