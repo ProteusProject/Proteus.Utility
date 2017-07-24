@@ -24,15 +24,15 @@ namespace Proteus.Utility.Configuration
             {
                 var readerName = reader.Method.DeclaringType?.FullName ?? "DYNAMIC_TYPE";
 
-                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read setting: '{key}' using reader: '{readerName}'");
+                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read setting: [{key}] using reader: [{readerName}]");
                 value = reader(key);
                 if (null == value)
                 {
-                    Logger($"Key: '{key}' not found using reader: '{readerName}'");
+                    Logger($"Key: [{key}] not found using reader: [{readerName}]");
                     continue;
                 }
 
-                Logger($"Key: '{key}' value: '{value}' found using reader: '{readerName}'");
+                Logger($"Key: [{key}] value: [{value}] found using reader: [{readerName}]");
                 break;
             }
 
@@ -52,15 +52,15 @@ namespace Proteus.Utility.Configuration
             {
                 var readerName = reader.Method.DeclaringType?.FullName ?? "DYNAMIC_TYPE";
 
-                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read named connection string: '{key}' using reader: '{readerName}'");
+                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read named connection string: [{key}] using reader: [{readerName}]");
                 value = reader(key);
                 if (null == value)
                 {
-                    Logger($"Named connection string: '{key}' not found using reader: '{readerName}'");
+                    Logger($"Named connection string: [{key}] not found using reader: [{readerName}]");
                     continue;
                 }
 
-                Logger($"Named connection string: '{key}' value: '{value}' found using reader: '{readerName}'");
+                Logger($"Named connection string: [{key}] value: [{value}] found using reader: [{readerName}'");
                 break;
             }
 
@@ -84,13 +84,13 @@ namespace Proteus.Utility.Configuration
             }
             catch (FormatException ex)
             {
-                throw new ConfigurationErrorsException($"Unable to convert string value: '{stringValue}' to requested type: '{typeof(TReturn)}'", ex);
+                throw new ConfigurationErrorsException($"Unable to convert string value: [{stringValue}] to requested type: [{typeof(TReturn)}]", ex);
             }
         }
 
         private static void ThrowOnValueNotFound(string key)
         {
-            var message = $"Unable to be find key: '{key}' using any provided configuration source(s).";
+            var message = $"Unable to be find key: [{key}] using any provided configuration source(s).";
             Logger(message);
 
             throw new ConfigurationErrorsException(message);
