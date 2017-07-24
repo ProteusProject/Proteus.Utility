@@ -14,7 +14,7 @@ namespace Proteus.Utility.Configuration
         public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { AppConfigReader.GetAppSetting };
         public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { AppConfigReader.GetConnectionString };
 
-        public static Action<string> Logger { get; set; } = msg => { };
+        public static Action<string> Logger { get; set; } = msg => { Debug.WriteLine(msg); };
 
         public static string AppSettings(string key)
         {
@@ -22,17 +22,17 @@ namespace Proteus.Utility.Configuration
 
             foreach (var reader in AppSettingReaders.Reverse())
             {
-                var readerName = reader.Method.DeclaringType?.FullName ?? "DYNAMIC_TYPE";
+                var readerMethod = MethodNameFormatter.GetFormattedName(reader);
 
-                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read setting: [{key}] using reader: [{readerName}]");
+                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read setting: [{key}] using reader: [{readerMethod}]");
                 value = reader(key);
                 if (null == value)
                 {
-                    Logger($"Key: [{key}] not found using reader: [{readerName}]");
+                    Logger($"Key: [{key}] not found using reader: [{readerMethod}]");
                     continue;
                 }
 
-                Logger($"Key: [{key}] value: [{value}] found using reader: [{readerName}]");
+                Logger($"Key: [{key}] value: [{value}] found using reader: [{readerMethod}]");
                 break;
             }
 
@@ -50,17 +50,17 @@ namespace Proteus.Utility.Configuration
 
             foreach (var reader in ConnectionStringReaders.Reverse())
             {
-                var readerName = reader.Method.DeclaringType?.FullName ?? "DYNAMIC_TYPE";
+                var readerMethod = MethodNameFormatter.GetFormattedName(reader);
 
-                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read named connection string: [{key}] using reader: [{readerName}]");
+                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read named connection string: [{key}] using reader: [{readerMethod}]");
                 value = reader(key);
                 if (null == value)
                 {
-                    Logger($"Named connection string: [{key}] not found using reader: [{readerName}]");
+                    Logger($"Named connection string: [{key}] not found using reader: [{readerMethod}]");
                     continue;
                 }
 
-                Logger($"Named connection string: [{key}] value: [{value}] found using reader: [{readerName}'");
+                Logger($"Named connection string: [{key}] value: [{value}] found using reader: [{readerMethod}'");
                 break;
             }
 

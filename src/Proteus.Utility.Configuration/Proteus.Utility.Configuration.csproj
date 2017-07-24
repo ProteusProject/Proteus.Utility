@@ -44,7 +44,7 @@
     <Compile Include="EnvironmentVariableReader.cs" />
     <Compile Include="ExtensibleSourceConfigurationManager.cs" />
     <Compile Include="IConfigurationReader.cs" />
-    <Compile Include="MethodCallNameFormatter.cs" />
+    <Compile Include="MethodNameFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
