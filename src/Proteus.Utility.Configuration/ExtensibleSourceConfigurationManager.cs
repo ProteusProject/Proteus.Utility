@@ -11,10 +11,10 @@ namespace Proteus.Utility.Configuration
 {
     public static class ExtensibleSourceConfigurationManager
     {
-        public static IList<Expression<Func<string, string>>> AppSettingReaders = new List<Expression<Func<string, string>>> { key => AppConfigReader.GetAppSetting(key) };
-        public static IList<Expression<Func<string, ConnectionStringSettings>>> ConnectionStringReaders = new List<Expression<Func<string, ConnectionStringSettings>>> { key => AppConfigReader.GetConnectionString(key) };
+        public static IList<Func<string, string>> AppSettingReaders = new List<Func<string, string>> { AppConfigReader.GetAppSetting };
+        public static IList<Func<string, ConnectionStringSettings>> ConnectionStringReaders = new List<Func<string, ConnectionStringSettings>> { AppConfigReader.GetConnectionString };
 
-        public static Action<string> Logger { get; set; } = msg => Debug.WriteLine(msg);
+        public static Action<string> Logger { get; set; } = msg => { };
 
         public static string AppSettings(string key)
         {
@@ -22,17 +22,17 @@ namespace Proteus.Utility.Configuration
 
             foreach (var reader in AppSettingReaders.Reverse())
             {
-                var readerName = MethodCallNameFormatter.GetFormattedName(reader);
+                var readerName = reader.Method.DeclaringType?.FullName ?? "DYNAMIC_TYPE";
 
-                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read setting: '{key}' using reader method: {readerName}");
-                value = reader.Compile().Invoke(key);
+                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read setting: '{key}' using reader: '{readerName}'");
+                value = reader(key);
                 if (null == value)
                 {
-                    Logger($"Key: '{key}' not found using reader method: {readerName}");
+                    Logger($"Key: '{key}' not found using reader: '{readerName}'");
                     continue;
                 }
 
-                Logger($"Key: '{key}' value: '{value}' found using reader method {readerName}");
+                Logger($"Key: '{key}' value: '{value}' found using reader: '{readerName}'");
                 break;
             }
 
@@ -50,8 +50,17 @@ namespace Proteus.Utility.Configuration
 
             foreach (var reader in ConnectionStringReaders.Reverse())
             {
-                value = reader.Compile().Invoke(key);
-                if (null == value) continue;
+                var readerName = reader.Method.DeclaringType?.FullName ?? "DYNAMIC_TYPE";
+
+                Logger($"{nameof(ExtensibleSourceConfigurationManager)} attempting to read named connection string: '{key}' using reader: '{readerName}'");
+                value = reader(key);
+                if (null == value)
+                {
+                    Logger($"Named connection string: '{key}' not found using reader: '{readerName}'");
+                    continue;
+                }
+
+                Logger($"Named connection string: '{key}' value: '{value}' found using reader: '{readerName}'");
                 break;
             }
 
@@ -75,13 +84,13 @@ namespace Proteus.Utility.Configuration
             }
             catch (FormatException ex)
             {
-                throw new ConfigurationErrorsException($"Unable to convert string value: {stringValue} to requested type: {typeof(TReturn)}", ex);
+                throw new ConfigurationErrorsException($"Unable to convert string value: '{stringValue}' to requested type: '{typeof(TReturn)}'", ex);
             }
         }
 
         private static void ThrowOnValueNotFound(string key)
         {
-            var message = $"Unable to be find key: {key} using provided configuration source(s).";
+            var message = $"Unable to be find key: '{key}' using any provided configuration source(s).";
             Logger(message);
 
             throw new ConfigurationErrorsException(message);

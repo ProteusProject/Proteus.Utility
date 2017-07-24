@@ -14,7 +14,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests
         public void TestSetUp()
         {
             Environment.SetEnvironmentVariable(ConnectionStringTests.TestKey, ConnectionStringTests.EnvironmentVariableSetting, EnvironmentVariableTarget.Process);
-            ExtensibleSourceConfigurationManager.ConnectionStringReaders.Add(key=>EnvironmentVariableReader.GetConnectionString(key));
+            ExtensibleSourceConfigurationManager.ConnectionStringReaders.Add(EnvironmentVariableReader.GetConnectionString);
         }
 
         [TearDown]
