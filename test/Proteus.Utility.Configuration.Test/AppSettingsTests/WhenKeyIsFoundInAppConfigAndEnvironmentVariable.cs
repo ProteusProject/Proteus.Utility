@@ -11,13 +11,13 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         public void TestSetUp()
         {
             Environment.SetEnvironmentVariable(AppSettingTests.TestKey, AppSettingTests.EnvironmentVariableValue, EnvironmentVariableTarget.Process);
-            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(EnvironmentVariableReader.GetAppSetting);
+            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(key => EnvironmentVariableReader.GetAppSetting(key));
         }
 
         [TearDown]
         public void TestTearDown()
         {
-            Environment.SetEnvironmentVariable(AppSettingTests.TestKey,string.Empty, EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable(AppSettingTests.TestKey, string.Empty, EnvironmentVariableTarget.Process);
 
         }
 

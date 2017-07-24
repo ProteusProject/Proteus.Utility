@@ -10,7 +10,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         [SetUp]
         public void TestSetUp()
         {
-            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(EnvironmentVariableReader.GetAppSetting);
+            ExtensibleSourceConfigurationManager.AppSettingReaders.Add(key => EnvironmentVariableReader.GetAppSetting(key));
         }
 
 
@@ -57,7 +57,7 @@ namespace Proteus.Utility.Configuration.Test.AppSettingsTests
         public void ThrowsIfInvalidTypeConversion()
         {
             SetEnvironmentVariable("10");
-            
+
             try
             {
                 ExtensibleSourceConfigurationManager.AppSettings<bool>("test-key");
