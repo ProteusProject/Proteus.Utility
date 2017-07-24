@@ -10,7 +10,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParse
         public void CanReturnNullInstanceIfAttributeNotFound()
         {
             var connectionStringSettingString = "this-is-a-completely-invalid-value-for-a-connection-string-setting-string";
-            var setting = ConnectionStringSettingParser.Parse(connectionStringSettingString);
+            var setting = ConnectionStringSettingString.Parse(connectionStringSettingString);
 
             Assert.That(setting, Is.Null);
         }
@@ -19,7 +19,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParse
         public void CanReturnNullInstanceIfAttributeFoundButNoOpeningQuote()
         {
             var connectionStringSettingString = "name=this-is-a-completely-invalid-value-for-a-connection-string-setting-string";
-            var setting = ConnectionStringSettingParser.Parse(connectionStringSettingString);
+            var setting = ConnectionStringSettingString.Parse(connectionStringSettingString);
 
             Assert.That(setting, Is.Null);
         }
@@ -28,7 +28,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParse
         public void CanReturnNullInstanceIfAttributeAndOpeningQuoteFoundButNoClosingQuote()
         {
             var connectionStringSettingString = "name=\"this-is-a-completely-invalid-value-for-a-connection-string-setting-string";
-            var setting = ConnectionStringSettingParser.Parse(connectionStringSettingString);
+            var setting = ConnectionStringSettingString.Parse(connectionStringSettingString);
 
             Assert.That(setting, Is.Null);
         }

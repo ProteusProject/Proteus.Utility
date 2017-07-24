@@ -3,7 +3,7 @@ using System.Configuration;
 
 namespace Proteus.Utility.Configuration
 {
-    public static class ConnectionStringSettingParser
+    public static class ConnectionStringSettingString
     {
         public static ConnectionStringSettings Parse(string connectionSettingString)
         {

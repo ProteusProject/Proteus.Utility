@@ -11,7 +11,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParse
         [SetUp]
         public void TestSetUp()
         {
-            _connectionStringSetting = ConnectionStringSettingParser.Parse(ConnectionStringTests.EnvironmentVariableSetting);
+            _connectionStringSetting = ConnectionStringSettingString.Parse(ConnectionStringTests.EnvironmentVariableSetting);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParse
         public void OrderOfValuesDoesNotAffectResults()
         {
             var connectionSettingString = $"providerName=\"{ConnectionStringTests.EnvironmentVariableProviderNameValue}\" name=\"{ConnectionStringTests.TestKey}\" connectionString=\"{ConnectionStringTests.EnvironmentVariableConnectionStringValue}\"";
-            _connectionStringSetting = ConnectionStringSettingParser.Parse(connectionSettingString);
+            _connectionStringSetting = ConnectionStringSettingString.Parse(connectionSettingString);
 
             CanParseConnectionName();
             CanParseConnectionString();

@@ -9,7 +9,7 @@ namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParse
         public void CanReturnOnlyValuesPresentToParse()
         {
             var connectionStringSettingString = $"name=\"{ConnectionStringTests.TestKey}\" connectionString=\"{ConnectionStringTests.EnvironmentVariableConnectionStringValue}\"";
-            var connectionStringSetting = ConnectionStringSettingParser.Parse(connectionStringSettingString);
+            var connectionStringSetting = ConnectionStringSettingString.Parse(connectionStringSettingString);
 
             Assert.That(connectionStringSetting.Name, Is.EqualTo(ConnectionStringTests.TestKey));
             Assert.That(connectionStringSetting.ConnectionString, Is.EqualTo(ConnectionStringTests.EnvironmentVariableConnectionStringValue));

@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfigReader.cs" />
-    <Compile Include="ConnectionStringSettingParser.cs" />
+    <Compile Include="ConnectionStringSettingString.cs" />
     <Compile Include="EnvironmentVariableReader.cs" />
     <Compile Include="ExtensibleSourceConfigurationManager.cs" />
     <Compile Include="IConfigurationReader.cs" />
