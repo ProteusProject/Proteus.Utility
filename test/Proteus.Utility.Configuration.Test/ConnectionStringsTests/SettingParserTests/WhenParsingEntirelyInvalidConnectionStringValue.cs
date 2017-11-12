@@ -19,7 +19,6 @@
 #endregion
 
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace Proteus.Utility.Configuration.Test.ConnectionStringsTests.SettingParserTests
 {

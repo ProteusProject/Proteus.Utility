@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using Proteus.Utility.Configuration.Test.ConnectionStringsTests;
 
 namespace Proteus.Utility.Configuration.Test.AppSettingsTests
 {

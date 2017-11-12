@@ -24,8 +24,6 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 
 namespace Proteus.Utility.Configuration
 {

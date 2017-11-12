@@ -20,7 +20,6 @@
 
 using System;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace Proteus.Utility.Configuration

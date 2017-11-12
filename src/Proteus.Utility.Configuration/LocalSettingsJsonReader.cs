@@ -18,7 +18,6 @@
 
 #endregion
 
-using System;
 using System.Configuration;
 using System.IO;
 using Newtonsoft.Json;
