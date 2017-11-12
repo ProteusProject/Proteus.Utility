@@ -71,6 +71,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="local.settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

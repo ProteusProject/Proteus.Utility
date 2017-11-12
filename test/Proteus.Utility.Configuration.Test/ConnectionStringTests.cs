@@ -30,6 +30,10 @@
         public const string EnvironmentVariableProviderNameValue = "the-provider-name-from-environment";
         public const string EnvironmentVariableConnectionStringValue = "the-connection-string-from-environment";
 
+        public static readonly string LocalSettingsJsonSetting = $"name=\"{TestKey}\" connectionString=\"{LocalSettingsJsonConnectionStringValue}\" providerName=\"{LocalSettingsJsonProviderNameValue}\"";
+        public const string LocalSettingsJsonProviderNameValue = "the-provider-name-from-local.settings.json-file";
+        public const string LocalSettingsJsonConnectionStringValue = "the-connection-string-from-local.settings.json-file";
+
         
 
     }
