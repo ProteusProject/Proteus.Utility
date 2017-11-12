@@ -35,6 +35,9 @@
     <DocumentationFile>..\..\build\Release\Proteus.Utility.Configuration.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -44,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocalSettingsJsonReader.cs" />
     <Compile Include="AppConfigReader.cs" />
     <Compile Include="ConnectionStringSettingString.cs" />
     <Compile Include="EnvironmentVariableReader.cs" />
@@ -51,6 +55,9 @@
     <Compile Include="IConfigurationReader.cs" />
     <Compile Include="MethodNameFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

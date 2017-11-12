@@ -20,14 +20,25 @@
 
 using System;
 using System.Configuration;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Proteus.Utility.Configuration
 {
-    public static class EnvironmentVariableReader
+    public static class LocalSettingsJsonReader
     {
         public static string GetAppSetting(string key)
         {
-            return Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.Process);
+            string result;
+
+            using (var file = File.OpenText("local.settings.json"))
+            {
+                var json = JsonConvert.DeserializeObject<JObject>(file.ReadToEnd());
+                result = json[key]?.Value<string>();
+            }
+
+            return result;
         }
 
         public static ConnectionStringSettings GetConnectionString(string key)
