@@ -1,3 +1,5 @@
 ﻿{
-  "theTestKey": "value-read-from-local.settings.json-file"
+  "theTestKey": "value-read-from-local.settings.json-file",
+  "theLocalSettingsJsonOnlyTestKey": "value-read-from-local.settings.json-file",
+  "theBooleanTestKey": true
 }

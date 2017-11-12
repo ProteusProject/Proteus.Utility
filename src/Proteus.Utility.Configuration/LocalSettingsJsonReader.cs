@@ -27,13 +27,20 @@ namespace Proteus.Utility.Configuration
 {
     public static class LocalSettingsJsonReader
     {
+        private const string Filename = "local.settings.json";
+
         public static string GetAppSetting(string key)
         {
             string result;
 
-            using (var file = File.OpenText("local.settings.json"))
+            if (!File.Exists(Filename))
             {
-                var json = JsonConvert.DeserializeObject<JObject>(file.ReadToEnd());
+                return null;
+            }
+            
+            using (var jsonFile = File.OpenText(Filename))
+            {
+                var json = JsonConvert.DeserializeObject<JObject>(jsonFile.ReadToEnd());
                 result = json[key]?.Value<string>();
             }
 

@@ -23,6 +23,9 @@
     public static class AppSettingTests
     {
         public const string TestKey = "theTestKey";
+        public const string AppConfigOnlyTestKey = "theAppConfigOnlyTestKey";
+        public const string EnvironmentVariableOnlyTestKey = "theEnvironmentVariableOnlyTestKey";
+        public const string LocalSettingsJsonOnlyTestKey = "theLocalSettingsJsonOnlyTestKey";
         public const string EnvironmentVariableValue = "value-read-from-environment";
         public const string AppConfigValue = "value-read-from-app.config-file";
         public const string LocalSettingsJsonValue = "value-read-from-local.settings.json-file";
