@@ -98,9 +98,16 @@ There are a number of different ways to set Environment Variables in Windows.  S
 
 Following this registration sequence, values in `local.settings.json` will override values in `app.config`/`web.config` and values in environment variables will in turn override values in both `local.settings.json` _and_ `app.config`/`web.config`.
 
- In this way, 'core' settings can be codified in the `app.config`/`web.config` file.  Values that need to be _consistently_ overridden can then be placed into the `local.settings.json` file.  Any values that need to be _periodically_ or _temporarily_ overridden can then be set as environment variables. 
+ In this way, 'core' settings can be codified in the `app.config`/`web.config` file.  Values that need to be _consistently_ overridden can then be placed into the `local.settings.json` file.  Any values that need to be _periodically_ or _temporarily_ overridden can then be set as environment variables.
 
- This recommended registration order can be seen in the following code:
+ When it comes time to deploy code with configurations to different environments (e.g., dev/test, QA, staging, prod) this same sequence of config reader registrations supports approaches like the following:
+* `app.config`/`web.config` can contain values for your 'default' environment (usually QA, so that failures to override values don't bleed into PROD by mistake)
+* each dev can use `local.settings.json` to override settings values specific to their own _local_ dev environment
+* any other settings specific to any other environment (e.g., PROD) can override all necessary values via environment variables
+
+This approach effectively lets you reproduce [this behavior of Microsoft Azure App Services](https://docs.microsoft.com/en-us/azure/app-service/web-sites-configure) where the Environment Variable value(s) are 'injected' into `app.config`/`web.config` at run-time by Azure _without_ requiring Azure to accomplish this sleight-of-hand.
+
+The recommended registration order to support this can be seen in the following code:
  ```csharp
  //register readers for AppSettings values in order
  ExtensibleSourceConfigurationManager.AppSettingReaders.Add(LocalSettingsJsonReader.GetAppSetting);
