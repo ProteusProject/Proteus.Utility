@@ -91,7 +91,7 @@ There are a number of different ways to set Environment Variables in Windows.  S
  As mentioned, the default configuration for `ExtensibleSourceConfigurationManager` reads values _only_ from the `app.config`/`web.config` file to match the behavior of `ConfigurationManager` in the .NET BCL.  However the recommended usage pattern for `ExtensibleSourceConfigurationManager` is to register the provided configuration readers in the following order:
 
 | Registration Order | Class | Configuration Source | Notes |
-|-|-|-|-|-|
+|-|-|-|-|
 | 1. | `AppConfigReader` | `app.config`/`web.config` | automatically registered by default|
 | 2. | `LocalSettingsJsonReader` | `local.settings.json` | registered optionally |
 | 3. | `EnvironmentVariableReader` | environment variables | registered optionally |
