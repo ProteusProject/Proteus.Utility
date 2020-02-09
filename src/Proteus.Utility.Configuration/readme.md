@@ -62,7 +62,7 @@ By way of a simple example, let's return to our sample `app.config` file:
  var url = ExtensibleSourceConfigurationManager.AppSettings("theUrl");
  //value of 'url' variable is now "http://someotherurl.com" instead of "http://someurl.com"
  ```
- This behavior of overriding values is possible because `ExtensibleSourceConfigurationManager` respects the _order_ of its configured readers when retrieving values from its configured sources.  ___The value will be returned from the first source found to contain the value even if the value is also present in subsequently inspected sources___.
+ This behavior of overriding values is possible because `ExtensibleSourceConfigurationManager` respects the _order_ of its configured readers when retrieving values from its configured sources.  ___The registered sources are inspected in reverse order of their registration and the value will be returned from the first source found to contain the value even if the value is also present in subsequently inspected sources___.
 
  ## Multiple Overrides ##
  Multiple readers can be registered with `ExtensibleSourceConfigurationManager` to support multiple or _cascading_ overrides of values.  Included in `Proteus.Utility.Configuration` are readers for the following configuration sources:
