@@ -17,21 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- */ 
-
+ */
 
 
 using System;
 using NUnit.Framework;
-using Proteus.Utility.UnitTest;
+using UnitTestTest;
 
-namespace UnitTestTest
+namespace Proteus.Utility.UnitTest.Test
 {
     [TestFixture]
     [Category(UnitTestType.Unit)]
     public class UnitTestBaseTest : UnitTestBase
     {
-
         private const string PERSON_TEST_FIELD_NAME = "_firstname";
 
         private const string PERSON_TEST_FIELD_VALUE = "TestValue";
@@ -42,7 +40,7 @@ namespace UnitTestTest
         [Test]
         public void CanGetPrivateFieldInInstanceOfObject()
         {
-            Person p = new Person { Firstname = PERSON_TEST_FIELD_VALUE };
+            Person p = new Person {Firstname = PERSON_TEST_FIELD_VALUE};
             Assert.AreEqual(PERSON_TEST_FIELD_VALUE, GetInstanceFieldValue(p, PERSON_TEST_FIELD_NAME));
         }
 
@@ -55,7 +53,6 @@ namespace UnitTestTest
             Person p = new Person();
             SetInstanceFieldValue(p, PERSON_TEST_FIELD_NAME, PERSON_TEST_FIELD_VALUE);
             Assert.AreEqual(PERSON_TEST_FIELD_VALUE, p.Firstname);
-
         }
 
         /// <summary>
@@ -64,35 +61,65 @@ namespace UnitTestTest
         [Test]
         public void CanThrowExceptionOnFieldNameNotFoundInObject()
         {
-            try
-            {
-                Person p = new Person();
-                SetInstanceFieldValue(p, $"{PERSON_TEST_FIELD_NAME}zzz", PERSON_TEST_FIELD_VALUE);
-                Assert.Fail("Expected Exception of type 'InvalidOperationException 'not thrown.");
-            }
-            catch (ArgumentException)
-            {
-
-            }
-
+            Person p = new Person();
+            Assert.Throws<ArgumentException>(
+                () => SetInstanceFieldValue(p, $"{PERSON_TEST_FIELD_NAME}zzz", PERSON_TEST_FIELD_VALUE),
+                "Expected Exception of type 'InvalidOperationException 'not thrown.");
         }
 
         [Test]
         public void CanThrowExceptionWhenSettingFieldToInvalidType()
         {
-
-            try
-            {
-                Person p = new Person();
-                SetInstanceFieldValue(p, PERSON_TEST_FIELD_NAME, new Person());
-                Assert.Fail("Expected Exception of type 'ArgumentException' not thrown.");
-            }
-            catch (ArgumentException)
-            {
-
-            }
-
+            Person p = new Person();
+            Assert.Throws<ArgumentException>(() => SetInstanceFieldValue(p, PERSON_TEST_FIELD_NAME, new Person()),
+                "Expected Exception of type 'ArgumentException' not thrown.");
         }
 
+        [Test]
+        public void CanReturnCorrectTypeWhenTypeIsCorrect()
+        {
+            var p = new Person {Firstname = PERSON_TEST_FIELD_VALUE};
+            var instanceFieldValue = GetInstanceFieldValue<string>(p, PERSON_TEST_FIELD_NAME);
+            Assert.AreEqual(PERSON_TEST_FIELD_VALUE, instanceFieldValue);
+            Assert.IsInstanceOf<string>(instanceFieldValue);
+        }
+
+        [Test]
+        public void CanThrowWhenTypeIsMismatched()
+        {
+            var p = new Person {Firstname = PERSON_TEST_FIELD_VALUE};
+            Assert.Throws<ArgumentException>(() => GetInstanceFieldValue<int>(p, PERSON_TEST_FIELD_NAME));
+        }
+
+        [Test]
+        public void CanThrowIfFieldNotFound()
+        {
+            var p = new Person();
+            Assert.Throws<ArgumentException>(() => GetInstanceFieldValue(p, $"NOT_{PERSON_TEST_FIELD_NAME}"));
+            Assert.Throws<ArgumentException>(() => SetInstanceFieldValue(p, $"NOT_{PERSON_TEST_FIELD_NAME}", PERSON_TEST_FIELD_VALUE));
+        }
+
+        [Test]
+        public void CanThrowIfObjectIsNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => GetInstanceFieldValue(null, PERSON_TEST_FIELD_NAME));
+            Assert.Throws<ArgumentNullException>(() => SetInstanceFieldValue(null, PERSON_TEST_FIELD_NAME, PERSON_TEST_FIELD_VALUE));
+        }
+
+        [Test]
+        public void CanThrowIfFieldNameIsNull()
+        {
+            var p = new Person();
+            Assert.Throws<ArgumentException>(() => GetInstanceFieldValue(p, null));
+            Assert.Throws<ArgumentException>(() => SetInstanceFieldValue(p, null, PERSON_TEST_FIELD_VALUE));
+        }
+
+        [Test]
+        public void CanThrowIfFieldNameIsEmptyString()
+        {
+            var p = new Person();
+            Assert.Throws<ArgumentException>(() => GetInstanceFieldValue(p, string.Empty));
+            Assert.Throws<ArgumentException>(() => SetInstanceFieldValue(p, string.Empty, PERSON_TEST_FIELD_VALUE));
+        }
     }
 }

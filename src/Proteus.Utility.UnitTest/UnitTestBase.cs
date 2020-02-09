@@ -97,9 +97,7 @@ namespace Proteus.Utility.UnitTest
                 throw new ArgumentNullException(nameof(obj), "obj is null.");
             if (String.IsNullOrEmpty(fieldName))
                 throw new ArgumentException("fieldName is null or empty.", nameof(fieldName));
-            if (fieldValue == null)
-                throw new ArgumentNullException(nameof(fieldValue), "fieldValue is null.");
-
+            
             FieldInfo f = obj.GetType().GetField(fieldName, BindingFlags.SetField | BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
             if (f != null)
